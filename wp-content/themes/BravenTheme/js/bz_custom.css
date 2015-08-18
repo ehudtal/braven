@@ -1,0 +1,67 @@
+/* Thank Jeebus it's Friday */
+#header {
+	background-color: #234;
+	background-image: none;
+}
+#header-logo {
+  background-image:url("https://www.dropbox.com/s/8bji8bezrt5pxm9/bz-logo-canvas-header-rev-110.png?dl=1");
+}
+#content {
+	/* need to import webfont */
+	font-family:"Open Sans", sans-serif;
+}
+.context-course_11 .show-content h2,
+.context-course_11 .page-title {
+	font-size: 3.5em;
+	color: #666;
+	line-height: normal;
+	font-weight: light;/* fallback */
+	font-weight: 100;
+}
+.context-course_11 .show-content h3 {
+	border-bottom: 1px #f26522 solid;
+	font-size: 2em;
+	color: #f26522;
+	line-height: normal;
+	padding-top: 10px;
+	margin-bottom: 0.25em;
+}
+.context-course_11 .show-content h4 {
+	font-size: 1.5em;
+}
+.context-course_11 .show-content blockquote {
+	font-style: italic;
+	font-size: 1.25em;
+	line-height: normal;
+	padding-right: 30%;
+	margin: 30px;
+}
+.context-course_11 .essay_question .mceToolbar,
+#quiz-time-elapsed,
+#topbar #identity .inbox,
+#menu #grades_menu_item {
+	display: none;	
+}
+.context-course_11 .module-sequence-footer 
+.context-course_11 .module-sequence-footer-content {
+	background: white;
+	border: none;	
+}
+.context-course_11 .module-sequence-footer .pull-right {
+	background: #f26522;
+	color: white;
+}
+.context-course_11 .module-sequence-footer-padding {
+  padding-top: 10px;
+}
+.context-course_11 .show-content p,
+.context-course_11 .show-content li,
+.context-course_11 .show-content td,
+.context-course_11 .show-content dt,
+.context-course_11 .show-content dd {
+	font-size: 1.1em;
+	line-height: 1.5em;
+}
+.context-course_11 h4 {
+	margin-top: 1.25em;	
+}

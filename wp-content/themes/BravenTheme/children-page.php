@@ -1,0 +1,62 @@
+<?php
+/**
+ * Template Name: Page w/Children
+ */
+
+get_header(); ?>
+
+ <?php if ( has_post_thumbnail() ) : ?>
+<div class="featured-header">
+<div id="featimg"><?php the_post_thumbnail('featured-page-thumb'); ?></div>
+
+<div id="sub-overlay"><h1><?php the_title();?></h1></div>
+
+			</div>
+            <?php endif; ?>
+
+	<div id="primary" class="content-area">
+   
+            
+             <div id="breadcrumb_wrapper">
+<div style="margin:0 auto; max-width:65rem;">
+ <?php the_breadcrumb(); ?> </div>
+ </div>   
+ 
+	
+  <div id="left-content">
+			<?php /* The loop */ ?>
+			<?php while ( have_posts() ) : the_post(); ?>
+            
+            <?php if ( get_post_meta( get_the_ID(), 'Pull Quote', true ) ) : ?>
+            <div class="pull-quote">
+                 <?php echo get_post_meta( get_the_ID(), 'Pull Quote', true ); ?>
+                  </div>
+                 
+     <?php endif; ?>
+
+				<article id="post-<?php the_ID(); ?>">
+				
+
+			
+                  
+                  
+                  
+                  
+						<?php the_content(); ?>
+						
+					
+
+				
+				</article><!-- #post -->
+
+			
+			<?php endwhile; ?>
+		</div><!-- #content -->
+	
+
+<?php get_sidebar(); ?>
+
+<div class="clear"></div>
+</div><!-- #primary -->
+
+<?php get_footer(); ?>
