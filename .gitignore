@@ -1,0 +1,7 @@
+# This has the database connection password and other secret keys
+wp-config.php
+
+# This file is added on Mac's for the Finder app
+.DS_Store
+
+.bash_history
