@@ -62,6 +62,11 @@ font-size:1em;
     vertical-align: sub;
 }
 
+.upperheader_red .login_container a {
+    color: white;
+    margin-left: 4px;
+}
+
 .upperheader_red a.facebook_icon {
 	background:url(../images/fb_socialicons.png) no-repeat center center;
 	width:18px;
@@ -406,6 +411,10 @@ float:right;
 
 /*Call To Action Overlays */
 
+#cta-overlay a {
+
+}
+
 #cta-buttons {
 width:100%;
 clear:both;	
@@ -416,6 +425,7 @@ clear:both;
   margin-left:auto;
   margin-right:auto;
   text-align:center;
+
 }
 
 
@@ -450,7 +460,7 @@ display:none;
     color: white;
     transform: translateY(100%);
     transition: transform .35s ease-out;
-	cursor:pointer;
+	
 	
 }
 .caption:hover .caption__overlay {
@@ -501,10 +511,12 @@ font-size:66px;
 	 line-height: 1.3em;
 	 text-align:center;
 	 font-size:1.4em;
+	 
 }
 
 .caption a {
 color:#fff !important;	
+
 }
 
 .caption a:hover {
@@ -623,7 +635,7 @@ color:#fff;
 
 #blogposts_home .bx-wrapper .bx-loading {
 	min-height: 50px;
-	background: url(/images/bx_loader.gif) center center no-repeat #fff;
+	background: url(../images/bx_loader.gif) center center no-repeat #fff;
 	height: 100%;
 	width: 100%;
 	position: absolute;
@@ -769,7 +781,7 @@ color:#fff;
 
 #testimonials .bx-wrapper .bx-loading {
 	min-height: 50px;
-	background: url(/images/bx_loader.gif) center center no-repeat #fff;
+	background: url(../images/bx_loader.gif) center center no-repeat #fff;
 	height: 100%;
 	width: 100%;
 	position: absolute;
@@ -990,6 +1002,7 @@ width:100%;
 
 
 /*Footer Newsletter */
+
 .braven-input,
 #footer-email.braven_section {
 background:#f5f5f5;
@@ -999,9 +1012,15 @@ padding-bottom:10px;
 }
 
 #footer-email.braven_section h2 {
-margin-bottom:10px;
+	margin-top:2px;
+margin-bottom:0px;
 }
-.braven-input,
+
+.gform_wrapper {
+margin:0 !important;	
+}
+
+/*.braven-input,
 #braven-fname,
 #braven-lname,
 #femail {
@@ -1009,8 +1028,33 @@ margin-bottom:10px;
 	border:none;	
 	font-size:1.3em;
 	vertical-align:bottom;
+}*/
+
+.fname,
+.lname,
+.femail {
+
+	border:none !important;	
+	
+	vertical-align:bottom;	
+	
+	font-family:TradeGothic, Impact, sans-serif;
 }
-#braven-fname
+
+.fname input,
+.lname input,
+.femail input {
+border:none !important;	
+padding:10px !important;
+font-size:1.3em !important;
+}
+
+
+.gform_wrapper .top_label .gfield_label {
+display:none !important;	
+}
+
+/*#braven-fname
 #braven-lname,
 #femail {
 	width:20%;
@@ -1018,23 +1062,39 @@ margin-bottom:10px;
 	margin-left:.5%;
 	margin-right:.5%;
 }
+*/
 
-.femail-submit {
+
+#gform_submit_button_1 {
 background-color:#ea3943 !important;
 border:none;
 font-size:1.8em;
 padding:6px 14px;
 font-family:TradeGothic, Impact, sans-serif;
 transition: all 0.5s ease 0s;
+text-transform:uppercase;
 }
 
-.femail-submit:hover {
+#gform_submit_button_1:hover {
 background-color:#000000 !important;	
 }
 
-.braven-input {
+/*.braven-input {
 	margin: 5px 0 15px;	
+}*/
+
+
+.gform_wrapper .gform_footer {
+margin:0!important;
+padding-top:0 !important;
 }
+
+.gform_wrapper .gform_footer {
+text-align:center !important;	
+}
+
+
+
 /*Braven Footer Menu  & Copyright*/
 
 #footer_menu {
@@ -2629,8 +2689,9 @@ list-style:none;
 
 
 
-.overview-grid li a:hover .overview-hdg{
+.overview-grid li:hover .overview-hdg{
 	background:#000;
+	color:#fff;
 }
 
 .overview-hdg {
@@ -2748,7 +2809,7 @@ cursor:pointer !important;
 
 .overview-grid li:hover figure  {
 max-height:600px;
-
+cursor:default !important;
 }
 
 

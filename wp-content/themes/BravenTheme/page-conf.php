@@ -76,7 +76,7 @@ get_header(); ?>
         <h2>Why stop here?</h2>
         <p>Help spread the word so we can discover more leaders and expand the network that supports them:</p>
 
-        <a href="https://twitter.com/intent/tweet?button_hashtag=BeyondZ&text=I%20just%20signed%20up%20for" class="twitter-hashtag-button" data-size="large" data-url="http://beyondz.org/">Tweet #BeyondZ</a>
+        <a href="https://twitter.com/intent/tweet?button_hashtag=BeBraven&text=I%20just%20signed%20up%20for" class="twitter-hashtag-button" data-size="large" data-url="https://bebraven.org/">Tweet #BeBraven</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
       </div>
@@ -89,10 +89,10 @@ get_header(); ?>
     <section>
       <div class="col-sm-4 col-sm-offset-4">
         <p>
-          You can also check out the following links to discover all the great reasons people are joining BeyondZ:<br />
+          You can also check out the following links to discover all the great reasons people are joining Braven:<br />
           <a href="/apply">Become a fellow</a><br />
-          <a href="/volunteer">Volunteer with Beyond Z</a><br />
-          <a href="/partner">Partner with Beyond Z</a>
+          <a href="/volunteer">Volunteer with Braven</a><br />
+          <a href="/partner">Partner with Braven</a>
         </p>
       </div>
     </section>

@@ -50,7 +50,7 @@ get_header(); ?>
         <input name="utf8" type="hidden" value="&#x2713;" />
         <input name="authenticity_token" type="hidden" value="QQtDzB0sTYZ5Blo+YX2gbA9a1cv9xHKcIfDwRdRJQxE=" />
       </div>
-      <input id="referrer" name="referrer" type="hidden" value="https://www.beyondz.org/" />
+      <input id="referrer" name="referrer" type="hidden" value="https://www.bebraven.org/" />
       <div class="form-group">
       <label class="required" for="user_first_name">Name</label>
       <section>

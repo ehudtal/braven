@@ -1,6 +1,6 @@
 /*
 Theme Name:Braven 2015 Theme
-Theme URI: http://braven.org
+Theme URI: https://bebraven.org
 Author: Black Box
 Author URI: https://wordpress.org/
 Description: The 2015 theme for Braven
@@ -56,7 +56,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
  
  @font-face {
 	font-family: TradeGothic;  
-	src: url(http://bebraven.org/wp-content/themes/BravenTheme/fonts/TradeGothicNo.20-CondBold_gdi.ttf);  
+	src: url(fonts/TradeGothicNo.20-CondBold_gdi.ttf); 
 	font-weight: normal;  
 }
 

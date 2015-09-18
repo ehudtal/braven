@@ -57,8 +57,9 @@ get_header(); ?>
 
   <div id="cta-buttons">   
   <div class="inner_content">   
-<?php dynamic_sidebar( 'hp-cta' ); ?>
-<div class="clear"></div>
+    <?php dynamic_sidebar( 'hp-cta' ); ?>
+    <div class="clear">
+  </div>
 </div>
 </div>
 
@@ -172,8 +173,8 @@ $pfdata = get_post_meta( $the_query->post->ID, 'partner', true );
 <table class="featpartners">
 <tbody>
 <tr>
-<td style="vertical-align:middle"><img src="http://bebraven.org/wp-content/uploads/2015/08/SJSU.png" alt="SJSU"  class="aligncenter size-full wp-image-332" /></td>
-<td><img src="http://bebraven.org/wp-content/uploads/2015/08/Rutgers_Univ.png" alt="Rutgers_Univ"  class="aligncenter size-full wp-image-475" /></td>
+<td style="vertical-align:middle"><img src="https://bebraven.org/wp-content/uploads/2015/08/SJSU.png" alt="SJSU"  class="aligncenter size-full wp-image-332" /></td>
+<td><img src="https://bebraven.org/wp-content/uploads/2015/08/Rutgers_Univ.png" alt="Rutgers_Univ"  class="aligncenter size-full wp-image-475" /></td>
 </tr>
 </tbody>
 </table>

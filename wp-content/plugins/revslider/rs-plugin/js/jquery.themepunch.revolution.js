@@ -542,12 +542,12 @@
 											   if ((jQuery(this).data('vimeoid')!=undefined || jQuery(this).find('iframe').attr('src').toLowerCase().indexOf('vimeo')>0) && addedvim==0) {
 													addedvim=1;
 													var f = document.createElement("script");
-													f.src = httpprefix+"://a.vimeocdn.com/js/froogaloop2.min.js"; /* Load Player API*/
+													f.src = httpprefix+"://f.vimeocdn.com/js/froogaloop2.min.js"; /* Load Player API*/
 													var before = document.getElementsByTagName("script")[0];
 
 													var loadit = true;
 													jQuery('head').find('*').each(function(){
-														if (jQuery(this).attr('src') == httpprefix+"://a.vimeocdn.com/js/froogaloop2.min.js")
+														if (jQuery(this).attr('src') == httpprefix+"://f.vimeocdn.com/js/froogaloop2.min.js")
 														   loadit = false;
 													});
 													if (loadit)
