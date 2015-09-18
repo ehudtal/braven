@@ -1292,7 +1292,7 @@ function catch_that_image() {
   $first_img = $matches[1][0];
 
   if(empty($first_img)) {
-    $first_img = "http://bebraven.org/wp-content/uploads/2015/08/braven_profile.jpg";
+    $first_img = "https://bebraven.org/wp-content/uploads/2015/08/braven_profile.jpg";
   }
   return $first_img;
 }

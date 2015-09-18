@@ -11,7 +11,8 @@
 ?>
 <a name="mailinglist"></a>
 <div id="footer-email" class="braven_section">
-<?php echo do_shortcode('[contact-form-7 id="45" title="Contact form 1"]')?>
+<h2>KEEP INFORMED WITH OUR NEWSLETTER</h2>
+<?php echo do_shortcode('[gravityform id="1" title="false" description="false"]')?>
 </div>
 
 		</div><!-- #main -->

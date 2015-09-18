@@ -88,7 +88,7 @@ $staffdata = get_post_meta( $staff_query->post->ID, 'staff', true ); ?>
 <?php if ( has_post_thumbnail() ) {
 the_post_thumbnail('staff-thumb');
 } else { ?>
-<img src="http://bebraven.org/wp-content/uploads/2015/08/braven_profile.jpg" alt="<?php the_title(); ?>" />
+<img src="https://bebraven.org/wp-content/uploads/2015/08/braven_profile.jpg" alt="<?php the_title(); ?>" />
 <?php } ?>
 
 
@@ -111,7 +111,7 @@ the_post_thumbnail('staff-thumb');
     <span class="modal-pic"><?php if ( has_post_thumbnail() ) {
 the_post_thumbnail('staff-thumb');
 } else { ?>
-<img src="http://bebraven.org/wp-content/uploads/2015/08/braven_profile.jpg" alt="<?php the_title(); ?>" />
+<img src="https://bebraven.org/wp-content/uploads/2015/08/braven_profile.jpg" alt="<?php the_title(); ?>" />
 <?php } ?></span>
  <div class="modal-tag"><strong><?php echo $staffdata[ 'staff-first-name' ]; ?> <?php echo $staffdata[ 'staff-last-name' ]; ?></strong>
  <?php echo $staffdata[ 'staff-position' ]; ?><br />

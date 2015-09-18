@@ -39,9 +39,11 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
 
+ <!-- Obsolete?  Maybe this was for an old slider?
  <script src="<?php echo bloginfo('template_directory')?>/js/plugins/jquery.easing.1.3.js"></script>
- 
+ -->
   <script src="<?php echo bloginfo('template_directory')?>/js/jquery.bxslider.js"></script>
+  
     <script src="<?php echo bloginfo('template_directory')?>/js/fontsmoothie.min.js"></script>
     
       <script src="<?php echo bloginfo('template_directory')?>/js/jquery.easypiechart.min.js"></script>
@@ -166,8 +168,10 @@ $('nav#menu').mmenu({
      <a class="mail_icon" target="_blank" href="#mailinglist"></a>
    <a class="facebook_icon" target="_blank" href="https://www.facebook.com/BeBraven" target="_blank"></a>
    <a class="ig_icon" target="_blank" href="https://instagram.com/bebraven/" target="_blank"></a>
-<a class="twitter_icon" target="_blank" href="https://twitter.com/bebraven" target="_blank"></a>
-</span> </h4>
+   <a class="twitter_icon" target="_blank" href="https://twitter.com/bebraven" target="_blank"></a>
+   </span>
+    <span class="login_container"><a href="https://www.beyondz.org/users/sign_in_sso">Log In</a></span>
+    </h4>
   
     
     

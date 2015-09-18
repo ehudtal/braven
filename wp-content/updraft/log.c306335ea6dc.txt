@@ -1,0 +1,153 @@
+0000.005 () Opened log file at time: Thu, 03 Sep 2015 16:19:01 +0000 on http://staging.bebraven.org
+0000.005 () UpdraftPlus WordPress backup plugin (https://updraftplus.com): 2.11.6.20 WP: 4.3 PHP: 5.5.9-1ubuntu4.11 (Linux staging.bebraven.org 3.13.0-57-generic #95-Ubuntu SMP Fri Jun 19 09:28:15 UTC 2015 x86_64) MySQL: 5.5.44 Server: Apache/2.4.7 (Ubuntu) safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 3.4M | 3.5M) multisite: N mcrypt: N LANG: C ZipArchive::addFile: Y
+0000.005 () Free space on disk containing Updraft's temporary directory: 26581.6 Mb
+0000.005 () Restore job started. Entities to restore: plugins, themes, uploads, others, db
+0000.021 () Entity: db
+0000.021 () restore_backup(backup_file=backup_2015-09-03-1155_Braven_9490e2748631-db.gz, type=db, info=a:0:{}, last_one=)
+0000.021 () Unpacking backup...
+0000.022 () Database successfully unpacked
+0000.023 () Restoring the database (on a large site this can take a long time - if it times out (which can happen if your web hosting company has configured your hosting to limit resources) then you should use a different method, such as phpMyAdmin)...
+0000.023 () Using direct MySQL access; value of use_mysqli is: 1
+0000.025 () Tried to raise max_allowed_packet from 16 Mb to 32 Mb, but failed (Access denied; you need (at least one of) the SUPER privilege(s) for this operation, b:0;)
+0000.025 () Max packet size: 16 Mb
+0000.025 () Entering maintenance mode
+0000.025 () Enabling Maintenance mode&#8230;
+0000.026 () Backup created by: 2.11.6.20
+0000.026 () <strong>Backup of:</strong> https://www.bebraven.org
+0000.041 () Content URL: https://www.bebraven.org/wp-content
+0000.041 () Old table prefix: wp_
+0000.041 () Site information: multisite=0
+0000.044 () New table prefix: wp_
+0000.059 () Restoring table (InnoDB): wp_options
+0000.178 () Restoring prior UD configuration (table: wp_options; keys: 83)
+0000.348 () Search and replacing table: wp_options: rows: 409
+0000.523 () Restoring table (InnoDB): wp_users
+0000.536 () Search and replacing table: wp_users: rows: 3
+0000.536 () Restoring table (InnoDB): wp_usermeta
+0000.553 () Search and replacing table: wp_usermeta: rows: 65
+0000.558 () Restoring table (InnoDB): wp_commentmeta
+0000.568 () Search and replacing table: wp_commentmeta: rows: 0
+0000.569 () Restoring table (InnoDB): wp_comments
+0000.580 () Search and replacing table: wp_comments: rows: 0
+0000.580 () Restoring table (InnoDB): wp_links
+0000.592 () Search and replacing table: wp_links: rows: 0
+0000.592 () Restoring table (InnoDB): wp_postmeta
+0000.732 () Search and replacing table: wp_postmeta: rows: 15
+0000.738 () Restoring table (InnoDB): wp_posts
+0001.111 () Skipping search/replace on GUID column in posts table
+0001.112 () Search and replacing table: wp_posts: rows: 772
+0002.473 () Restoring table (InnoDB): wp_term_relationships
+0002.494 () Skipping this table: data in this table (wp_term_relationships) should not be search/replaced
+0002.494 () Restoring table (InnoDB): wp_term_taxonomy
+0002.514 () Search and replacing table: wp_term_taxonomy: rows: 14
+0002.517 () Restoring table (InnoDB): wp_terms
+0002.530 () Search and replacing table: wp_terms: rows: 14
+0002.532 () Restoring table (InnoDB): wp_cf7dbplugin_st
+0002.547 () Search and replacing table: wp_cf7dbplugin_st: rows: 49
+0002.548 () Restoring table (InnoDB): wp_cf7dbplugin_submits
+0002.581 () Search and replacing table: wp_cf7dbplugin_submits: rows: 221
+0002.596 () Restoring table (InnoDB): wp_gf_addon_feed
+0002.601 () Database queries processed: 50 in 2.58 seconds
+0002.604 () Search and replacing table: wp_gf_addon_feed: rows: 0
+0002.604 () Restoring table (InnoDB): wp_revslider_css
+0002.622 () Search and replacing table: wp_revslider_css: rows: 47
+0002.631 () Restoring table (InnoDB): wp_revslider_layer_animations
+0002.639 () Search and replacing table: wp_revslider_layer_animations: rows: 0
+0002.639 () Restoring table (InnoDB): wp_revslider_settings
+0002.647 () Search and replacing table: wp_revslider_settings: rows: 1
+0002.647 () Restoring table (InnoDB): wp_revslider_sliders
+0002.658 () Search and replacing table: wp_revslider_sliders: rows: 1
+0002.661 () Restoring table (InnoDB): wp_revslider_slides
+0002.672 () Search and replacing table: wp_revslider_slides: rows: 4
+0002.688 () Restoring table (InnoDB): wp_revslider_static_slides
+0002.695 () Search and replacing table: wp_revslider_static_slides: rows: 0
+0002.695 () Restoring table (InnoDB): wp_rg_form
+0002.703 () Search and replacing table: wp_rg_form: rows: 1
+0002.703 () Restoring table (InnoDB): wp_rg_form_meta
+0002.711 () Search and replacing table: wp_rg_form_meta: rows: 1
+0002.713 () Restoring table (InnoDB): wp_rg_form_view
+0002.752 () Search and replacing table: wp_rg_form_view: rows: 291
+0002.772 () Restoring table (InnoDB): wp_rg_incomplete_submissions
+0002.783 () Search and replacing table: wp_rg_incomplete_submissions: rows: 0
+0002.783 () Restoring table (InnoDB): wp_rg_lead
+0002.798 () Search and replacing table: wp_rg_lead: rows: 21
+0002.825 () Restoring table (InnoDB): wp_rg_lead_detail
+0002.841 () Search and replacing table: wp_rg_lead_detail: rows: 57
+0002.845 () Restoring table (InnoDB): wp_rg_lead_detail_long
+0002.853 () Search and replacing table: wp_rg_lead_detail_long: rows: 0
+0002.853 () Restoring table (InnoDB): wp_rg_lead_meta
+0002.874 () Search and replacing table: wp_rg_lead_meta: rows: 38
+0002.880 () Restoring table (InnoDB): wp_rg_lead_notes
+0002.901 () Search and replacing table: wp_rg_lead_notes: rows: 20
+0002.903 () Restoring table (InnoDB): wp_rg_salesforce
+0002.909 () Leaving maintenance mode
+0002.911 () Search and replacing table: wp_rg_salesforce: rows: 1
+0002.912 () Finished: lines processed: 96 in 2.89 seconds
+0002.913 () Cleaning up rubbish...
+0002.914 () Begin search and replace (updraftplus_restored_db)
+0002.915 () Restored pre-migration site ID for this installation
+0002.924 () Database search and replace: replace https://www.bebraven.org in backup dump with http://staging.bebraven.org
+0002.924 () Search and replacing table: wp_cf7dbplugin_st: already done
+0002.924 () Search and replacing table: wp_cf7dbplugin_submits: already done
+0002.924 () Search and replacing table: wp_commentmeta: already done
+0002.924 () Search and replacing table: wp_comments: already done
+0002.924 () Search and replacing table: wp_gf_addon_feed: already done
+0002.924 () Search and replacing table: wp_links: already done
+0002.924 () Search and replacing table: wp_options: already done
+0002.924 () Search and replacing table: wp_postmeta: already done
+0002.925 () Search and replacing table: wp_posts: already done
+0002.925 () Search and replacing table: wp_revslider_css: already done
+0002.925 () Search and replacing table: wp_revslider_layer_animations: already done
+0002.925 () Search and replacing table: wp_revslider_settings: already done
+0002.925 () Search and replacing table: wp_revslider_sliders: already done
+0002.925 () Search and replacing table: wp_revslider_slides: already done
+0002.925 () Search and replacing table: wp_revslider_static_slides: already done
+0002.925 () Search and replacing table: wp_rg_form: already done
+0002.925 () Search and replacing table: wp_rg_form_meta: already done
+0002.925 () Search and replacing table: wp_rg_form_view: already done
+0002.925 () Search and replacing table: wp_rg_incomplete_submissions: already done
+0002.925 () Search and replacing table: wp_rg_lead: already done
+0002.925 () Search and replacing table: wp_rg_lead_detail: already done
+0002.925 () Search and replacing table: wp_rg_lead_detail_long: already done
+0002.925 () Search and replacing table: wp_rg_lead_meta: already done
+0002.925 () Search and replacing table: wp_rg_lead_notes: already done
+0002.925 () Search and replacing table: wp_rg_salesforce: already done
+0002.925 () Search and replacing table: wp_term_relationships: already done
+0002.925 () Search and replacing table: wp_term_taxonomy: already done
+0002.925 () Search and replacing table: wp_terms: already done
+0002.925 () Search and replacing table: wp_usermeta: already done
+0002.925 () Search and replacing table: wp_users: already done
+0002.926 () Entity: plugins
+0002.927 () restore_backup(backup_file=backup_2015-09-03-1155_Braven_9490e2748631-plugins.zip, type=plugins, info=a:2:{s:4:"path";s:27:"/var/www/wp-content/plugins";s:11:"description";s:7:"Plugins";}, last_one=)
+0002.927 () Unpacking backup... (backup_2015-09-03-1155_Braven_9490e2748631-plugins.zip, 16.7 Mb)
+0004.067 () Moving old data: filesystem method / updraft_dir is potentially possible
+0004.067 () Moving old data: can potentially use wp_filesystem method / -old
+0004.067 () Moving old data out of the way...
+0004.209 () Top-level entities being moved: updraftplus, index.php, akismet, hello.php
+0004.212 () Moving unpacked backup into place...
+0004.652 () Top-level entities being moved: updraftplus, page-excerpt, gravityformslogging, gravityforms-2, contact-form-7, index.php, google-analytics-for-wordpress, akismet, contact-form-7-to-database-extension, the-events-calendar, revslider, gravity-forms-salesforce, sharify
+0004.661 () Cleaning up rubbish...
+0004.663 () Entity: themes
+0004.663 () restore_backup(backup_file=backup_2015-09-03-1155_Braven_9490e2748631-themes.zip, type=themes, info=a:2:{s:4:"path";s:26:"/var/www/wp-content/themes";s:11:"description";s:6:"Themes";}, last_one=)
+0004.663 () Unpacking backup... (backup_2015-09-03-1155_Braven_9490e2748631-themes.zip, 3.5 Mb)
+0004.808 () Moving old data: filesystem method / updraft_dir is potentially possible
+0004.809 () Moving old data: can potentially use wp_filesystem method / -old
+0004.809 () Moving old data out of the way...
+0004.831 () Top-level entities being moved: twentythirteen, twentyfifteen, twentyfourteen, index.php
+0004.832 () Moving unpacked backup into place...
+0004.889 () Top-level entities being moved: twentythirteen, twentyfourteen, index.php, generatepress, twentytwelve, BravenTheme
+0004.890 () Cleaning up rubbish...
+0004.890 () Entity: uploads
+0004.890 () restore_backup(backup_file=backup_2015-09-03-1155_Braven_9490e2748631-uploads.zip, type=uploads, info=a:2:{s:4:"path";s:27:"/var/www/wp-content/uploads";s:11:"description";s:7:"Uploads";}, last_one=)
+0004.891 () Unpacking backup... (backup_2015-09-03-1155_Braven_9490e2748631-uploads.zip, 56.2 Mb)
+0005.751 () Moving old data: filesystem method / updraft_dir is potentially possible
+0005.751 () Moving old data: can potentially use wp_filesystem method / -old
+0005.751 () Moving old data out of the way...
+0005.752 () Moving unpacked backup into place...
+0005.875 () Cleaning up rubbish...
+0005.875 () Entity: others
+0005.875 () restore_backup(backup_file=backup_2015-09-03-1155_Braven_9490e2748631-others.zip, type=others, info=a:2:{s:4:"path";s:19:"/var/www/wp-content";s:11:"description";s:6:"Others";}, last_one=1)
+0005.875 () Unpacking backup... (backup_2015-09-03-1155_Braven_9490e2748631-others.zip, 0 Mb)
+0005.877 () Cleaning up rubbish...
+0005.882 () Restore successful!
+0005.882 () Restore successful
