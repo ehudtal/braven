@@ -2787,6 +2787,7 @@ blockquote footer:before {
         -moz-transform: translateY( calc(-50% + 235px));
         -moz-transition: transform .35s ease-out;
         -o-transform: translateY( calc(-50% + 235px));
+
         -o-transition: transform .35s ease-out;
     }
     .caption:hover .caption__overlay__title {

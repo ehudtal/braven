@@ -6,4 +6,9 @@ wp-config.php
 
 .bash_history
 
-.cache/*
+.cache
+
+wp-content/updraft
+
+.htaccess
+favicon.ico

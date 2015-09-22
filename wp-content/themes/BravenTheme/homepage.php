@@ -38,8 +38,9 @@ get_header(); ?>
 			<p style="text-align:center;"><a class="btn large" href="/become-a-fellow/">Learn More</a></p>
 		</div>
 	</div>
+	<!--imported from our impact-->
 	<?php 
-	$cq = new WP_Query(array('p'=>893, 'post_type'=>'page'));
+	$cq = new WP_Query(array('p'=>910, 'post_type'=>'page')); // Our impact page
 	if ( $cq->have_posts() ) : 
 	?>
 	<div id="impact_content" class="braven_section">
@@ -47,8 +48,10 @@ get_header(); ?>
 
 			<div id="home_top_content" class="braven_section">
 				<?php while ( $cq->have_posts() ) : $cq->the_post(); ?>
-				<h1 style="text-align: center; margin-top: 0; font-size: 36px;"><?php the_title(); ?></h1>
-				<?php echo $post->post_excerpt; ?>
+					<h1 style="text-align: center; margin-top: 0; font-size: 36px;">
+						<?php the_title(); ?>
+					</h1>
+					<?php echo $post->post_content; ?>
 				<?php endwhile; ?>
 			</div>
 			<!-- #home_content -->
