@@ -1,0 +1,356 @@
+0000.001 (0) Opened log file at time: Sun, 13 Sep 2015 02:30:09 +0000 on https://www.bebraven.org
+0000.004 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 2.11.6.20 WP: 4.2.4 PHP: 5.5.9-1ubuntu4.11 (Linux beyondz.org 3.13.0-27-generic #50-Ubuntu SMP Thu May 15 18:06:16 UTC 2014 x86_64) MySQL: 5.5.38 Server: Apache safe_mode: 0 max_execution_time: 900 memory_limit: 1024M (used: 6.2M | 6.5M) multisite: N mcrypt: N LANG: C ZipArchive::addFile: Y
+0000.006 (0) Free space on disk containing Updraft's temporary directory: 26519.1 Mb
+0000.009 (0) Tasks: Backup files: 1 (schedule: weekly) Backup DB:  (schedule: weekly)
+0000.012 (0) Processed schedules. Tasks now: Backup files: 1 Backup DB: 1
+0000.028 (0) Requesting semaphore lock (fd)
+0000.038 (0) Set semaphore last lock (fd) time to 2015-09-13 02:30:09
+0000.040 (0) Semaphore lock (fd) complete
+0000.051 (0) Backup run: resumption=0, nonce=20d8edac1874, begun at=1442111409 (0s ago), job type=backup
+0000.055 (0) Scheduling a resumption (1) after 300 seconds (1442111709) in case this run gets aborted
+0000.079 (0) Checking if we have a zip executable available
+0000.083 (0) Creation of backups of directories: beginning
+0000.089 (0) Beginning creation of dump of plugins (split every: 500 Mb)
+0000.333 (0) Total entities for the zip file: 447 directories, 3206 files (0 skipped as non-modified), 47.5 Mb
+0000.357 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 100 files added (on-disk size: 0 Kb)
+0000.368 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 200 files added (on-disk size: 0 Kb)
+0000.378 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 300 files added (on-disk size: 0 Kb)
+0000.387 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 400 files added (on-disk size: 0 Kb)
+0000.395 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 500 files added (on-disk size: 0 Kb)
+0000.398 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (7.6 Mb, 3206 files batched, 501 (501) added so far); re-opening (prior size: 0 Kb)
+0001.635 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 600 files added (on-disk size: 3567.4 Kb)
+0001.646 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 700 files added (on-disk size: 3567.4 Kb)
+0001.656 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 800 files added (on-disk size: 3567.4 Kb)
+0001.669 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 900 files added (on-disk size: 3567.4 Kb)
+0001.681 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 1000 files added (on-disk size: 3567.4 Kb)
+0001.684 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (17.1 Mb, 3206 files batched, 501 (1002) added so far); re-opening (prior size: 3567.4 Kb)
+0003.644 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 1100 files added (on-disk size: 8719.9 Kb)
+0003.657 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 1200 files added (on-disk size: 8719.9 Kb)
+0003.672 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 1300 files added (on-disk size: 8719.9 Kb)
+0003.686 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 1400 files added (on-disk size: 8719.9 Kb)
+0003.700 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 1500 files added (on-disk size: 8719.9 Kb)
+0003.703 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (1.9 Mb, 3206 files batched, 501 (1503) added so far); re-opening (prior size: 8719.9 Kb)
+0004.037 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 1600 files added (on-disk size: 9406 Kb)
+0004.051 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 1700 files added (on-disk size: 9406 Kb)
+0004.065 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 1800 files added (on-disk size: 9406 Kb)
+0004.078 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 1900 files added (on-disk size: 9406 Kb)
+0004.094 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 2000 files added (on-disk size: 9406 Kb)
+0004.097 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (8.1 Mb, 3206 files batched, 501 (2004) added so far); re-opening (prior size: 9406 Kb)
+0005.088 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 2100 files added (on-disk size: 12010.1 Kb)
+0005.103 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 2200 files added (on-disk size: 12010.1 Kb)
+0005.118 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 2300 files added (on-disk size: 12010.1 Kb)
+0005.140 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 2400 files added (on-disk size: 12010.1 Kb)
+0005.156 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 2500 files added (on-disk size: 12010.1 Kb)
+0005.160 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (4.6 Mb, 3206 files batched, 501 (2505) added so far); re-opening (prior size: 12010.1 Kb)
+0005.818 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 2600 files added (on-disk size: 13704 Kb)
+0005.836 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 2700 files added (on-disk size: 13704 Kb)
+0005.853 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 2800 files added (on-disk size: 13704 Kb)
+0005.869 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 2900 files added (on-disk size: 13704 Kb)
+0005.887 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 3000 files added (on-disk size: 13704 Kb)
+0005.890 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (6.5 Mb, 3206 files batched, 501 (3006) added so far); re-opening (prior size: 13704 Kb)
+0006.685 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 3100 files added (on-disk size: 16725.7 Kb)
+0006.721 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip.tmp: 3200 files added (on-disk size: 16725.7 Kb)
+0007.164 (0) Created plugins zip (0) - 17081.7 Kb in 7.1 s (2415.4 Kb/s) (SHA1 checksum: a8afb924adbab422086967959b29cf2853319bf0)
+0007.169 (0) Beginning creation of dump of themes (split every: 500 Mb)
+0007.203 (0) Total entities for the zip file: 64 directories, 433 files (0 skipped as non-modified), 5.9 Mb
+0007.210 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-themes.zip.tmp: 100 files added (on-disk size: 0 Kb)
+0007.216 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-themes.zip.tmp: 200 files added (on-disk size: 0 Kb)
+0007.221 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-themes.zip.tmp: 300 files added (on-disk size: 0 Kb)
+0007.228 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-themes.zip.tmp: 400 files added (on-disk size: 0 Kb)
+0007.786 (0) Created themes zip (0) - 3606 Kb in 0.6 s (5869.7 Kb/s) (SHA1 checksum: 2f97fc908a0f081c0a36486c3f2b58d3f7ffccf4)
+0007.791 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone
+0007.793 (0) Looking for candidates to back up in: /var/www/wp-content/uploads
+0007.796 (0) finding files: 2015: adding to list (1)
+0007.798 (0) finding files: gravity_forms: adding to list (2)
+0007.805 (0) Beginning creation of dump of uploads (split every: 500 Mb)
+0007.839 (0) Total entities for the zip file: 6 directories, 1069 files (0 skipped as non-modified), 59.8 Mb
+0007.846 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-uploads.zip.tmp: 100 files added (on-disk size: 0 Kb)
+0007.851 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-uploads.zip.tmp: 200 files added (on-disk size: 0 Kb)
+0007.858 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-uploads.zip.tmp: 300 files added (on-disk size: 0 Kb)
+0007.864 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-uploads.zip.tmp: 400 files added (on-disk size: 0 Kb)
+0007.870 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 25 Mb added on this batch (25 Mb, 1069 files batched, 469 (469) added so far); re-opening (prior size: 0 Kb)
+0009.503 (0) A useful amount of data was added after this amount of zip processing: 2.2 s (normalised: 2.2 s, rate: 11534.1 Kb/s)
+0009.508 (0) Performance is good - will increase the amount of data we attempt to batch (time=2.2197999954224, normalised_time=2.2194964639731, max_time=-1, data points known=0, old_max_bytes=26214400, new_max_bytes=70865803)
+0009.514 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-uploads.zip.tmp: 500 files added (on-disk size: 24993.7 Kb)
+0009.523 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-uploads.zip.tmp: 600 files added (on-disk size: 24993.7 Kb)
+0009.533 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-uploads.zip.tmp: 700 files added (on-disk size: 24993.7 Kb)
+0009.543 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-uploads.zip.tmp: 800 files added (on-disk size: 24993.7 Kb)
+0009.553 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-uploads.zip.tmp: 900 files added (on-disk size: 24993.7 Kb)
+0009.562 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (28.9 Mb, 1069 files batched, 501 (970) added so far); re-opening (prior size: 24993.7 Kb)
+0011.392 (0) Zip: backup_2015-09-12-2230_Braven_20d8edac1874-uploads.zip.tmp: 1000 files added (on-disk size: 53948.5 Kb)
+0012.329 (0) Created uploads zip (0) - 59748.8 Kb in 4.5 s (13217.3 Kb/s) (SHA1 checksum: e684c5d53ace1c0b0846c0051fc7301c52b7ea5c)
+0012.332 (0) No backup of wpcore: excluded by user's options
+0012.338 (0) Beginning backup of other directories found in the content directory (index: 0)
+0012.340 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups
+0012.343 (0) Looking for candidates to back up in: /var/www/wp-content
+0012.345 (0) finding files: staff-shortcode.php: adding to list (1)
+0012.347 (0) finding files: upgrade: skipping: excluded by options
+0012.348 (0) finding files: themes: skipping: this is the themes directory
+0012.350 (0) finding files: index.php: adding to list (2)
+0012.351 (0) finding files: plugins: skipping: this is the plugins directory
+0012.352 (0) finding files: updraft: skipping: this is the updraft directory
+0012.354 (0) finding files: uploads: skipping: this is the uploads directory
+0012.359 (0) Total entities for the zip file: 0 directories, 2 files (0 skipped as non-modified), 0 Mb
+0012.366 (0) Created others zip (0) - 1.3 Kb in 0 s (120.2 Kb/s) (SHA1 checksum: 0bc6b3bedeb69e0395d94845347911a2b2a42f9d)
+0012.369 (0) No backup of more: excluded by user's options
+0012.377 (0) Saving backup status to database (elements: 8)
+0012.382 (0) Beginning creation of database dump (WordPress DB)
+0012.387 (0) Testing: /usr/bin/mysqldump
+0012.425 (0) Working binary mysqldump found: /usr/bin/mysqldump
+0012.440 (0) Table wp_options: Total expected rows (approximate): 459
+0012.499 (0) Table wp_options: Total rows added: 375 in 0.06 seconds
+0012.503 (0) Table wp_options: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_options.table.gz - 155.1 Kb)
+0012.510 (0) Table wp_users: Total expected rows (approximate): 3
+0012.513 (0) Table wp_users: Total rows added: 3 in 0.00 seconds
+0012.516 (0) Table wp_users: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_users.table.gz - 0.7 Kb)
+0012.523 (0) Table wp_usermeta: Total expected rows (approximate): 65
+0012.527 (0) Table wp_usermeta: Total rows added: 65 in 0.00 seconds
+0012.529 (0) Table wp_usermeta: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_usermeta.table.gz - 2.3 Kb)
+0012.536 (0) Table wp_commentmeta: Total expected rows (approximate): 0
+0012.539 (0) Table wp_commentmeta: Total rows added: 0 in 0.00 seconds
+0012.541 (0) Table wp_commentmeta: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_commentmeta.table.gz - 0.4 Kb)
+0012.552 (0) Table wp_comments: Total expected rows (approximate): 0
+0012.556 (0) Table wp_comments: Total rows added: 0 in 0.00 seconds
+0012.558 (0) Table wp_comments: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_comments.table.gz - 0.5 Kb)
+0012.565 (0) Table wp_links: Total expected rows (approximate): 0
+0012.569 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0012.571 (0) Table wp_links: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_links.table.gz - 0.4 Kb)
+0012.580 (0) Table wp_postmeta: Total expected rows (approximate): 784
+0012.610 (0) Table wp_postmeta: Total rows added: 839 in 0.03 seconds
+0012.614 (0) Table wp_postmeta: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_postmeta.table.gz - 22.3 Kb)
+0012.622 (0) Table wp_posts: Total expected rows (approximate): 822
+0012.793 (0) Table wp_posts: Total rows added: 746 in 0.17 seconds
+0012.807 (0) Table wp_posts: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_posts.table.gz - 228 Kb)
+0012.818 (0) Table wp_term_relationships: Total expected rows (approximate): 57
+0012.822 (0) Table wp_term_relationships: Total rows added: 57 in 0.00 seconds
+0012.824 (0) Table wp_term_relationships: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_term_relationships.table.gz - 0.5 Kb)
+0012.831 (0) Table wp_term_taxonomy: Total expected rows (approximate): 14
+0012.835 (0) Table wp_term_taxonomy: Total rows added: 14 in 0.00 seconds
+0012.837 (0) Table wp_term_taxonomy: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_term_taxonomy.table.gz - 0.5 Kb)
+0012.846 (0) Table wp_terms: Total expected rows (approximate): 14
+0012.852 (0) Table wp_terms: Total rows added: 14 in 0.00 seconds
+0012.855 (0) Table wp_terms: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_terms.table.gz - 0.6 Kb)
+0012.864 (0) Table wp_cf7dbplugin_st: Total expected rows (approximate): 55
+0012.868 (0) Table wp_cf7dbplugin_st: Total rows added: 55 in 0.00 seconds
+0012.870 (0) Table wp_cf7dbplugin_st: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_cf7dbplugin_st.table.gz - 0.7 Kb)
+0012.877 (0) Table wp_cf7dbplugin_submits: Total expected rows (approximate): 307
+0012.892 (0) Table wp_cf7dbplugin_submits: Total rows added: 251 in 0.01 seconds
+0012.894 (0) Table wp_cf7dbplugin_submits: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_cf7dbplugin_submits.table.gz - 3.4 Kb)
+0012.903 (0) Table wp_gf_addon_feed: Total expected rows (approximate): 0
+0012.907 (0) Table wp_gf_addon_feed: Total rows added: 0 in 0.00 seconds
+0012.909 (0) Table wp_gf_addon_feed: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_gf_addon_feed.table.gz - 0.4 Kb)
+0012.918 (0) Table wp_revslider_css: Total expected rows (approximate): 47
+0012.924 (0) Table wp_revslider_css: Total rows added: 47 in 0.00 seconds
+0012.927 (0) Table wp_revslider_css: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_revslider_css.table.gz - 1.8 Kb)
+0012.934 (0) Table wp_revslider_layer_animations: Total expected rows (approximate): 0
+0012.937 (0) Table wp_revslider_layer_animations: Total rows added: 0 in 0.00 seconds
+0012.939 (0) Table wp_revslider_layer_animations: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_revslider_layer_animations.table.gz - 0.3 Kb)
+0012.947 (0) Table wp_revslider_settings: Total expected rows (approximate): 1
+0012.950 (0) Table wp_revslider_settings: Total rows added: 1 in 0.00 seconds
+0012.952 (0) Table wp_revslider_settings: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_revslider_settings.table.gz - 0.3 Kb)
+0012.962 (0) Table wp_revslider_sliders: Total expected rows (approximate): 1
+0012.966 (0) Table wp_revslider_sliders: Total rows added: 1 in 0.00 seconds
+0012.969 (0) Table wp_revslider_sliders: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_revslider_sliders.table.gz - 1.4 Kb)
+0012.976 (0) Table wp_revslider_slides: Total expected rows (approximate): 7
+0012.980 (0) Table wp_revslider_slides: Total rows added: 4 in 0.00 seconds
+0012.983 (0) Table wp_revslider_slides: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_revslider_slides.table.gz - 2.8 Kb)
+0012.994 (0) Table wp_revslider_static_slides: Total expected rows (approximate): 0
+0012.998 (0) Table wp_revslider_static_slides: Total rows added: 0 in 0.00 seconds
+0013.000 (0) Table wp_revslider_static_slides: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_revslider_static_slides.table.gz - 0.3 Kb)
+0013.007 (0) Table wp_rg_form: Total expected rows (approximate): 1
+0013.010 (0) Table wp_rg_form: Total rows added: 1 in 0.00 seconds
+0013.013 (0) Table wp_rg_form: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_rg_form.table.gz - 0.4 Kb)
+0013.019 (0) Table wp_rg_form_meta: Total expected rows (approximate): 1
+0013.022 (0) Table wp_rg_form_meta: Total rows added: 1 in 0.00 seconds
+0013.024 (0) Table wp_rg_form_meta: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_rg_form_meta.table.gz - 1.4 Kb)
+0013.029 (0) Table wp_rg_form_view: Total expected rows (approximate): 496
+0013.045 (0) Table wp_rg_form_view: Total rows added: 484 in 0.01 seconds
+0013.048 (0) Table wp_rg_form_view: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_rg_form_view.table.gz - 7.7 Kb)
+0013.056 (0) Table wp_rg_incomplete_submissions: Total expected rows (approximate): 0
+0013.060 (0) Table wp_rg_incomplete_submissions: Total rows added: 0 in 0.00 seconds
+0013.062 (0) Table wp_rg_incomplete_submissions: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_rg_incomplete_submissions.table.gz - 0.4 Kb)
+0013.068 (0) Table wp_rg_lead: Total expected rows (approximate): 27
+0013.074 (0) Table wp_rg_lead: Total rows added: 27 in 0.00 seconds
+0013.077 (0) Table wp_rg_lead: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_rg_lead.table.gz - 1.8 Kb)
+0013.087 (0) Table wp_rg_lead_detail: Total expected rows (approximate): 81
+0013.094 (0) Table wp_rg_lead_detail: Total rows added: 81 in 0.00 seconds
+0013.097 (0) Table wp_rg_lead_detail: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_rg_lead_detail.table.gz - 1.3 Kb)
+0013.105 (0) Table wp_rg_lead_detail_long: Total expected rows (approximate): 0
+0013.108 (0) Table wp_rg_lead_detail_long: Total rows added: 0 in 0.00 seconds
+0013.110 (0) Table wp_rg_lead_detail_long: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_rg_lead_detail_long.table.gz - 0.3 Kb)
+0013.117 (0) Table wp_rg_lead_meta: Total expected rows (approximate): 50
+0013.123 (0) Table wp_rg_lead_meta: Total rows added: 50 in 0.00 seconds
+0013.126 (0) Table wp_rg_lead_meta: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_rg_lead_meta.table.gz - 0.9 Kb)
+0013.136 (0) Table wp_rg_lead_notes: Total expected rows (approximate): 26
+0013.142 (0) Table wp_rg_lead_notes: Total rows added: 26 in 0.00 seconds
+0013.145 (0) Table wp_rg_lead_notes: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_rg_lead_notes.table.gz - 1.3 Kb)
+0013.153 (0) Table wp_rg_salesforce: Total expected rows (approximate): 1
+0013.158 (0) Table wp_rg_salesforce: Total rows added: 1 in 0.00 seconds
+0013.161 (0) Table wp_rg_salesforce: finishing file (backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_rg_salesforce.table.gz - 0.6 Kb)
+0013.170 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_options.table.gz (1/30): adding to final database dump
+0013.208 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_users.table.gz (2/30): adding to final database dump
+0013.212 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_usermeta.table.gz (3/30): adding to final database dump
+0013.214 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_commentmeta.table.gz (4/30): adding to final database dump
+0013.216 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_comments.table.gz (5/30): adding to final database dump
+0013.219 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_links.table.gz (6/30): adding to final database dump
+0013.221 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_postmeta.table.gz (7/30): adding to final database dump
+0013.232 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_posts.table.gz (8/30): adding to final database dump
+0013.310 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_term_relationships.table.gz (9/30): adding to final database dump
+0013.317 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_term_taxonomy.table.gz (10/30): adding to final database dump
+0013.319 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_terms.table.gz (11/30): adding to final database dump
+0013.320 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_cf7dbplugin_st.table.gz (12/30): adding to final database dump
+0013.323 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_cf7dbplugin_submits.table.gz (13/30): adding to final database dump
+0013.326 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_gf_addon_feed.table.gz (14/30): adding to final database dump
+0013.329 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_revslider_css.table.gz (15/30): adding to final database dump
+0013.331 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_revslider_layer_animations.table.gz (16/30): adding to final database dump
+0013.333 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_revslider_settings.table.gz (17/30): adding to final database dump
+0013.336 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_revslider_sliders.table.gz (18/30): adding to final database dump
+0013.338 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_revslider_slides.table.gz (19/30): adding to final database dump
+0013.340 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_revslider_static_slides.table.gz (20/30): adding to final database dump
+0013.343 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_rg_form.table.gz (21/30): adding to final database dump
+0013.344 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_rg_form_meta.table.gz (22/30): adding to final database dump
+0013.346 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_rg_form_view.table.gz (23/30): adding to final database dump
+0013.350 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_rg_incomplete_submissions.table.gz (24/30): adding to final database dump
+0013.352 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_rg_lead.table.gz (25/30): adding to final database dump
+0013.355 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_rg_lead_detail.table.gz (26/30): adding to final database dump
+0013.356 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_rg_lead_detail_long.table.gz (27/30): adding to final database dump
+0013.359 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_rg_lead_meta.table.gz (28/30): adding to final database dump
+0013.361 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_rg_lead_notes.table.gz (29/30): adding to final database dump
+0013.363 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db-table-wp_rg_salesforce.table.gz (30/30): adding to final database dump
+0013.364 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db.gz: finished writing out complete database file (408 Kb)
+0013.375 (0) Total database tables backed up: 30 (backup_2015-09-12-2230_Braven_20d8edac1874-db.gz, size: 442116, checksum (SHA1): 69d897fa70692de63711f3cd8442629d1d1fcd23)
+0013.379 (0) Saving backup history
+0013.389 (0) backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0013.391 (0) backup_2015-09-12-2230_Braven_20d8edac1874-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0013.392 (0) backup_2015-09-12-2230_Braven_20d8edac1874-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0013.393 (0) backup_2015-09-12-2230_Braven_20d8edac1874-others.zip: others: This file has not yet been successfully uploaded: will queue
+0013.395 (0) backup_2015-09-12-2230_Braven_20d8edac1874-db.gz: db: This file has not yet been successfully uploaded: will queue
+0013.400 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0013.406 (0) Cloud backup selection (1/1): dropbox (last)
+0013.409 (0) Beginning dispatch of backup to remote (dropbox)
+0013.412 (0) Dropbox: begin cloud upload
+0013.439 (0) Dropbox: access gained
+0013.625 (0) Dropbox quota usage: normal=91509.7 Mb, shared=624190 Mb, total=27262976 Mb, available=26547276.3 Mb
+0013.630 (0) Dropbox: Attempt to upload: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip to: BeBraven/backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip
+0016.137 (0) Dropbox chunked upload: 6 % uploaded (XR376NsJ93z_Rpt7kPEb0g, 1048576)
+0017.940 (0) Dropbox chunked upload: 12 % uploaded (XR376NsJ93z_Rpt7kPEb0g, 2097152)
+0019.985 (0) Dropbox chunked upload: 18 % uploaded (XR376NsJ93z_Rpt7kPEb0g, 3145728)
+0022.772 (0) Dropbox chunked upload: 24 % uploaded (XR376NsJ93z_Rpt7kPEb0g, 4194304)
+0024.439 (0) Dropbox chunked upload: 30 % uploaded (XR376NsJ93z_Rpt7kPEb0g, 5242880)
+0026.280 (0) Dropbox chunked upload: 36 % uploaded (XR376NsJ93z_Rpt7kPEb0g, 6291456)
+0028.349 (0) Dropbox chunked upload: 42 % uploaded (XR376NsJ93z_Rpt7kPEb0g, 7340032)
+0030.920 (0) Dropbox chunked upload: 48 % uploaded (XR376NsJ93z_Rpt7kPEb0g, 8388608)
+0032.583 (0) Dropbox chunked upload: 54 % uploaded (XR376NsJ93z_Rpt7kPEb0g, 9437184)
+0034.450 (0) Dropbox chunked upload: 59.9 % uploaded (XR376NsJ93z_Rpt7kPEb0g, 10485760)
+0036.572 (0) Dropbox chunked upload: 65.9 % uploaded (XR376NsJ93z_Rpt7kPEb0g, 11534336)
+0038.968 (0) Dropbox chunked upload: 71.9 % uploaded (XR376NsJ93z_Rpt7kPEb0g, 12582912)
+0041.003 (0) Dropbox chunked upload: 77.9 % uploaded (XR376NsJ93z_Rpt7kPEb0g, 13631488)
+0042.877 (0) Dropbox chunked upload: 83.9 % uploaded (XR376NsJ93z_Rpt7kPEb0g, 14680064)
+0044.987 (0) Dropbox chunked upload: 89.9 % uploaded (XR376NsJ93z_Rpt7kPEb0g, 15728640)
+0047.600 (0) Dropbox chunked upload: 95.9 % uploaded (XR376NsJ93z_Rpt7kPEb0g, 16777216)
+0050.947 (0) Dropbox chunked upload: 100 % uploaded (XR376NsJ93z_Rpt7kPEb0g, 17491638)
+0052.453 (0) Recording as successfully uploaded: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip (13ea3b5fc0e55c7ce914bcd6663cf017)
+0052.465 (0) Deleting local file: backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip: OK
+0052.467 (0) Dropbox: File upload success (backup_2015-09-12-2230_Braven_20d8edac1874-plugins.zip): 17081 Kb in 38s (439 Kb/s)
+0052.604 (0) Dropbox quota usage: normal=91526.4 Mb, shared=624173.4 Mb, total=27262976 Mb, available=26547276.3 Mb
+0052.609 (0) Dropbox: Attempt to upload: backup_2015-09-12-2230_Braven_20d8edac1874-themes.zip to: BeBraven/backup_2015-09-12-2230_Braven_20d8edac1874-themes.zip
+0054.393 (0) Dropbox chunked upload: 28.4 % uploaded (L471leYttFEXsDBpTSKTAg, 1048576)
+0056.261 (0) Dropbox chunked upload: 56.8 % uploaded (L471leYttFEXsDBpTSKTAg, 2097152)
+0058.336 (0) Dropbox chunked upload: 85.2 % uploaded (L471leYttFEXsDBpTSKTAg, 3145728)
+0060.278 (0) Dropbox chunked upload: 100 % uploaded (L471leYttFEXsDBpTSKTAg, 3692589)
+0062.642 (0) Recording as successfully uploaded: backup_2015-09-12-2230_Braven_20d8edac1874-themes.zip (50a5cf31fd559b4d098f8baadf80ef1a)
+0062.654 (0) Deleting local file: backup_2015-09-12-2230_Braven_20d8edac1874-themes.zip: OK
+0062.658 (0) Dropbox: File upload success (backup_2015-09-12-2230_Braven_20d8edac1874-themes.zip): 3606 Kb in 10s (358 Kb/s)
+0062.845 (0) Dropbox quota usage: normal=91529.9 Mb, shared=624186.5 Mb, total=27262976 Mb, available=26547259.6 Mb
+0062.851 (0) Dropbox: Attempt to upload: backup_2015-09-12-2230_Braven_20d8edac1874-uploads.zip to: BeBraven/backup_2015-09-12-2230_Braven_20d8edac1874-uploads.zip
+0064.667 (0) Dropbox chunked upload: 1.7 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 1048576)
+0066.520 (0) Dropbox chunked upload: 3.4 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 2097152)
+0068.507 (0) Dropbox chunked upload: 5.1 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 3145728)
+0071.009 (0) Dropbox chunked upload: 6.9 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 4194304)
+0072.695 (0) Dropbox chunked upload: 8.6 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 5242880)
+0074.598 (0) Dropbox chunked upload: 10.3 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 6291456)
+0076.572 (0) Dropbox chunked upload: 12 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 7340032)
+0079.160 (0) Dropbox chunked upload: 13.7 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 8388608)
+0080.861 (0) Dropbox chunked upload: 15.4 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 9437184)
+0082.778 (0) Dropbox chunked upload: 17.1 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 10485760)
+0084.785 (0) Dropbox chunked upload: 18.9 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 11534336)
+0087.550 (0) Dropbox chunked upload: 20.6 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 12582912)
+0089.307 (0) Dropbox chunked upload: 22.3 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 13631488)
+0091.232 (0) Dropbox chunked upload: 24 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 14680064)
+0093.242 (0) Dropbox chunked upload: 25.7 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 15728640)
+0095.980 (0) Dropbox chunked upload: 27.4 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 16777216)
+0097.885 (0) Dropbox chunked upload: 29.1 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 17825792)
+0099.813 (0) Dropbox chunked upload: 30.8 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 18874368)
+0101.948 (0) Dropbox chunked upload: 32.6 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 19922944)
+0104.621 (0) Dropbox chunked upload: 34.3 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 20971520)
+0106.330 (0) Dropbox chunked upload: 36 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 22020096)
+0108.326 (0) Dropbox chunked upload: 37.7 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 23068672)
+0110.611 (0) Dropbox chunked upload: 39.4 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 24117248)
+0113.092 (0) Dropbox chunked upload: 41.1 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 25165824)
+0114.756 (0) Dropbox chunked upload: 42.8 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 26214400)
+0116.596 (0) Dropbox chunked upload: 44.6 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 27262976)
+0118.663 (0) Dropbox chunked upload: 46.3 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 28311552)
+0121.476 (0) Dropbox chunked upload: 48 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 29360128)
+0123.263 (0) Dropbox chunked upload: 49.7 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 30408704)
+0125.078 (0) Dropbox chunked upload: 51.4 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 31457280)
+0127.763 (0) Dropbox chunked upload: 53.1 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 32505856)
+0130.224 (0) Dropbox chunked upload: 54.8 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 33554432)
+0131.860 (0) Dropbox chunked upload: 56.6 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 34603008)
+0133.836 (0) Dropbox chunked upload: 58.3 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 35651584)
+0136.053 (0) Dropbox chunked upload: 60 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 36700160)
+0138.512 (0) Dropbox chunked upload: 61.7 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 37748736)
+0140.257 (0) Dropbox chunked upload: 63.4 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 38797312)
+0142.615 (0) Dropbox chunked upload: 65.1 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 39845888)
+0144.671 (0) Dropbox chunked upload: 66.8 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 40894464)
+0147.373 (0) Dropbox chunked upload: 68.6 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 41943040)
+0149.064 (0) Dropbox chunked upload: 70.3 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 42991616)
+0151.019 (0) Dropbox chunked upload: 72 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 44040192)
+0153.201 (0) Dropbox chunked upload: 73.7 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 45088768)
+0155.766 (0) Dropbox chunked upload: 75.4 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 46137344)
+0157.440 (0) Dropbox chunked upload: 77.1 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 47185920)
+0159.626 (0) Dropbox chunked upload: 78.8 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 48234496)
+0161.671 (0) Dropbox chunked upload: 80.6 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 49283072)
+0164.527 (0) Dropbox chunked upload: 82.3 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 50331648)
+0166.220 (0) Dropbox chunked upload: 84 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 51380224)
+0168.201 (0) Dropbox chunked upload: 85.7 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 52428800)
+0170.422 (0) Dropbox chunked upload: 87.4 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 53477376)
+0172.961 (0) Dropbox chunked upload: 89.1 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 54525952)
+0174.764 (0) Dropbox chunked upload: 90.8 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 55574528)
+0176.720 (0) Dropbox chunked upload: 92.5 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 56623104)
+0178.775 (0) Dropbox chunked upload: 94.3 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 57671680)
+0181.539 (0) Dropbox chunked upload: 96 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 58720256)
+0183.232 (0) Dropbox chunked upload: 97.7 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 59768832)
+0185.171 (0) Dropbox chunked upload: 99.4 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 60817408)
+0186.921 (0) Dropbox chunked upload: 100 % uploaded (E1ZbxJQKVoxfaga1LG4K_w, 61182793)
+0189.363 (0) Recording as successfully uploaded: backup_2015-09-12-2230_Braven_20d8edac1874-uploads.zip (ea715d78640d97890da9688d8b5e57d8)
+0189.381 (0) Deleting local file: backup_2015-09-12-2230_Braven_20d8edac1874-uploads.zip: OK
+0189.386 (0) Dropbox: File upload success (backup_2015-09-12-2230_Braven_20d8edac1874-uploads.zip): 59748 Kb in 126s (472 Kb/s)
+0189.586 (0) Dropbox quota usage: normal=91588.2 Mb, shared=624131.7 Mb, total=27262976 Mb, available=26547256.1 Mb
+0189.592 (0) Dropbox: Attempt to upload: backup_2015-09-12-2230_Braven_20d8edac1874-others.zip to: BeBraven/backup_2015-09-12-2230_Braven_20d8edac1874-others.zip
+0190.437 (0) Dropbox chunked upload: 100 % uploaded (XlMTDxBfc-GLOKjKp6Dt5Q, 1306)
+0191.978 (0) Recording as successfully uploaded: backup_2015-09-12-2230_Braven_20d8edac1874-others.zip (65d6d190911b0067fd44e5780ef87f29)
+0191.983 (0) Deleting local file: backup_2015-09-12-2230_Braven_20d8edac1874-others.zip: OK
+0191.984 (0) Dropbox: File upload success (backup_2015-09-12-2230_Braven_20d8edac1874-others.zip): 1 Kb in 2s (0 Kb/s)
+0192.150 (0) Dropbox quota usage: normal=91588.3 Mb, shared=624131.7 Mb, total=27262976 Mb, available=26547256.1 Mb
+0192.157 (0) Dropbox: Attempt to upload: backup_2015-09-12-2230_Braven_20d8edac1874-db.gz to: BeBraven/backup_2015-09-12-2230_Braven_20d8edac1874-db.gz
+0193.689 (0) Dropbox chunked upload: 100 % uploaded (VCFkkVEGb7xFHFHp2dzLbA, 442116)
+0195.491 (0) Recording as successfully uploaded: backup_2015-09-12-2230_Braven_20d8edac1874-db.gz (7a786764dd75e18a7507b9eea848d06d)
+0195.497 (0) Deleting local file: backup_2015-09-12-2230_Braven_20d8edac1874-db.gz: OK
+0195.500 (0) Dropbox: File upload success (backup_2015-09-12-2230_Braven_20d8edac1874-db.gz): 431 Kb in 3s (129 Kb/s)
+0195.507 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=5, retain_db=5
+0195.509 (0) Number of backup sets in history: 4
+0195.512 (0) Examining backup set with datestamp: 1442111409 (Sep 13 2015 02:30:09)
+0195.513 (0) 1442111409: this backup set remains non-empty (1/1); will retain in history
+0195.515 (0) Examining backup set with datestamp: 1441504000 (Sep 06 2015 01:46:40)
+0195.516 (0) 1441504000: this backup set remains non-empty (1/1); will retain in history
+0195.518 (0) Examining backup set with datestamp: 1441291012 (Sep 03 2015 14:36:52)
+0195.519 (0) 1441291012: this backup set remains non-empty (1/1); will retain in history
+0195.520 (0) Examining backup set with datestamp: 1440105893 (Aug 20 2015 21:24:53)
+0195.522 (0) 1440105893: this backup set remains non-empty (1/1); will retain in history
+0195.523 (0) Retain: saving new backup history (sets now: 4) and finishing retain operation
+0195.529 (0) Resume backup (20d8edac1874, 0): finish run
+0195.534 (0) Decremented the semaphore (fd) by 1
+0195.536 (0) Semaphore (fd) unlocked
+0195.538 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0195.543 (0) No email will/can be sent - the user has not configured an email address.
+0195.544 (0) The backup apparently succeeded and is now complete
