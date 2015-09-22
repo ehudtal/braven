@@ -1,12 +1,17 @@
 # This has the database connection password and other secret keys
 wp-config.php
 
+# Server specific files
+.htaccess
+favicon.ico
+
 # This file is added on Mac's for the Finder app
 .DS_Store
 
 .bash_history
 
-.cache/*
+.cache
 
-# There are some local backups with full database dumps.  These generally live on Dropbox in Apps/UpdraftPlus/BeBraven though
-wp-content/updraft/backup*
+wp-content/updraft
+
+
