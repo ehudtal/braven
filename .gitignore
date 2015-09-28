@@ -1,6 +1,10 @@
 # This has the database connection password and other secret keys
 wp-config.php
 
+# Server specific files
+.htaccess
+favicon.ico
+
 # This file is added on Mac's for the Finder app
 .DS_Store
 
@@ -10,5 +14,5 @@ wp-config.php
 
 wp-content/updraft
 
-.htaccess
-favicon.ico
+log
+
