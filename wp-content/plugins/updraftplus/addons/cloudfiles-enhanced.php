@@ -2,10 +2,10 @@
 /*
 UpdraftPlus Addon: cloudfiles-enhanced:Rackspace Cloud Files, enhanced
 Description: Adds enhanced capabilities for Rackspace Cloud Files users
-Version: 1.2
+Version: 1.3
 RequiresPHP: 5.3.3
 Shop: /shop/cloudfiles-enhanced/
-Latest Change: 1.10.2
+Latest Change: 1.11.10
 */
 
 # Future possibility: sub-folders
@@ -217,7 +217,7 @@ class UpdraftPlus_Addon_CloudFilesEnhanced {
 			#updraft_cfnewapiuser_form label { float: left; clear:left; width: 200px;}
 			#updraft_cfnewapiuser_form input[type="text"], #updraft_cfnewapiuser_form select { float: left; width: 230px; }
 		</style>
-		<div id="updraft-cfnewapiuser-modal" title="<?php _e('Create new API user and container', 'updraftplus');?>">
+		<div id="updraft-cfnewapiuser-modal" title="<?php _e('Create new API user and container', 'updraftplus');?>" style="display:none;">
 		<div id="updraft_cfnewapiuser_form">
 			<p style="margin:1px; padding-top:0; clear: left; float: left;">
 			<em><?php _e('Enter your Rackspace admin username/API key (so that Rackspace can authenticate your permission to create new users), and enter a new (unique) username and email address for the new user and a container name.', 'updraftplus');?></em>

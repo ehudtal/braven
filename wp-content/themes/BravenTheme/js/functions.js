@@ -17,7 +17,7 @@
 	 * Adds a top margin to the footer if the sidebar widget area is higher
 	 * than the rest of the page, to help the footer always visually clear
 	 * the sidebar.
-	 */
+	 
 	$( function() {
 		if ( body.is( '.sidebar' ) ) {
 			var sidebar   = $( '#secondary .widget-area' ),
@@ -44,7 +44,7 @@
 			return;
 		}
 
-		button.on( 'click.twentythirteen', function() {
+		button.on( 'click.braven', function() {
 			nav.toggleClass( 'toggled-on' );
 			if ( nav.hasClass( 'toggled-on' ) ) {
 				$( this ).attr( 'aria-expanded', 'true' );
@@ -57,7 +57,7 @@
 
 		// Fix sub-menus for touch devices.
 		if ( 'ontouchstart' in window ) {
-			menu.find( '.menu-item-has-children > a, .page_item_has_children > a' ).on( 'touchstart.twentythirteen', function( e ) {
+			menu.find( '.menu-item-has-children > a, .page_item_has_children > a' ).on( 'touchstart.braven', function( e ) {
 				var el = $( this ).parent( 'li' );
 
 				if ( ! el.hasClass( 'focus' ) ) {
@@ -69,7 +69,7 @@
 		}
 
 		// Better focus for hidden submenu items for accessibility.
-		menu.find( 'a' ).on( 'focus.twentythirteen blur.twentythirteen', function() {
+		menu.find( 'a' ).on( 'focus.braven blur.braven', function() {
 			$( this ).parents( '.menu-item, .page_item' ).toggleClass( 'focus' );
 		} );
 	} )();

@@ -40,6 +40,7 @@ class UpdraftPlus_Addon_Reporting {
 	}
 
 	public function init() {
+		if (!class_exists('UpdraftPlus_Options')) return;
 		if (!UpdraftPlus_Options::get_updraft_option('updraft_log_syslog', false) || !function_exists('openlog') || !function_exists('syslog')) return;
 		if (false !== ($this->syslog = openlog($this->log_ident, LOG_ODELAY|LOG_PID, $this->log_facility))) add_filter('updraftplus_logline', array($this, 'logline'), 10, 3);
 	}

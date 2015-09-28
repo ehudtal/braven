@@ -31,7 +31,7 @@ $posts = tribe_get_list_widget_events();
 // Check if any event posts are found.
 if ( $posts ) : ?>
 
-	<ul class="hfeed vcalendar">
+	<ol class="hfeed vcalendar">
 		<?php
 		// Setup the post data for each event.
 		foreach ( $posts as $post ) :
@@ -39,7 +39,11 @@ if ( $posts ) : ?>
 			?>
 			<li class="tribe-events-list-widget-events <?php tribe_events_event_classes() ?>">
 
-				
+				<?php do_action( 'tribe_events_list_widget_before_the_event_title' ); ?>
+				<!-- Event Title -->
+				<h4 class="entry-title summary">
+					<a href="<?php echo esc_url( tribe_get_event_link() ); ?>" rel="bookmark"><?php the_title(); ?></a>
+				</h4>
 
 				<?php do_action( 'tribe_events_list_widget_after_the_event_title' ); ?>
 				<!-- Event Time -->
@@ -49,31 +53,21 @@ if ( $posts ) : ?>
 				<div class="duration">
 					<?php echo tribe_events_event_schedule_details(); ?>
 				</div>
-              
 
 				<?php do_action( 'tribe_events_list_widget_after_the_meta' ) ?>
-                
-                
-                <?php do_action( 'tribe_events_list_widget_before_the_event_title' ); ?>
-				<!-- Event Title -->
-				<div class="event-desc"><h4 class="entry-title summary">
-					<a href="<?php echo esc_url( tribe_get_event_link() ); ?>" rel="bookmark"><?php the_title(); ?></a>
-				</h4></div>
-                
-                
 			</li>
 		<?php
 		endforeach;
 		?>
-	</ul><!-- .hfeed -->
+	</ol><!-- .hfeed -->
 
 	<p class="tribe-events-widget-link">
-		<a href="<?php echo esc_url( tribe_get_events_link() ); ?>" rel="bookmark"><?php printf( __( 'View All %s', 'tribe-events-calendar' ), $events_label_plural ); ?></a>
+		<a href="<?php echo esc_url( tribe_get_events_link() ); ?>" rel="bookmark"><?php printf( __( 'View All %s', 'the-events-calendar' ), $events_label_plural ); ?></a>
 	</p>
 
 <?php
 // No events were found.
 else : ?>
-	<p><?php printf( __( 'There are no upcoming %s at this time.', 'tribe-events-calendar' ), strtolower( $events_label_plural ) ); ?></p>
+	<p><?php printf( __( 'There are no upcoming %s at this time.', 'the-events-calendar' ), strtolower( $events_label_plural ) ); ?></p>
 <?php
 endif;

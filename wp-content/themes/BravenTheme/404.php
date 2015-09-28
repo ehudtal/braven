@@ -1,10 +1,6 @@
 <?php
 /**
  * The template for displaying 404 pages (Not Found)
- *
- * @package WordPress
- * @subpackage Twenty_Thirteen
- * @since Twenty Thirteen 1.0
  */
 
 get_header(); ?>
@@ -13,13 +9,11 @@ get_header(); ?>
 		<div class="inner-content">
 
 			<hgroup class="wrong">
-      <h1>Oh no! Page not found.</h1>
-      <p><a class="btn-secondary" href="/">Go Home</a></p>
+      <h1><?php echo __('Oh no! Page not found.', 'braven');?></h1>
+      <p><a class="btn-secondary" href="/"><?php echo __('Go Home', 'braven'); ?></a></p>
     </hgroup>
 			
 		
-
-			
 
 		</div><!-- #content -->
 	</div><!-- #primary -->

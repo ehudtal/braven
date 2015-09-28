@@ -342,7 +342,7 @@ class HTTP_WebDAV_Client_Stream
         $start = $this->position;
         $end   = $this->position + strlen($buffer) - 1;
         
-        if ($this->stream_write_returned_501 && !$this->stream_write_final) {
+        if (((defined('UPDRAFTPLUS_WEBDAV_NEVER_CHUNK') && UPDRAFTPLUS_WEBDAV_NEVER_CHUNK) || $this->stream_write_returned_501) && !$this->stream_write_final) {
             $this->position += strlen($buffer);
             return 1 + $end - $start;
         }

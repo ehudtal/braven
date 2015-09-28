@@ -127,7 +127,7 @@ class UpdraftPlusAddons2 {
 			if (is_numeric($key)) {
 				$this->show_admin_warning($notice);
 			} else {
-				$this->show_admin_warning($notice, 'error');
+				$this->show_admin_warning($notice, 'error updraftupdatesnotice updraftupdatesnotice-'.$key);
 			}
 		}
 	}
@@ -161,7 +161,7 @@ class UpdraftPlusAddons2 {
 			// Prevent false-positives
 			if (file_exists(UPDRAFTPLUS_DIR.'/readme.txt') && $fp = fopen(UPDRAFTPLUS_DIR.'/readme.txt', 'r')) {
 				$file_data = fread($fp, 1024);
-				if (preg_match("/^Tested up to: (\d+\.\d+).*(\r|\n)/", $file_data, $matches)) {
+				if (preg_match("/Tested up to: (\d+(\.\d+)+)/", $file_data, $matches)) {
 					$readme_says = $matches[1];
 				}
 				fclose($fp);
@@ -172,7 +172,6 @@ class UpdraftPlusAddons2 {
 			$compare_wp_version = (preg_match('/^(\d+\.\d+)\..*$/', $wp_version, $wmatches)) ? $wmatches[1] : $wp_version;
 			$compare_tested_version = $oval->update->$yourversionkey;
 			if (!empty($readme_says) && version_compare($readme_says, $compare_tested_version, '>')) $compare_tested_version = $readme_says;
-			#$compare_tested_version = (preg_match('/^(\d+\.\d+)\.*$/', $oval->update->$yourversionkey, $wmatches)) ? $wmatches[1] : $oval->update->$yourversionkey;
 			if (version_compare($compare_wp_version, $compare_tested_version, '>')) {
 				$this->admin_notices['yourversiontested'] = '<strong>'.__('Warning','updraftplus').':</strong> '.sprintf(__('The installed version of UpdraftPlus Backup/Restore has not been tested on your version of WordPress (%s).', 'updraftplus'), $wp_version).' '.sprintf(__('It has been tested up to version %s.', 'updraftplus'), $compare_tested_version).' <a href="https://updraftplus.com/seeing-warning-versions-wordpress-updraftplus-tested/">'.__('You should update UpdraftPlus to make sure that you have a version that has been tested for compatibility.', 'updraftplus').'</a>';
 			}

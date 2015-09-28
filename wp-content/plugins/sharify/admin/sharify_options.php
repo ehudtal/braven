@@ -37,6 +37,15 @@
 		<div class="sharify-main">
 			<div class="sharify-settings">
 				<!--Button Placement-->
+				<!--Easter egg for the peeps at WinBeta.org ;)-->
+				<?php if (get_site_url() == "http://winbeta.org") {
+					echo "<h3>Hey dere guys Mehedi here from wmpu, and this is where you customize the plugin...tara!</h3><br/>";
+				} else{
+					//sleep
+				}
+
+				?>
+				<div class="sharify-sec-title"><a href="https://twitter.com/sharifyplugin">Follow us on Twitter to get support!</a></div><br/>
 				<div class="sharify-sec-title">General Settings</div>
 				<form method="post" class="sharify-settings-form" action="options.php">
 					<?php wp_nonce_field('update-options'); ?>
@@ -48,6 +57,9 @@
 						<?php if ( 1 == get_option('display_buttons_before_post') ) echo 'checked="checked"'; ?> /> Display Sharify buttons at the top of posts</label> <br>
 						<br><label><input type="checkbox" class="sharify-input" name="sharify_use_gfont" value="1" 
 						<?php if ( 1 == get_option('sharify_use_gfont') ) echo 'checked="checked"'; ?> /> Load Google Font?</label><br />
+						<br /><p class="sharify-version-no"><strong>Custom CSS Styles</strong></p>
+						<textarea rows="4" cols="50" name="sharify_custom_css"><?php echo get_option('sharify_custom_css'); ?></textarea>
+						<br />
 						<p class="submit"><input type="submit" class="sharify-btn" value="<?php _e('Save Changes') ?>" /></p>
 					</div>
 

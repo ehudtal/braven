@@ -5,10 +5,6 @@
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages and that other
  * 'pages' on your WordPress site will use a different template.
- *
- * @package WordPress
- * @subpackage Twenty_Thirteen
- * @since Twenty Thirteen 1.0
  */
 
 get_header(); ?>
@@ -30,14 +26,10 @@ get_header(); ?>
 	<div id="primary" class="content-area">
    
             
-             <div id="breadcrumb_wrapper">
-<div style="margin:0 auto; max-width:65rem;">
- <?php the_breadcrumb(); ?> </div>
- </div>   
+<?php braven_the_breadcrumb(); ?>  
  
 		<div id="content" class="site-content" role="main">
 
-			<?php /* The loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
             
             <?php if ( get_post_meta( get_the_ID(), 'Pull Quote', true ) ) : ?>
@@ -76,7 +68,7 @@ get_header(); ?>
         <h2>Why stop here?</h2>
         <p>Help spread the word so we can discover more leaders and expand the network that supports them:</p>
 
-        <a href="https://twitter.com/intent/tweet?button_hashtag=BeBraven&text=I%20just%20signed%20up%20for" class="twitter-hashtag-button" data-size="large" data-url="https://bebraven.org/">Tweet #BeBraven</a>
+        <a href="https://twitter.com/intent/tweet?button_hashtag=BeBraven&text=I%20just%20signed%20up%20for" class="twitter-hashtag-button" data-size="large" data-url="<?php bloginfo('url');?>">Tweet #BeBraven</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
       </div>
@@ -114,7 +106,7 @@ section {
 	margin-top: 30px;	
 }
 #footer-email,
-#breadcrumb_wrapper {
+#breadcrumb-wrapper {
 	display: none;
 }
 

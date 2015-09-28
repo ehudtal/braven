@@ -5,7 +5,7 @@
  * Plugin URI: https://wordpress.org/plugins/sharify/
  * Description: Sharify is a fast and simple plugin for sharing buttons on WordPress. The plugin lets you display responsive sharing
  * buttons on your WordPress website!
- * Version: 3.5.1
+ * Version: 3.6
  * Author: imehedidip
  * Author URI: http://twitter.com/mehedih_
  * Text Domain: sharify
@@ -38,7 +38,7 @@ function sharify_css()
 
 	if ( 1 == get_option('sharify_use_gfont') )
 	{
-		wp_register_style( 'sharify-font', 'https://fonts.googleapis.com/css?family=Roboto+Condensed:300', false, NULL, 'all' );
+		wp_register_style( 'sharify-font', 'https://fonts.googleapis.com/css?family=Roboto+Condensed:400', false, NULL, 'all' );
 		wp_enqueue_style('sharify-font');
 	}
 }
@@ -92,6 +92,7 @@ function activate_sharify()
 	add_option('sharify_cpm_mail'			, "#e74c3c");
 	add_option('sharify_cph_mail'			, "#c0392b");
 	add_option('sharify_twitter_via'		, "");
+	add_option('sharify_custom_css'		, "");
 }
 register_activation_hook(__FILE__, 'activate_sharify');
 
@@ -138,6 +139,7 @@ function deactive_sharify()
 	delete_option('sharify_cpm_mail');
 	delete_option('sharify_cph_mail');
 	delete_option('sharify_twitter_via');
+	delete_option('sharify_custom_css');
 }
 register_deactivation_hook(__FILE__, 'deactive_sharify');
 }
@@ -296,7 +298,7 @@ add_action( 'admin_enqueue_scripts', 'load_sharify_wp_admin_style' );
 register_activation_hook(__FILE__, 'sharify_plugin_activation');
 function sharify_plugin_activation() {
   $notices= get_option('sharify_plugin_deferred_admin_notices', array());
-  $notices[]= "Thanks for using Sharify! Please make sure to <a href='https://wordpress.org/support/view/plugin-reviews/sharify#postform' title='Reviews are really apperciated :)'>leave a review </a>, and <a href='http://twitter.com/mehedih_' title='Follow me on Twitter'>follow the developer </a> on Twitter for the latest updates on Sharify! And <a href='".get_bloginfo('url') . "/wp-admin/options-general.php?page=sharify"."'>click here to go to Sharify Admin Panel!</a>";
+  $notices[]= "Thanks for using Sharify! Please make sure to <a href='https://wordpress.org/support/view/plugin-reviews/sharify#postform' title='Reviews are really apperciated :)'>leave a review </a>, and <a href='http://twitter.com/sharifyplugin' title='Follow us on Twitter'>follow us</a> on Twitter for the latest updates on Sharify! And <a href='".get_bloginfo('url') . "/wp-admin/options-general.php?page=sharify"."'>click here to go to Sharify Admin Panel!</a>";
   update_option('sharify_plugin_deferred_admin_notices', $notices);
 }
 

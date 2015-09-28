@@ -1111,7 +1111,8 @@ class UpdraftPlus_Addons_Migrator {
 		// some unserialised data cannot be re-serialised eg. SimpleXMLElements
 		try {
 
-			if ( is_string( $data ) && ( $unserialized = @unserialize( $data ) ) !== false ) {
+			// O:8:"DateTime":0:{} : see https://bugs.php.net/bug.php?id=62852
+			if ( is_string( $data ) && false === strpos($data, 'O:8:"DateTime":0:{}') && ( $unserialized = @unserialize( $data ) ) !== false ) {
 				$data = $this->_migrator_recursive_unserialize_replace( $from, $to, $unserialized, true );
 			}
 
@@ -1179,10 +1180,7 @@ class UpdraftPlus_Addons_Migrator {
 
 }
 
-
-// if (defined('UPDRAFTPLUS_EXPERIMENTAL_REMOTESEND') && UPDRAFTPLUS_EXPERIMENTAL_REMOTESEND) {
-	$updraftplus_addons_migrator_remotesend = new UpdraftPlus_Addons_Migrator_RemoteSend();
-// }
+$updraftplus_addons_migrator_remotesend = new UpdraftPlus_Addons_Migrator_RemoteSend();
 
 class UpdraftPlus_Addons_Migrator_RemoteSend {
 
@@ -1203,6 +1201,10 @@ class UpdraftPlus_Addons_Migrator_RemoteSend {
 
 	public function plugins_loaded() {
 		// Create a receiver for each key
+		if (!class_exists('UpdraftPlus_Options')) {
+			error_log("UpdraftPlus_Options class not found: is UpdraftPlus properly installed?");
+			return;
+		}
 		$our_keys = UpdraftPlus_Options::get_updraft_option('updraft_migrator_localkeys');
 		if (is_array($our_keys) && !empty($our_keys)) {
 			foreach ($our_keys as $name_hash => $key) {
@@ -1628,7 +1630,11 @@ class UpdraftPlus_Addons_Migrator_RemoteSend {
 	}
 
 	public function admin_footer() {
-		global $updraftplus;
+		global $updraftplus, $pagenow;
+
+		// Next, the actions that only come on the UpdraftPlus page
+		if ($pagenow != UpdraftPlus_Options::admin_page() || empty($_REQUEST['page']) || 'updraftplus' != $_REQUEST['page']) return;
+
 		?>
 		<script>
 			jQuery(document).ready(function($) {

@@ -2,9 +2,9 @@
 /*
 UpdraftPlus Addon: multisite:Multisite/Network
 Description: Makes UpdraftPlus compatible with a WordPress Network (a.k.a. multi-site) and adds Network-related features
-Version: 2.1
+Version: 2.2
 Shop: /shop/network-multisite/
-Latest Change: 1.10.3
+Latest Change: 1.11.7
 */
 
 if (!defined('UPDRAFTPLUS_DIR')) die('No direct access allowed');
@@ -128,6 +128,7 @@ if (is_multisite()) {
 					'updraft_interval_database' => 'manual',
 					'updraft_retain' => 1,
 					'updraft_retain_db' => 1,
+					'updraft_retain_extra' => array(),
 					'updraft_starttime_files' => date('H:i', time()+600),
 					'updraft_starttime_db' => date('H:i', time()+600),
 					'updraft_startday_files' => date('w', time()+600),
@@ -239,7 +240,7 @@ if (is_multisite()) {
 					}
 				} elseif ('updraft_startday_files' == $key || 'updraft_startday_db' == $key) {
 					$value=absint($value);
-					if ($value>6) $value=0;
+					if ($value>28) $value=1;
 					$options[$key] = $value;
 				} elseif ('updraft_dir' == $key) {
 					$options[$key] = $updraftplus_admin->prune_updraft_dir_prefix($value);

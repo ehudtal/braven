@@ -112,13 +112,13 @@ class UpdraftPlus_Addons_RemoteStorage_sftp {
 
 				$this->sftp_size = max(filesize($updraft_dir.'/'.$file), 1);
 				$this->sftp_path = $updraft_dir.'/'.$file;
-				$this->sftp_last_sent = 0;
+				$this->sftp_began_at = 0;
 
 				try {
 					$remote_stat = $sftp->stat($file);
 					$current_remote_size = (is_array($remote_stat) && isset($remote_stat['size']) && $remote_stat['size'] > 0) ? $remote_stat['size'] : 0;
 					if ($current_remote_size > 0) {
-						$this->sftp_last_sent = $current_remote_size;
+						$this->sftp_began_at = $current_remote_size;
 						$updraftplus->log('SFTP: File exists remotely; upload will resume; size is: '.round($current_remote_size/1024, 2).' Kb');
 					}
 				} catch (Exception $e) {
@@ -161,11 +161,14 @@ class UpdraftPlus_Addons_RemoteStorage_sftp {
 
 	public function sftp_progress_callback($sent) {
 		global $updraftplus;
-		$last_sent = (empty($this->sftp_last_sent)) ? 0 : $this->sftp_last_sent;
-		if ($sent > $last_sent + 1048576) {
-			$perc = empty($this->sftp_size) ? 0 : round(100*$sent / $this->sftp_size, 1);
+		static $sftp_last_logged_at = 0;
+// $next_log=$sftp_last_logged_at + 1048576;
+// $updraftplus->log("CALLED: sent=$sent, began_at=".$this->sftp_began_at.", next_log=$next_log");
+		$bytes_sent = (empty($this->sftp_began_at)) ? $sent : $this->sftp_began_at + $sent;
+		if ($bytes_sent > $sftp_last_logged_at + 1048576) {
+			$perc = empty($this->sftp_size) ? 0 : round(100*$bytes_sent / $this->sftp_size, 1);
 			$updraftplus->record_uploaded_chunk($perc, '', $this->sftp_path);
-			$this->sftp_last_sent = $sent;
+			$sftp_last_logged_at = $bytes_sent;
 		}
 	}
 

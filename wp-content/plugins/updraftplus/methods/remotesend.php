@@ -27,10 +27,12 @@ class UpdraftPlus_BackupModule_remotesend extends UpdraftPlus_BackupModule_ViaAd
 if (!class_exists('UpdraftPlus_RemoteStorage_Addons_Base')) require_once(UPDRAFTPLUS_DIR.'/methods/addon-base.php');
 class UpdraftPlus_Addons_RemoteStorage_remotesend extends UpdraftPlus_RemoteStorage_Addons_Base {
 
-	// 2Mb. After being b64-encoded twice, this is ~ 3.7Mb = 113 seconds on 32Kb/s uplink
-	private $default_chunk_size = 2097152;
+	private $default_chunk_size;
 
 	public function __construct() {
+		// 2Mb. After being b64-encoded twice, this is ~ 3.7Mb = 113 seconds on 32Kb/s uplink
+		$this->default_chunk_size = (defined('UPDRAFTPLUS_REMOTESEND_DEFAULT_CHUNK_BYTES') && is_numeric(UPDRAFTPLUS_REMOTESEND_DEFAULT_CHUNK_BYTES) && UPDRAFTPLUS_REMOTESEND_DEFAULT_CHUNK_BYTES >= 16384) ? UPDRAFTPLUS_REMOTESEND_DEFAULT_CHUNK_BYTES : 2097152;
+
 		# 3rd parameter: chunking? 4th: Test button?
 		parent::__construct('remotesend', 'Remote send', false, false);
 	}

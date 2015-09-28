@@ -1,52 +1,23 @@
 <?php
 /**
- * Twenty Thirteen functions and definitions
+ * Braven Theme functions and definitions
  *
  * Sets up the theme and provides some helper functions, which are used in the
  * theme as custom template tags. Others are attached to action and filter
  * hooks in WordPress to change core functionality.
  *
- * When using a child theme (see https://codex.wordpress.org/Theme_Development
- * and https://codex.wordpress.org/Child_Themes), you can override certain
- * functions (those wrapped in a function_exists() call) by defining them first
- * in your child theme's functions.php file. The child theme's functions.php
- * file is included before the parent theme's file, so the child theme
- * functions would be used.
- *
  * Functions that are not pluggable (not wrapped in function_exists()) are
  * instead attached to a filter or action hook.
  *
  * For more information on hooks, actions, and filters, @link https://codex.wordpress.org/Plugin_API
- *
- * @package WordPress
- * @subpackage Twenty_Thirteen
- * @since Twenty Thirteen 1.0
  */
 
-/*
- * Set up the content width value based on the theme's design.
- *
- * @see twentythirteen_content_width() for template-specific adjustments.
- */
-if ( ! isset( $content_width ) )
-	$content_width = 604;
 
 /**
- * Add support for a custom header image.
- */
-require get_template_directory() . '/inc/custom-header.php';
-
-/**
- * Twenty Thirteen only works in WordPress 3.6 or later.
- */
-if ( version_compare( $GLOBALS['wp_version'], '3.6-alpha', '<' ) )
-	require get_template_directory() . '/inc/back-compat.php';
-
-/**
- * Twenty Thirteen setup.
+ * Braven Theme setup.
  *
  * Sets up theme defaults and registers the various WordPress features that
- * Twenty Thirteen supports.
+ * Braven Theme supports.
  *
  * @uses load_theme_textdomain() For translation/localization support.
  * @uses add_editor_style() To add Visual Editor stylesheets.
@@ -54,25 +25,23 @@ if ( version_compare( $GLOBALS['wp_version'], '3.6-alpha', '<' ) )
  * formats, and post thumbnails.
  * @uses register_nav_menu() To add support for a navigation menu.
  * @uses set_post_thumbnail_size() To set a custom post thumbnail size.
- *
- * @since Twenty Thirteen 1.0
  */
-function twentythirteen_setup() {
+function braven_setup() {
 	/*
-	 * Makes Twenty Thirteen available for translation.
+	 * Makes Braven Theme available for translation.
 	 *
 	 * Translations can be added to the /languages/ directory.
-	 * If you're building a theme based on Twenty Thirteen, use a find and
-	 * replace to change 'twentythirteen' to the name of your theme in all
+	 * If you're building a theme based on Braven Theme, use a find and
+	 * replace to change 'braven' to the name of your theme in all
 	 * template files.
 	 */
-	load_theme_textdomain( 'twentythirteen', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'braven', get_template_directory() . '/languages' );
 
 	/*
 	 * This theme styles the visual editor to resemble the theme style,
 	 * specifically font, colors, icons, and column width.
 	 */
-	add_editor_style( array( 'css/editor-style.css', 'genericons/genericons.css', twentythirteen_fonts_url() ) );
+	add_editor_style( array( 'css/editor-style.css', 'genericons/genericons.css' ) );
 
 	// Adds RSS feed links to <head> for posts and comments.
 	add_theme_support( 'automatic-feed-links' );
@@ -94,7 +63,7 @@ function twentythirteen_setup() {
 	) );
 
 	// This theme uses wp_nav_menu() in one location.
-	register_nav_menu( 'primary', __( 'Navigation Menu', 'twentythirteen' ) );
+	register_nav_menu( 'primary', __( 'Navigation Menu', 'braven' ) );
 
 	/*
 	 * This theme uses a custom image size for featured images, displayed on
@@ -112,58 +81,12 @@ function twentythirteen_setup() {
 	// This theme uses its own gallery styles.
 	add_filter( 'use_default_gallery_style', '__return_false' );
 }
-add_action( 'after_setup_theme', 'twentythirteen_setup' );
-
-/**
- * Return the Google font stylesheet URL, if available.
- *
- * The use of Source Sans Pro and Bitter by default is localized. For languages
- * that use characters not supported by the font, the font can be disabled.
- *
- * @since Twenty Thirteen 1.0
- *
- * @return string Font stylesheet or empty string if disabled.
- */
-function twentythirteen_fonts_url() {
-	$fonts_url = '';
-
-	/* Translators: If there are characters in your language that are not
-	 * supported by Source Sans Pro, translate this to 'off'. Do not translate
-	 * into your own language.
-	 */
-	$source_sans_pro = _x( 'on', 'Source Sans Pro font: on or off', 'twentythirteen' );
-
-	/* Translators: If there are characters in your language that are not
-	 * supported by Bitter, translate this to 'off'. Do not translate into your
-	 * own language.
-	 */
-	$bitter = _x( 'on', 'Bitter font: on or off', 'twentythirteen' );
-
-	if ( 'off' !== $source_sans_pro || 'off' !== $bitter ) {
-		$font_families = array();
-
-		if ( 'off' !== $source_sans_pro )
-			$font_families[] = 'Source Sans Pro:300,400,700,300italic,400italic,700italic';
-
-		if ( 'off' !== $bitter )
-			$font_families[] = 'Bitter:400,700';
-
-		$query_args = array(
-			'family' => urlencode( implode( '|', $font_families ) ),
-			'subset' => urlencode( 'latin,latin-ext' ),
-		);
-		$fonts_url = add_query_arg( $query_args, '//fonts.googleapis.com/css' );
-	}
-
-	return $fonts_url;
-}
+add_action( 'after_setup_theme', 'braven_setup' );
 
 /**
  * Enqueue scripts and styles for the front end.
- *
- * @since Twenty Thirteen 1.0
  */
-function twentythirteen_scripts_styles() {
+function braven_scripts_styles() {
 	/*
 	 * Adds JavaScript to pages with the comment form to support
 	 * sites with threaded comments (when in use).
@@ -172,26 +95,24 @@ function twentythirteen_scripts_styles() {
 		wp_enqueue_script( 'comment-reply' );
 
 	// Adds Masonry to handle vertical alignment of footer widgets.
-	if ( is_active_sidebar( 'sidebar-1' ) )
-		wp_enqueue_script( 'jquery-masonry' );
-
-	// Loads JavaScript file with functionality specific to Twenty Thirteen.
-	wp_enqueue_script( 'twentythirteen-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20150330', true );
-
-	// Add Source Sans Pro and Bitter fonts, used in the main stylesheet.
-	wp_enqueue_style( 'twentythirteen-fonts', twentythirteen_fonts_url(), array(), null );
+	// NOTE: Apperntly this is not required, can remove completely if we see that's so. -- Ehud
+	/*if ( is_active_sidebar( 'sidebar-1' ) )
+			wp_enqueue_script( 'jquery-masonry' );
+	*/
+	// Loads JavaScript file with functionality specific to Braven Theme.
+	wp_enqueue_script( 'braven-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20150330', true );
 
 	// Add Genericons font, used in the main stylesheet.
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.03' );
 
 	// Loads our main stylesheet.
-	wp_enqueue_style( 'twentythirteen-style', get_stylesheet_uri(), array(), '2013-07-18' );
+	wp_enqueue_style( 'braven-style', get_stylesheet_uri(), array(), '2013-07-18' );
 
 	// Loads the Internet Explorer specific stylesheet.
-	wp_enqueue_style( 'twentythirteen-ie', get_template_directory_uri() . '/css/ie.css', array( 'twentythirteen-style' ), '2013-07-18' );
-	wp_style_add_data( 'twentythirteen-ie', 'conditional', 'lt IE 9' );
+	wp_enqueue_style( 'braven-ie', get_template_directory_uri() . '/css/ie.css', array( 'braven-style' ), '2013-07-18' );
+	wp_style_add_data( 'braven-ie', 'conditional', 'lt IE 9' );
 }
-add_action( 'wp_enqueue_scripts', 'twentythirteen_scripts_styles' );
+add_action( 'wp_enqueue_scripts', 'braven_scripts_styles' );
 
 /**
  * Filter the page title.
@@ -199,13 +120,13 @@ add_action( 'wp_enqueue_scripts', 'twentythirteen_scripts_styles' );
  * Creates a nicely formatted and more specific title element text for output
  * in head of document, based on current view.
  *
- * @since Twenty Thirteen 1.0
+
  *
  * @param string $title Default title text for current view.
  * @param string $sep   Optional separator.
  * @return string The filtered title.
  */
-function twentythirteen_wp_title( $title, $sep ) {
+function braven_wp_title( $title, $sep ) {
 	global $paged, $page;
 
 	if ( is_feed() )
@@ -221,22 +142,21 @@ function twentythirteen_wp_title( $title, $sep ) {
 
 	// Add a page number if necessary.
 	if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() )
-		$title = "$title $sep " . sprintf( __( 'Page %s', 'twentythirteen' ), max( $paged, $page ) );
+		$title = "$title $sep " . sprintf( __( 'Page %s', 'braven' ), max( $paged, $page ) );
 
 	return $title;
 }
-add_filter( 'wp_title', 'twentythirteen_wp_title', 10, 2 );
+add_filter( 'wp_title', 'braven_wp_title', 10, 2 );
 
 /**
- * Register two widget areas.
- *
- * @since Twenty Thirteen 1.0
+ * Register widget areas (like sidebars, but not only).
+ * What goes in them is defined from the wp-admin Appearance menu > widgets. 
  */
-function twentythirteen_widgets_init() {
+function braven_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Main Widget Area', 'twentythirteen' ),
+		'name'          => __( 'Main Widget Area', 'braven' ),
 		'id'            => 'sidebar-1',
-		'description'   => __( 'Appears in the footer section of the site.', 'twentythirteen' ),
+		'description'   => __( 'Appears in the footer section of the site.', 'braven' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="widget-title">',
@@ -246,8 +166,8 @@ function twentythirteen_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Homepage CTA' ),
 		'id'            => 'hp-cta',
-		'description'   => __( 'Appears on the homepage as Discover, Develop & Connect', 'twentythirteen' ),
-		'before_widget' => '<div id="cta-overlay" class="one_third %2$s">',
+		'description'   => __( 'Appears on the homepage as Discover, Develop & Connect', 'braven' ),
+		'before_widget' => '<div class="cta-overlay one_third %2$s">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h3 class="cta-title">',
 		'after_title'   => '</h3>',
@@ -258,20 +178,18 @@ function twentythirteen_widgets_init() {
 		'name'          => __( 'Primary Sidebar'),
 		'id'            => 'sidebar-primary',
 		'description'   => __( 'Appears default on posts and pages in the sidebar.' ),
-		'before_widget' => '<div id="sb-sections" class="widget %2$s  general">',
+		'before_widget' => '<div class="sb-sections widget %2$s  general">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h2 class="sb-sections-title">',
 		'after_title'   => '</h2>',
 	) );
 	
 
-
-	
 	register_sidebar( array(
 		'name'          => __( 'Blog Sidebar' ),
 		'id'            => 'sidebar-blog-sec',
 		'description'   => __( 'Appears on the blog.' ),
-		'before_widget' => '<div id="sb-sections" class="widget %2$s  blog">',
+		'before_widget' => '<div class="sb-sections widget %2$s  blog">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h2 class="sb-sections-title">',
 		'after_title'   => '</h2>',
@@ -291,7 +209,7 @@ function twentythirteen_widgets_init() {
 		'name'          => __( 'Footer Copyright' ),
 		'id'            => 'fcopyright',
 		'description'   => __( 'Appears as the copyright of the site.' ),
-		'before_widget' => '<div class="footer_copyright">',
+		'before_widget' => '<div class="footer-copyright">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h3 class="footer-title">',
 		'after_title'   => '</h3>',
@@ -299,46 +217,49 @@ function twentythirteen_widgets_init() {
 	
 	
 }
-add_action( 'widgets_init', 'twentythirteen_widgets_init' );
+add_action( 'widgets_init', 'braven_widgets_init' );
 
-if ( ! function_exists( 'twentythirteen_paging_nav' ) ) :
+if ( ! function_exists( 'braven_paging_nav' ) ) :
 /**
  * Display navigation to next/previous set of posts when applicable.
- *
- * @since Twenty Thirteen 1.0
  */
-function twentythirteen_paging_nav() {
+function braven_paging_nav() {
 	global $wp_query;
 
 	// Don't print empty markup if there's only one page.
 	if ( $wp_query->max_num_pages < 2 )
 		return;
 	?>
-	<nav class="navigation paging-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'twentythirteen' ); ?></h1>
-		<div class="nav-links">
 
-			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'twentythirteen' ) ); ?></div>
-			<?php endif; ?>
-
-			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'twentythirteen' ) ); ?></div>
-			<?php endif; ?>
-
-		</div><!-- .nav-links -->
-	</nav><!-- .navigation -->
-	<?php
+<nav class="navigation paging-navigation" role="navigation">
+	<h1 class="screen-reader-text">
+		<?php _e( 'Posts navigation', 'braven' ); ?>
+	</h1>
+	<div class="nav-links">
+		<?php if ( get_next_posts_link() ) : ?>
+		<div class="nav-previous">
+			<?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'braven' ) ); ?>
+		</div>
+		<?php endif; ?>
+		<?php if ( get_previous_posts_link() ) : ?>
+		<div class="nav-next">
+			<?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'braven' ) ); ?>
+		</div>
+		<?php endif; ?>
+	</div>
+	<!-- .nav-links --> 
+</nav>
+<!-- .navigation -->
+<?php
 }
 endif;
 
-if ( ! function_exists( 'twentythirteen_post_nav' ) ) :
+if ( ! function_exists( 'braven_post_nav' ) ) :
 /**
  * Display navigation to next/previous post when applicable.
 *
-* @since Twenty Thirteen 1.0
 */
-function twentythirteen_post_nav() {
+function braven_post_nav() {
 	global $post;
 
 	// Don't print empty markup if there's nowhere to navigate.
@@ -348,42 +269,42 @@ function twentythirteen_post_nav() {
 	if ( ! $next && ! $previous )
 		return;
 	?>
-	<nav class="navigation post-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'twentythirteen' ); ?></h1>
-		<div class="nav-links">
-
-			<?php previous_post_link( '%link', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'twentythirteen' ) ); ?>
-			<?php next_post_link( '%link', _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link', 'twentythirteen' ) ); ?>
-
-		</div><!-- .nav-links -->
-	</nav><!-- .navigation -->
-	<?php
+<nav class="navigation post-navigation" role="navigation">
+	<h1 class="screen-reader-text">
+		<?php _e( 'Post navigation', 'braven' ); ?>
+	</h1>
+	<div class="nav-links">
+		<?php previous_post_link( '%link', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'braven' ) ); ?>
+		<?php next_post_link( '%link', _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link', 'braven' ) ); ?>
+	</div>
+	<!-- .nav-links --> 
+</nav>
+<!-- .navigation -->
+<?php
 }
 endif;
 
-if ( ! function_exists( 'twentythirteen_entry_meta' ) ) :
+if ( ! function_exists( 'braven_entry_meta' ) ) :
 /**
  * Print HTML with meta information for current post: categories, tags, permalink, author, and date.
  *
- * Create your own twentythirteen_entry_meta() to override in a child theme.
- *
- * @since Twenty Thirteen 1.0
+ * Create your own braven_entry_meta() to override in a child theme.
  */
-function twentythirteen_entry_meta() {
+function braven_entry_meta() {
 	if ( is_sticky() && is_home() && ! is_paged() )
-		echo '<span class="featured-post">' . esc_html__( 'Sticky', 'twentythirteen' ) . '</span>';
+		echo '<span class="featured-post">' . esc_html__( 'Sticky', 'braven' ) . '</span>';
 
 	if ( ! has_post_format( 'link' ) && 'post' == get_post_type() )
-		twentythirteen_entry_date();
+		braven_entry_date();
 
 	// Translators: used between list items, there is a space after the comma.
-	$categories_list = get_the_category_list( __( ', ', 'twentythirteen' ) );
+	$categories_list = get_the_category_list( __( ', ', 'braven' ) );
 	if ( $categories_list ) {
 		echo '<span class="categories-links">' . $categories_list . '</span>';
 	}
 
 	// Translators: used between list items, there is a space after the comma.
-	$tag_list = get_the_tag_list( '', __( ', ', 'twentythirteen' ) );
+	$tag_list = get_the_tag_list( '', __( ', ', 'braven' ) );
 	if ( $tag_list ) {
 		echo '<span class="tags-links">' . $tag_list . '</span>';
 	}
@@ -392,33 +313,33 @@ function twentythirteen_entry_meta() {
 	if ( 'post' == get_post_type() ) {
 		printf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
 			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-			esc_attr( sprintf( __( 'View all posts by %s', 'twentythirteen' ), get_the_author() ) ),
+			esc_attr( sprintf( __( 'View all posts by %s', 'braven' ), get_the_author() ) ),
 			get_the_author()
 		);
 	}
 }
 endif;
 
-if ( ! function_exists( 'twentythirteen_entry_date' ) ) :
+if ( ! function_exists( 'braven_entry_date' ) ) :
 /**
  * Print HTML with date information for current post.
  *
- * Create your own twentythirteen_entry_date() to override in a child theme.
+ * Create your own braven_entry_date() to override in a child theme.
  *
- * @since Twenty Thirteen 1.0
+
  *
  * @param boolean $echo (optional) Whether to echo the date. Default true.
  * @return string The HTML-formatted post date.
  */
-function twentythirteen_entry_date( $echo = true ) {
+function braven_entry_date( $echo = true ) {
 	if ( has_post_format( array( 'chat', 'status' ) ) )
-		$format_prefix = _x( '%1$s on %2$s', '1: post format name. 2: date', 'twentythirteen' );
+		$format_prefix = _x( '%1$s on %2$s', '1: post format name. 2: date', 'braven' );
 	else
 		$format_prefix = '%2$s';
 
 	$date = sprintf( '<span class="date"><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a></span>',
 		esc_url( get_permalink() ),
-		esc_attr( sprintf( __( 'Permalink to %s', 'twentythirteen' ), the_title_attribute( 'echo=0' ) ) ),
+		esc_attr( sprintf( __( 'Permalink to %s', 'braven' ), the_title_attribute( 'echo=0' ) ) ),
 		esc_attr( get_the_date( 'c' ) ),
 		esc_html( sprintf( $format_prefix, get_post_format_string( get_post_format() ), get_the_date() ) )
 	);
@@ -430,24 +351,22 @@ function twentythirteen_entry_date( $echo = true ) {
 }
 endif;
 
-if ( ! function_exists( 'twentythirteen_the_attached_image' ) ) :
+if ( ! function_exists( 'braven_the_attached_image' ) ) :
 /**
  * Print the attached image with a link to the next attached image.
- *
- * @since Twenty Thirteen 1.0
  */
-function twentythirteen_the_attached_image() {
+function braven_the_attached_image() {
 	/**
 	 * Filter the image attachment size to use.
 	 *
-	 * @since Twenty thirteen 1.0
+	
 	 *
 	 * @param array $size {
 	 *     @type int The attachment height in pixels.
 	 *     @type int The attachment width in pixels.
 	 * }
 	 */
-	$attachment_size     = apply_filters( 'twentythirteen_attachment_size', array( 724, 724 ) );
+	$attachment_size     = apply_filters( 'braven_attachment_size', array( 724, 724 ) );
 	$next_attachment_url = wp_get_attachment_url();
 	$post                = get_post();
 
@@ -510,16 +429,15 @@ function load_css_files() {
 }
 
 
-/*Alphabetical Ordering*/
-
- function mam_posts_orderby ($orderby) {
-   global $mam_global_orderby;
-   if ($mam_global_orderby) $orderby = $mam_global_orderby;
+/*Alphabetical ordering by last name for bios (used on staff-page.php) */
+function braven_posts_orderby ($orderby) {
+   global $braven_global_orderby;
+   if ($braven_global_orderby) $orderby = $braven_global_orderby;
    return $orderby;
 }
-add_filter('posts_orderby','mam_posts_orderby');
-$mam_global_orderby = "
-UPPER(CONCAT(REVERSE(SUBSTRING_INDEX(REVERSE($wpdb->posts.post_title),' ',1)),$wpdb->posts.post_title))
+add_filter('posts_orderby','braven_posts_orderby');
+$braven_global_orderby = "
+	UPPER(CONCAT(REVERSE(SUBSTRING_INDEX(REVERSE($wpdb->posts.post_title),' ',1)),$wpdb->posts.post_title))
 ";
 
 
@@ -528,8 +446,8 @@ UPPER(CONCAT(REVERSE(SUBSTRING_INDEX(REVERSE($wpdb->posts.post_title),' ',1)),$w
  * Load Dynamic Widget Classes
  */
 
-add_action('init', 'ak_add_order_classes_for_widgets' );
-function ak_add_order_classes_for_widgets() {
+//add_action('init', 'braven_add_order_classes_for_widgets' );
+function braven_add_order_classes_for_widgets() {
     global $wp_registered_sidebars, $wp_registered_widgets;
  
     #Grab the widgets
@@ -565,15 +483,18 @@ function ak_add_order_classes_for_widgets() {
 
 
 
-
-
 /**
- * Load Braven Highlights
+ * CUSTOM POST TYPES (CPTs):
+ ///////////////////////////////////////////////////////////////////////////////////////////////////
  */
 
-add_action( 'init', 'wpb_register_braven_highlights' );
+/**
+ * Init custom post type for Highlights (featured fellows)
+ */
 
-function wpb_register_braven_highlights() {
+add_action( 'init', 'braven_register_cpt_highlights' );
+
+function braven_register_cpt_highlights() {
 
     $bhlabels = array( 
         'name' => _x( 'Braven Highlights', 'highlights' ),
@@ -612,112 +533,104 @@ function wpb_register_braven_highlights() {
 
 $bhkey = "highlights";
 $bhmeta_boxes = array(
-"fellow-name" => array(
-"name" => "fellow-name",
-"title" => "Person's Name",
-"description" => "Enter the name of the person who is being highlighted.",
-"type"=>"text"),
-"fellow-school" => array(
-"name" => "fellow-school",
-"title" => "School",
-"description" => "Enter the school they attended with Braven",
-"type"=>"text"),
-"fellow-hometown" => array(
-"name" => "fellow-hometown",
-"title" => "Hometown",
-"description" => "Enter their hometown.",
-"type"=>"text"),
-"fellow-education" => array(
-"name" => "fellow-education",
-"title" => "Education",
-"description" => "Enter the education the fellow received.",
-"type"=>"text"),
-"fellow-distinctions" => array(
-"name" => "fellow-distinctions",
-"title" => "Awards/Honors",
-"description" => "List the types of honors or distinctions",
-"type"=>"textarea")
+	"fellow-name" => array(
+		"name" => "fellow-name",
+		"title" => "Person's Name",
+		"description" => "Enter the name of the person who is being highlighted.",
+		"type"=>"text"
+	),
+	"fellow-school" => array(
+		"name" => "fellow-school",
+		"title" => "School",
+		"description" => "Enter the school they attended with Braven",
+		"type"=>"text"
+	),
+	"fellow-hometown" => array(
+		"name" => "fellow-hometown",
+		"title" => "Hometown",
+		"description" => "Enter their hometown.",
+		"type"=>"text"
+	),
+	"fellow-education" => array(
+		"name" => "fellow-education",
+		"title" => "Education",
+		"description" => "Enter the education the fellow received.",
+		"type"=>"text"
+	),
+	"fellow-distinctions" => array(
+		"name" => "fellow-distinctions",
+		"title" => "Awards/Honors",
+		"description" => "List the types of honors or distinctions",
+		"type"=>"textarea"
+	)
 );
- 
-function wpb_create_highlights_box() {
-global $bhkey;
- 
-if( function_exists( 'add_meta_box' ) ) {
-add_meta_box( 'new-bhmeta-boxes', ucfirst( $bhkey ) . ' Information', 'display_highlights_box', 'highlights', 'normal', 'high' );
+/* The following functions create a box for signed-in users to edit these highlight fields conveniently. */
+add_action( 'admin_menu', 'braven_create_highlights_box' );
+add_action( 'save_post', 'braven_save_bhmeta_box' );
+add_action( 'init', 'braven_create_highlights_taxonomies', 0 );
+
+function braven_create_highlights_box() {
+	global $bhkey;
+	 
+	if( function_exists( 'add_meta_box' ) ) {
+		add_meta_box( 'new-bhmeta-boxes', ucfirst( $bhkey ) . ' Information', 'braven_display_highlights_box', 'highlights', 'normal', 'high'	);
+	}
 }
+/* see note above */
+function braven_display_highlights_box() {
+	global $post, $bhmeta_boxes, $bhkey;
+	echo '<div class="form-wrap">';
+		echo wp_nonce_field( plugin_basename( __FILE__ ), $bhkey . '_wpnonce', false, true );
+		  
+		foreach($bhmeta_boxes as $bhmeta_box) {
+			$bhdata = get_post_meta($post->ID, $bhkey, true);
+		
+			echo '<div class="form-field form-required">';
+				echo '<label for="', $bhmeta_box[ 'name' ],'">';
+				echo $bhmeta_box[ 'title' ]; 
+				echo '</label>';
+			
+				switch ($bhmeta_box['type'] ) {
+					case 'text':
+						echo '<input type="text" name="', $bhmeta_box[ 'name' ],'" value="',$bhdata[$bhmeta_box[ 'name' ]],'" />'; 
+						echo '<br />';
+						echo $bhmeta_box[ 'description' ];
+						break;
+					case 'textarea':
+						echo '<textarea name="', $bhmeta_box[ 'name' ],'">';
+						echo htmlspecialchars( $bhdata[ $bhmeta_box[ 'name' ] ] );
+						echo '</textarea> ';
+						echo '<br />';
+						echo $bhmeta_box[ 'description' ];
+						break;
+					default;
+				} // switch
+			echo '</div>';
+			} // foreach 
+	echo '</div>'; //<div class="form-wrap">
 }
+/* see note above */
+function braven_save_bhmeta_box( $post_id ) {
+	global $post, $bhmeta_boxes, $bhkey;
+	 
+	foreach( $bhmeta_boxes as $bhmeta_box ) {
+		if (isset($_POST[ $bhmeta_box[ 'name' ] ])) {
+			$bhdata[ $bhmeta_box[ 'name' ] ] = $_POST[ $bhmeta_box[ 'name' ] ];
+		}
+	}
  
-function display_highlights_box() {
-global $post, $bhmeta_boxes, $bhkey;
+	if (!isset($_POST[ $bhkey . '_wpnonce' ])) 
+		return $post_id;
 
+	if ( !wp_verify_nonce( $_POST[ $bhkey . '_wpnonce' ], plugin_basename(__FILE__) ) )
+		return $post_id;
  
-echo '<div class="form-wrap">';
-echo wp_nonce_field( plugin_basename( __FILE__ ), $bhkey . '_wpnonce', false, true );
-  
-  foreach($bhmeta_boxes as $bhmeta_box) {
-$bhdata = get_post_meta($post->ID, $bhkey, true);
-
-echo '<div class="form-field form-required">';
-echo '<label for="', $bhmeta_box[ 'name' ],'">';
-echo $bhmeta_box[ 'title' ]; 
-echo '</label>';
-
-switch ($bhmeta_box['type'] ) {
-    case 'text':
-    echo '<input type="text" name="', $bhmeta_box[ 'name' ],'" value="',$bhdata[$bhmeta_box[ 'name' ]],'" />'; 
-	echo '<br />';
-	echo $bhmeta_box[ 'description' ];
-    break;
-    case 'textarea':
-   echo '<textarea name="', $bhmeta_box[ 'name' ],'">';
-   echo htmlspecialchars( $bhdata[ $bhmeta_box[ 'name' ] ] );
-   echo '</textarea> ';
-   echo '<br />';
-   echo $bhmeta_box[ 'description' ];
-            break;
-    default;
-
+	if ( !current_user_can( 'edit_post', $post_id ))
+		return $post_id;
+ 
+	update_post_meta( $post_id, $bhkey, $bhdata );
 }
-
-echo '</div>';
-
- ?>
- 
- <?php } ?>
- 
- 
-</div>
-<?php
-}
- 
-function wpb_save_bhmeta_box( $post_id ) {
-global $post, $bhmeta_boxes, $bhkey;
- 
-foreach( $bhmeta_boxes as $bhmeta_box ) {
-if (isset($_POST[ $bhmeta_box[ 'name' ] ])) {
-$bhdata[ $bhmeta_box[ 'name' ] ] = $_POST[ $bhmeta_box[ 'name' ] ];
-}
-}
- 
-if (!isset($_POST[ $bhkey . '_wpnonce' ])) 
-return $post_id;
-
-if ( !wp_verify_nonce( $_POST[ $bhkey . '_wpnonce' ], plugin_basename(__FILE__) ) )
-return $post_id;
- 
-if ( !current_user_can( 'edit_post', $post_id ))
-return $post_id;
- 
-update_post_meta( $post_id, $bhkey, $bhdata );
-}
- 
-add_action( 'admin_menu', 'wpb_create_highlights_box' );
-add_action( 'save_post', 'wpb_save_bhmeta_box' );
-
-
-add_action( 'init', 'create_highlights_taxonomies', 0 );
-
-function create_highlights_taxonomies() {
+function braven_create_highlights_taxonomies() {
     register_taxonomy(
         'braven_categories',
         'highlights',
@@ -735,8 +648,6 @@ function create_highlights_taxonomies() {
 }
 
 
-
-
 /**
  * END Braven Highlights
  */
@@ -745,12 +656,12 @@ function create_highlights_taxonomies() {
 
 
 /**
- * Load Staff & Board Members
+ * Init custom post type for Staff & Board Members
  */
 
-add_action( 'init', 'register_staff_testimonial' );
+add_action( 'init', 'braven_register_cpt_staff' );
 
-function register_staff_testimonial() {
+function braven_register_cpt_staff() {
 
     $staff_labels = array( 
         'name' => _x( 'Staff', 'staff' ),
@@ -770,7 +681,7 @@ function register_staff_testimonial() {
     $staff_args = array( 
         'labels' => $staff_labels,
         'hierarchical' => false,    
-        'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail' ),
+        'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', 'page-attributes' ),
         'public' => true,
         'show_ui' => true,
         'show_in_menu' => true,
@@ -789,110 +700,107 @@ function register_staff_testimonial() {
 
 $st_key = "staff";
 $staff_meta_boxes = array(
-"staff-first-name" => array(
-"name" => "staff-first-name",
-"title" => "First Name",
-"description" => "Enter the first name of the person.",
-"type"=>"text"),
-"staff-last-name" => array(
-"name" => "staff-last-name",
-"title" => "Last Name",
-"description" => "Enter the surname of the person.",
-"type"=>"text"),
-"staff-position" => array(
-"name" => "staff-position",
-"title" => "Position in Company",
-"description" => "Enter their position in Braven.",
-"type"=>"text"),
-"staff-hometown" => array(
-"name" => "staff-hometown",
-"title" => "Hometown",
-"description" => "Enter their hometown.",
-"type"=>"text"),
-"staff-education" => array(
-"name" => "staff-education",
-"title" => "Education",
-"description" => "Degrees and Experience.",
-"type"=>"textarea"),
-"staff-link" => array(
-"name" => "staff-link",
-"title" => "Staff Email",
-"description" => "Enter the email address of your staff member.",
-"type"=>"text")
+	"staff-first-name" => array(
+		"name" => "staff-first-name",
+		"title" => "First Name",
+		"description" => "Enter the first name of the person.",
+		"type"=>"text"
+	),
+	"staff-last-name" => array(
+		"name" => "staff-last-name",
+		"title" => "Last Name",
+		"description" => "Enter the surname of the person.",
+		"type"=>"text"
+	),
+	"staff-position" => array(
+		"name" => "staff-position",
+		"title" => "Position in Company",
+		"description" => "Enter their position in Braven.",
+		"type"=>"text"
+	),
+	"staff-hometown" => array(
+		"name" => "staff-hometown",
+		"title" => "Hometown",
+		"description" => "Enter their hometown.",
+		"type"=>"text"
+	),
+	"staff-education" => array(
+		"name" => "staff-education",
+		"title" => "Education",
+		"description" => "Degrees and Experience.",
+		"type"=>"textarea"
+	),
+	"staff-link" => array(
+		"name" => "staff-link",
+		"title" => "Staff Email",
+		"description" => "Enter the email address of your staff member.",
+		"type"=>"text"
+	)
 );
  
-function create_meta_staff() {
-global $st_key;
- 
-if( function_exists( 'add_meta_box' ) ) {
-add_meta_box( 'new-meta-staff', ucfirst( $st_key ) . ' Information', 'display_meta_staff', 'staff', 'normal', 'high' );
-}
+function braven_create_staff_meta_box() {
+	global $st_key;
+	if( function_exists( 'add_meta_box' ) ) {
+		add_meta_box( 'new-meta-staff', ucfirst( $st_key ) . ' Information', 'display_meta_staff', 'staff', 'normal', 'high' );
+	}
 }
  
 function display_meta_staff() {
-global $post, $staff_meta_boxes, $st_key;
+	global $post, $staff_meta_boxes, $st_key;
 
-
-echo '<div class="form-wrap">';
-echo wp_nonce_field( plugin_basename( __FILE__ ), $st_key . '_wpnonce', false, true );
+	echo '<div class="form-wrap">';
+	echo wp_nonce_field( plugin_basename( __FILE__ ), $st_key . '_wpnonce', false, true );
   
- foreach($staff_meta_boxes as $staff_meta_box) {
-$st_data = get_post_meta($post->ID, $st_key, true);
+	foreach($staff_meta_boxes as $staff_meta_box) {
+		$st_data = get_post_meta($post->ID, $st_key, true);
 
-echo '<div class="form-field form-required">';
-echo '<label for="', $staff_meta_box[ 'name' ],'">';
-echo $staff_meta_box[ 'title' ]; 
-echo '</label>';
+		echo '<div class="form-field form-required">';
+		echo '<label for="', $staff_meta_box[ 'name' ],'">';
+		echo $staff_meta_box[ 'title' ]; 
+		echo '</label>';
 
-switch ($staff_meta_box['type'] ) {
-    case 'text':
-    echo '<input type="text" name="', $staff_meta_box[ 'name' ],'" value="',$st_data[$staff_meta_box[ 'name' ]],'" />'; 
-	echo '<br />';
-	echo $staff_meta_box[ 'description' ];
-    break;
-    case 'textarea':
-   echo '<textarea name="', $staff_meta_box[ 'name' ],'">';
-   echo htmlspecialchars( $st_data[ $staff_meta_box[ 'name' ] ] );
-   echo '</textarea> ';
-   echo '<br />';
-   echo $staff_meta_box[ 'description' ];
-            break;
-    default;
-
-}
-
-echo '</div>';
-
- ?>
- 
- <?php } ?>
-
- 
-<?php
+		switch ($staff_meta_box['type'] ) {
+			case 'text':
+				echo '<input type="text" name="', $staff_meta_box[ 'name' ],'" value="',$st_data[$staff_meta_box[ 'name' ]],'" />'; 
+				echo '<br />';
+				echo $staff_meta_box[ 'description' ];
+				break;
+			case 'textarea':
+				echo '<textarea name="', $staff_meta_box[ 'name' ],'">';
+				echo htmlspecialchars( $st_data[ $staff_meta_box[ 'name' ] ] );
+				echo '</textarea> ';
+				echo '<br />';
+				echo $staff_meta_box[ 'description' ];
+				break;
+			default;
+		}
+		
+		echo '</div>';
+	}
 }
  
 function save_meta_staff( $post_id ) {
-global $post, $staff_meta_boxes, $st_key;
+	global $post, $staff_meta_boxes, $st_key;
  
-foreach( $staff_meta_boxes as $staff_meta_box ) {
-if (isset($_POST[ $staff_meta_box[ 'name' ] ])) {
-$st_data[ $staff_meta_box[ 'name' ] ] = $_POST[ $staff_meta_box[ 'name' ] ];
-}
-}
- 
-if (!isset($_POST[ $st_key . '_wpnonce' ])) 
-return $post_id;
+	foreach( $staff_meta_boxes as $staff_meta_box ) {
+		if (isset($_POST[ $staff_meta_box[ 'name' ] ])) {
+			$st_data[ $staff_meta_box[ 'name' ] ] = $_POST[ $staff_meta_box[ 'name' ] ];
+		}
+	}
+	 
+	if (!isset($_POST[ $st_key . '_wpnonce' ])) 
+		return $post_id;
 
-if ( !wp_verify_nonce( $_POST[ $st_key . '_wpnonce' ], plugin_basename(__FILE__) ) )
-return $post_id;
+	if ( !wp_verify_nonce( $_POST[ $st_key . '_wpnonce' ], plugin_basename(__FILE__) ) )
+		return $post_id;
  
-if ( !current_user_can( 'edit_post', $post_id ))
-return $post_id;
+	if ( !current_user_can( 'edit_post', $post_id ))
+		return $post_id;
  
-update_post_meta( $post_id, $st_key, $st_data );
+	update_post_meta( $post_id, $st_key, $st_data );
 }
  
-add_action( 'admin_menu', 'create_meta_staff' );
+//add_action( 'admin_menu', 'braven_create_meta_staff' );
 add_action( 'save_post', 'save_meta_staff' );
 
 
@@ -917,30 +825,18 @@ function create_staff_taxonomies() {
 
 
 
-
 /**
  * END Staff & Board Members
  */
 
 
 /**
- * Load Staff Shortcode Plugin
+ * Init custom post type for Testimonials
  */
 
-include(WP_CONTENT_DIR . '/staff-shortcode.php');
-add_shortcode('bravenstaff', 'staff_list');
+add_action( 'init', 'braven_register_cpt_testimonial' );
 
-
-
-
-
-/**
- * Load Custom Testimonials
- */
-
-add_action( 'init', 'wpb_register_cpt_testimonial' );
-
-function wpb_register_cpt_testimonial() {
+function braven_register_cpt_testimonial() {
 
     $labels = array( 
         'name' => _x( 'Testimonials', 'testimonial' ),
@@ -982,81 +878,73 @@ function wpb_register_cpt_testimonial() {
 }
 
 $key = "testimonial";
-$meta_boxes = array(
-"person-name" => array(
-"name" => "person-name",
-"title" => "Person's Name",
-"description" => "Enter the name of the person who gave you the testimonial."),
-"position" => array(
-"name" => "position",
-"title" => "Position in Company",
-"description" => "Enter their position in their specific company."),
-"company" => array(
-"name" => "company",
-"title" => "Company Name",
-"description" => "Enter the client Company Name"),
-"link" => array(
-"name" => "link",
-"title" => "Client Link",
-"description" => "Enter the link to client's site, or you can enter the link to your portfolio page where you have the client displayed.")
+$testimonial_meta_boxes = array(
+	"person-name" => array(
+	"name" => "person-name",
+	"title" => "Person's Name",
+	"description" => "Enter the name of the person who gave you the testimonial."),
+	"position" => array(
+	"name" => "position",
+	"title" => "Position in Company",
+	"description" => "Enter their position in their specific company."),
+	"company" => array(
+	"name" => "company",
+	"title" => "Company Name",
+	"description" => "Enter the client Company Name"),
+	"link" => array(
+		"name" => "link",
+		"title" => "Client Link",
+		"description" => "Enter the link to client's site, or you can enter the link to your portfolio page where you have the client displayed."
+	)
 );
  
-function wpb_create_meta_box() {
-global $key;
+function braven_create_testimonial_meta_box() {
+	global $key;
  
-if( function_exists( 'add_meta_box' ) ) {
-add_meta_box( 'new-meta-boxes', ucfirst( $key ) . ' Information', 'display_meta_box', 'testimonial', 'normal', 'high' );
-}
-}
- 
-function display_meta_box() {
-global $post, $meta_boxes, $key;
-?>
- 
-<div class="form-wrap">
- 
-<?php
-wp_nonce_field( plugin_basename( __FILE__ ), $key . '_wpnonce', false, true );
- 
-foreach($meta_boxes as $meta_box) {
-$data = get_post_meta($post->ID, $key, true);
-?>
- 
-<div class="form-field form-required">
-<label for="<?php echo $meta_box[ 'name' ]; ?>"><?php echo $meta_box[ 'title' ]; ?></label>
-<input type="text" name="<?php echo $meta_box[ 'name' ]; ?>" value="<?php echo (isset($data[ $meta_box[ 'name' ] ]) ? htmlspecialchars( $data[ $meta_box[ 'name' ] ] ) : ''); ?>" />
-<p><?php echo $meta_box[ 'description' ]; ?></p>
-</div>
- 
-<?php } ?>
- 
-</div>
-<?php
+	if( function_exists( 'add_meta_box' ) ) {
+		add_meta_box( 'new-meta-boxes', ucfirst( $key ) . ' Information', 'braven_display_testimonial_meta_box', 'testimonial', 'normal', 'high' );
+	}
 }
  
-function wpb_save_meta_box( $post_id ) {
-global $post, $meta_boxes, $key;
- 
-foreach( $meta_boxes as $meta_box ) {
-if (isset($_POST[ $meta_box[ 'name' ] ])) {
-$data[ $meta_box[ 'name' ] ] = $_POST[ $meta_box[ 'name' ] ];
-}
-}
- 
-if (!isset($_POST[ $key . '_wpnonce' ])) 
-return $post_id;
+function braven_display_testimonial_meta_box() {
+	global $post, $testimonial_meta_boxes, $key;
 
-if ( !wp_verify_nonce( $_POST[ $key . '_wpnonce' ], plugin_basename(__FILE__) ) )
-return $post_id;
- 
-if ( !current_user_can( 'edit_post', $post_id ))
-return $post_id;
- 
-update_post_meta( $post_id, $key, $data );
+	echo '<div class="form-wrap">';
+	wp_nonce_field( plugin_basename( __FILE__ ), $key . '_wpnonce', false, true );
+	foreach($testimonial_meta_boxes as $meta_box) {
+		$data = get_post_meta($post->ID, $key, true);
+		echo '<div class="form-field form-required">';
+			echo '<label for="'.$meta_box[ 'name' ].'">'.$meta_box[ 'title' ].'</label>';
+			echo '<input type="text" name="'.$meta_box[ 'name' ].'" value="'.(isset($data[ $meta_box[ 'name' ] ]) ? htmlspecialchars( $data[ $meta_box[ 'name' ] ] ) : '').'" />';
+			echo '<p>'.$meta_box[ 'description' ].'</p>';
+		echo '</div>';
+	}
+	echo '</div>';
 }
  
-add_action( 'admin_menu', 'wpb_create_meta_box' );
-add_action( 'save_post', 'wpb_save_meta_box' );
+function braven_save_testimonial_meta_box( $post_id ) {
+	global $post, $testimonial_meta_boxes, $key;
+ 
+	foreach( $testimonial_meta_boxes as $testimonial_meta_box ) {
+		if (isset($_POST[ $testimonial_meta_box[ 'name' ] ])) {
+			$data[ $testimonial_meta_box[ 'name' ] ] = $_POST[ $testimonial_meta_box[ 'name' ] ];
+		}
+	}
+ 
+	if (!isset($_POST[ $key . '_wpnonce' ])) 
+		return $post_id;
+
+	if ( !wp_verify_nonce( $_POST[ $key . '_wpnonce' ], plugin_basename(__FILE__) ) )
+		return $post_id;
+ 
+	if ( !current_user_can( 'edit_post', $post_id ))
+		return $post_id;
+ 
+	update_post_meta( $post_id, $key, $data );
+}
+ 
+add_action( 'admin_menu', 'braven_create_testimonial_meta_box' );
+add_action( 'save_post', 'braven_save_testimonial_meta_box' );
 
 
 
@@ -1065,102 +953,95 @@ add_action( 'save_post', 'wpb_save_meta_box' );
  */
 
 
-
-
-
 /**
- * Load Custom Partners
+ * Init custom post type for Partners
  */
 
-add_action( 'init', 'wpb_register_custom_partners' );
+add_action( 'init', 'braven_register_cpt_partners' );
 
 
 
-function wpb_register_custom_partners() {
+function braven_register_cpt_partners() {
 
-    $plabels = array( 
-        'name' => _x( 'Partners', 'partner' ),
-        'singular_name' => _x( 'partner', 'partner' ),
-        'add_new' => _x( 'Add New', 'partner' ),
-        'add_new_item' => _x( 'Add New Partner', 'partner' ),
-        'edit_item' => _x( 'Edit partner', 'partner' ),
-        'new_item' => _x( 'New partner', 'partner' ),
-        'view_item' => _x( 'View partner', 'partner' ),
-        'search_items' => _x( 'Search Partners', 'partner' ),
-        'not_found' => _x( 'No partners found', 'partner' ),
-        'not_found_in_trash' => _x( 'No partners found in Trash', 'partner' ),
-        'parent_item_colon' => _x( 'Parent Partner:', 'partner' ),
-        'menu_name' => _x( 'Braven Partners', 'partner' ),
-    );
+	$plabels = array( 
+		'name' => _x( 'Partners', 'partner' ),
+		'singular_name' => _x( 'partner', 'partner' ),
+		'add_new' => _x( 'Add New', 'partner' ),
+		'add_new_item' => _x( 'Add New Partner', 'partner' ),
+		'edit_item' => _x( 'Edit partner', 'partner' ),
+		'new_item' => _x( 'New partner', 'partner' ),
+		'view_item' => _x( 'View partner', 'partner' ),
+		'search_items' => _x( 'Search Partners', 'partner' ),
+		'not_found' => _x( 'No partners found', 'partner' ),
+		'not_found_in_trash' => _x( 'No partners found in Trash', 'partner' ),
+		'parent_item_colon' => _x( 'Parent Partner:', 'partner' ),
+		'menu_name' => _x( 'Braven Partners', 'partner' ),
+	);
 
-    $pargs = array( 
-        'labels' => $plabels,
-        'hierarchical' => true,
-        'supports' => array( 'title', 'editor', 'author', 'thumbnail' ),
-        'public' => true,
-        'show_ui' => true,
+	$pargs = array( 
+		'labels' => $plabels,
+		'hierarchical' => true,
+		'supports' => array( 'title', 'editor', 'author', 'thumbnail' ),
+		'public' => true,
+		'show_ui' => true,
 		'show_admin_column' => true,
-        'show_in_menu' => true,     
-        'show_in_nav_menus' => true,
-        'publicly_queryable' => true,
-        'exclude_from_search' => false,
-        'has_archive' => true,
-        'query_var' => true,
-        'can_export' => true,
-        'rewrite' => true,
-        'capability_type' => 'post'
-    );
+		'show_in_menu' => true,     
+		'show_in_nav_menus' => true,
+		'publicly_queryable' => true,
+		'exclude_from_search' => false,
+		'has_archive' => true,
+		'query_var' => true,
+		'can_export' => true,
+		'rewrite' => true,
+		'capability_type' => 'post'
+	);
 
-    register_post_type( 'partner', $pargs );
+	register_post_type( 'partner', $pargs );
 }
 
 $pkey = "partner";
 $pmeta_boxes = array(
-"pcompany-name" => array(
-"name" => "pcompany-name",
-"title" => "Company Name",
-"description" => "Enter the name of the company who supports Braven."),
-
-"plink" => array(
-"name" => "plink",
-"title" => "Partner Link",
-"description" => "Enter the link to company's site.")
+	"pcompany-name" => array(
+		"name" => "pcompany-name",
+		"title" => "Company Name",
+		"description" => "Enter the name of the company who supports Braven."
+	),
+	"plink" => array(
+		"name" => "plink",
+		"title" => "Partner Link",
+		"description" => "Enter the link to company's site."
+	)
 );
  
-function wpb_create_pmeta_box() {
-global $pkey;
- 
-if( function_exists( 'add_meta_box' ) ) {
-add_meta_box( 'p-meta-boxes', ucfirst( $pkey ) . ' Company Information', 'display_meta_pbox', 'partner', 'normal', 'high' );
+function braven_create_partner_meta_box() {
+	global $pkey;
+	 
+	if( function_exists( 'add_meta_box' ) ) {
+		add_meta_box( 'p-meta-boxes', ucfirst( $pkey ) . ' Company Information', 'display_partner_meta_box', 'partner', 'normal', 'high' );
+	}
 }
-}
  
-function display_meta_pbox() {
-global $post, $pmeta_boxes, $pkey;
+function display_partner_meta_box() {
+	global $post, $pmeta_boxes, $pkey;
 ?>
- 
 <div class="form-wrap">
- 
-<?php
+	<?php
 wp_nonce_field( plugin_basename( __FILE__ ), $pkey . '_wpnonce', false, true );
  
 foreach($pmeta_boxes as $pmeta_box) {
 $pdata = get_post_meta($post->ID, $pkey, true);
 ?>
- 
-<div class="form-field form-required">
-<label for="<?php echo $pmeta_box[ 'name' ]; ?>"><?php echo $pmeta_box[ 'title' ]; ?></label>
-<input type="text" name="<?php echo $pmeta_box[ 'name' ]; ?>" value="<?php echo (isset($pdata[ $pmeta_box[ 'name' ] ]) ? htmlspecialchars( $pdata[ $pmeta_box[ 'name' ] ] ) : ''); ?>" />
-<p><?php echo $pmeta_box[ 'description' ]; ?></p>
-</div>
- 
-<?php } ?>
- 
+	<div class="form-field form-required">
+		<label for="<?php echo $pmeta_box[ 'name' ]; ?>"><?php echo $pmeta_box[ 'title' ]; ?></label>
+		<input type="text" name="<?php echo $pmeta_box[ 'name' ]; ?>" value="<?php echo (isset($pdata[ $pmeta_box[ 'name' ] ]) ? htmlspecialchars( $pdata[ $pmeta_box[ 'name' ] ] ) : ''); ?>" />
+		<p><?php echo $pmeta_box[ 'description' ]; ?></p>
+	</div>
+	<?php } ?>
 </div>
 <?php
 }
  
-function wpb_save_pmeta_box( $post_id ) {
+function braven_save_partner_meta_box( $post_id ) {
 global $post, $pmeta_boxes, $pkey;
  
 foreach( $pmeta_boxes as $pmeta_box ) {
@@ -1181,8 +1062,8 @@ return $post_id;
 update_post_meta( $post_id, $pkey, $pdata );
 }
  
-add_action( 'admin_menu', 'wpb_create_pmeta_box' );
-add_action( 'save_post', 'wpb_save_pmeta_box' );
+add_action( 'admin_menu', 'braven_create_partner_meta_box' );
+add_action( 'save_post', 'braven_save_partner_meta_box' );
 
 
 add_action( 'init', 'create_partner_taxonomies', 0 );
@@ -1204,13 +1085,18 @@ function create_partner_taxonomies() {
     );
 }
 
-
+/*
+ * END Custom Post Types 
+ /////////////////////////////////////////////////////////////////////////////////////////
+ */
 
 //Custom Breadcrumbs
 
-function the_breadcrumb() {
+function braven_the_breadcrumb() {
     global $post;
-    echo '<ul id="breadcrumbs">';
+	 echo '<div id="breadcrumb-wrapper">'.
+				'<div class="breadcrumb-inner">'.
+					'<ul id="breadcrumbs">';
     if (!is_home()) {
         echo '<li class="hico"><a class="home_icon" href="';
         echo get_option('home');
@@ -1246,14 +1132,16 @@ function the_breadcrumb() {
     elseif (is_author()) {echo"<li>Author Archive"; echo'</li>';}
     elseif (isset($_GET['paged']) && !empty($_GET['paged'])) {echo "<li>Blog Archives"; echo'</li>';}
     elseif (is_search()) {echo"<li>Search Results"; echo'</li>';}
-    echo '</ul>';
+    echo 		'</ul>'.
+	 			'</div>'.
+			'</div>';
 }
 
 
-// Sort By Popular Post
+// Enable sort By Popular Post
 
-function wpb_set_post_views($postID) {
-    $count_key = 'wpb_post_views_count';
+function braven_set_post_views($postID) {
+    $count_key = 'braven_post_views_count';
     $count = get_post_meta($postID, $count_key, true);
     if($count==''){
         $count = 0;
@@ -1267,22 +1155,21 @@ function wpb_set_post_views($postID) {
 //To keep the count accurate, lets get rid of prefetching
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 
+// Custom Excerpt - allow length limit as a parameter.
 
-
-// Custom Excerpt
-
-function excerpt($num) {
+function braven_excerpt($num) {
     $limit = $num+1;
     $excerpt = explode(' ', get_the_excerpt(), $limit);
     array_pop($excerpt);
-    $excerpt = implode(" ",$excerpt)."... <p><a class=\"rmore\" href='" .get_permalink($post->ID) ."'>Read more</a></p>";
+    $excerpt = implode(' ',$excerpt).'... <br />&nbsp;<br /><a class="rmore" href="' .get_permalink() .'">Read more</a>';
     echo $excerpt;
 }
 
 
 
 // Retrieve first image from blog post
-
+// DONT THINK THIS IS USED ANYWHERE, REMOVE IF YOU SEE THIS AFTER 2015-10-20... - EHUD
+/*
 function catch_that_image() {
   global $post, $posts;
   $first_img = '';
@@ -1292,12 +1179,12 @@ function catch_that_image() {
   $first_img = $matches[1][0];
 
   if(empty($first_img)) {
-    $first_img = "https://bebraven.org/wp-content/uploads/2015/08/braven_profile.jpg";
+    $first_img = "/wp-content/uploads/2015/08/braven_profile.jpg";
   }
   return $first_img;
 }
 
-
+*/
 
 
 /**
@@ -1342,40 +1229,34 @@ function pagination($pages = '', $range = 4)
 }
 
 
-
-
-
-
-
-
 /**
  * Adds a box to the main column on the Post and Page edit screens.
  */
-function myplugin_add_meta_box() {
+function braven_add_meta_box() {
 
 	$screens = array( 'post', 'page' );
 
 	foreach ( $screens as $screen ) {
 
 		add_meta_box(
-			'myplugin_sectionid',
-			__( 'Pull Quote For Page', 'myplugin_textdomain' ),
-			'myplugin_meta_box_callback',
+			'braven_sectionid',
+			__( 'Pull Quote For Page', 'braven_textdomain' ),
+			'braven_meta_box_callback',
 			$screen
 		);
 	}
 }
-add_action( 'add_meta_boxes', 'myplugin_add_meta_box' );
+add_action( 'add_meta_boxes', 'braven_add_meta_box' );
 
 /**
  * Prints the box content.
  * 
  * @param WP_Post $post The object for the current post/page.
  */
-function myplugin_meta_box_callback( $post ) {
+function braven_meta_box_callback( $post ) {
 
 	// Add a nonce field so we can check for it later.
-	wp_nonce_field( 'myplugin_save_meta_box_data', 'myplugin_meta_box_nonce' );
+	wp_nonce_field( 'braven_save_meta_box_data', 'braven_meta_box_nonce' );
 
 	/*
 	 * Use get_post_meta() to retrieve an existing value
@@ -1383,10 +1264,10 @@ function myplugin_meta_box_callback( $post ) {
 	 */
 	$value = get_post_meta( $post->ID, '_my_meta_value_key', true );
 
-	echo '<label for="myplugin_new_field">';
-	_e( 'Pull Quote Area for Page', 'myplugin_textdomain' );
+	echo '<label for="braven_new_field">';
+	_e( 'Pull Quote Area for Page', 'braven_textdomain' );
 	echo '</label> ';
-	echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field" value="' . esc_attr( $value ) . '" size="25" />';
+	echo '<input type="text" id="braven_new_field" name="braven_new_field" value="' . esc_attr( $value ) . '" size="25" />';
 }
 
 /**
@@ -1394,7 +1275,7 @@ function myplugin_meta_box_callback( $post ) {
  *
  * @param int $post_id The ID of the post being saved.
  */
-function myplugin_save_meta_box_data( $post_id ) {
+function braven_save_meta_box_data( $post_id ) {
 
 	/*
 	 * We need to verify this came from our screen and with proper authorization,
@@ -1402,12 +1283,12 @@ function myplugin_save_meta_box_data( $post_id ) {
 	 */
 
 	// Check if our nonce is set.
-	if ( ! isset( $_POST['myplugin_meta_box_nonce'] ) ) {
+	if ( ! isset( $_POST['braven_meta_box_nonce'] ) ) {
 		return;
 	}
 
 	// Verify that the nonce is valid.
-	if ( ! wp_verify_nonce( $_POST['myplugin_meta_box_nonce'], 'myplugin_save_meta_box_data' ) ) {
+	if ( ! wp_verify_nonce( $_POST['braven_meta_box_nonce'], 'braven_save_meta_box_data' ) ) {
 		return;
 	}
 
@@ -1433,17 +1314,17 @@ function myplugin_save_meta_box_data( $post_id ) {
 	/* OK, it's safe for us to save the data now. */
 	
 	// Make sure that it is set.
-	if ( ! isset( $_POST['myplugin_new_field'] ) ) {
+	if ( ! isset( $_POST['braven_new_field'] ) ) {
 		return;
 	}
 
 	// Sanitize user input.
-	$my_data = sanitize_text_field( $_POST['myplugin_new_field'] );
+	$my_data = sanitize_text_field( $_POST['braven_new_field'] );
 
 	// Update the meta field in the database.
 	update_post_meta( $post_id, '_my_meta_value_key', $my_data );
 }
-add_action( 'save_post', 'myplugin_save_meta_box_data' );
+add_action( 'save_post', 'braven_save_meta_box_data' );
 
 
 
@@ -1457,12 +1338,12 @@ add_action( 'save_post', 'myplugin_save_meta_box_data' );
  * 2. Active widgets in the sidebar to change the layout and spacing.
  * 3. When avatars are disabled in discussion settings.
  *
- * @since Twenty Thirteen 1.0
+
  *
  * @param array $classes A list of existing body class values.
  * @return array The filtered body class list.
  */
-function twentythirteen_body_class( $classes ) {
+function braven_body_class( $classes ) {
 	if ( ! is_multi_author() )
 		$classes[] = 'single-author';
 
@@ -1474,46 +1355,129 @@ function twentythirteen_body_class( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'twentythirteen_body_class' );
+add_filter( 'body_class', 'braven_body_class' );
 
-/**
- * Adjust content_width value for video post formats and attachment templates.
- *
- * @since Twenty Thirteen 1.0
- */
-function twentythirteen_content_width() {
-	global $content_width;
-
-	if ( is_attachment() )
-		$content_width = 724;
-	elseif ( has_post_format( 'audio' ) )
-		$content_width = 484;
-}
-add_action( 'template_redirect', 'twentythirteen_content_width' );
 
 /**
  * Add postMessage support for site title and description for the Customizer.
  *
- * @since Twenty Thirteen 1.0
+
  *
  * @param WP_Customize_Manager $wp_customize Customizer object.
  */
-function twentythirteen_customize_register( $wp_customize ) {
+function braven_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 }
-add_action( 'customize_register', 'twentythirteen_customize_register' );
+add_action( 'customize_register', 'braven_customize_register' );
 
 /**
  * Enqueue Javascript postMessage handlers for the Customizer.
  *
  * Binds JavaScript handlers to make the Customizer preview
  * reload changes asynchronously.
- *
- * @since Twenty Thirteen 1.0
  */
-function twentythirteen_customize_preview_js() {
-	wp_enqueue_script( 'twentythirteen-customizer', get_template_directory_uri() . '/js/theme-customizer.js', array( 'customize-preview' ), '20141120', true );
+function braven_customize_preview_js() {
+	wp_enqueue_script( 'braven-customizer', get_template_directory_uri() . '/js/theme-customizer.js', array( 'customize-preview' ), '20141120', true );
 }
-add_action( 'customize_preview_init', 'twentythirteen_customize_preview_js' );
+add_action( 'customize_preview_init', 'braven_customize_preview_js' );
+
+/**
+ * Load Staff Shortcode Plugin
+ */
+
+add_shortcode('bravenstaff', 'braven_staff_list');
+
+function braven_staff_list( $atts ) {
+	ob_start();
+	// define attributes and their defaults
+	extract( 
+		shortcode_atts( 
+			array (
+				'type' => 'post',
+				'order' => '',
+				'orderby' => '',
+				'posts' => '',
+				'staff_categories' => '',
+				'category' => '',
+				'posts_per_page' => '',
+			), 
+		$atts) 
+	);
+	
+	// define query parameters based on attributes
+	$staff_args = array(
+		'post_type' => $type,
+		'order' => $order,
+		'orderby' => $orderby,
+		'posts_per_page' => $posts,
+		'staff_categories' => $staff_categories,
+		'category_name' => $category,
+		'posts_per_page' => $posts_per_page,
+	);
+	
+	$count = 1;
+	$query = new WP_Query( $staff_args );
+	$braven_global_orderby = ''; 
+	if ( $query->have_posts() ) : ?>
+		<div class="team-section">
+			<?php 
+			while ( $query->have_posts() ) : $query->the_post();
+				$staffdata = get_post_meta( $query->post->ID, 'staff', true ); ?>
+				<div class="fstaff one_quarter">
+					<div class="pic pic-3d">
+						<?php if ( has_post_thumbnail() ) {
+							the_post_thumbnail('staff-thumb');
+						} else { ?>
+							<img src="/wp-content/uploads/2015/08/braven_profile.jpg" alt="<?php the_title(); ?>" />
+						<?php } ?>
+						<div class="pic-caption left-to-right">
+							<div class="staffboard-title">
+								<h1><?php echo $staffdata[ 'staff-first-name' ]; ?> <?php echo $staffdata[ 'staff-last-name' ]; ?></h1>
+								<p><?php echo $staffdata[ 'staff-position' ]; ?></p>
+							</div>
+							<a class="btn-success" href="#openModal-<?php echo $count?>">Read More</a>
+						</div><!--.pic-caption-->
+					</div><!--.pic-->
+				</div><!--.fstaff-->
+				<div id="openModal-<?php echo $count?>" class="modalDialog">
+					<div>
+						<a href="#close" title="Close" class="close">X</a>
+						<span class="modal-pic">
+							<?php if ( has_post_thumbnail() ) {
+								the_post_thumbnail('staff-thumb');
+							} else { ?>
+								<img src="https://bebraven.org/wp-content/uploads/2015/08/braven_profile.jpg" alt="<?php the_title(); ?>" />
+							<?php } ?>
+						</span>
+						<div class="modal-tag">
+							<strong><?php echo $staffdata[ 'staff-first-name' ]; ?> <?php echo $staffdata[ 'staff-last-name' ]; ?></strong>
+							<?php echo $staffdata[ 'staff-position' ]; ?><br />
+							<span><b>Hometown:</b></span> <?php echo $staffdata[ 'staff-hometown' ]; ?><br />
+							<?php if ($staffdata[ 'staff-link' ]) { ?>
+								<p class="education"><b>E-mail:</b> <a href="mailto:<?php echo $staffdata[ 'staff-link' ]; ?>"><?php echo $staffdata[ 'staff-link' ]; ?></a></p>
+							<?php }?>
+						</div>
+						<hr />
+						<div class="modal-bio">
+							<?php the_content();?>
+						</div>
+					</div>
+				</div><!--#openModal-xxx-->
+				<?php $count++; ?>
+			<?php endwhile;?>
+		</div><!-- .team-section -->
+		<?php 
+		wp_reset_postdata();
+		$myvariable = ob_get_clean();
+		return $myvariable;
+	endif; 
+	{
+		$myvariable = ob_get_clean();
+		return $myvariable;
+	}
+} // End staff list shortcode
+
+// fixing a bug with sharify plugin:
+$twitter_btn_icon_align;

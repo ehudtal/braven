@@ -6,7 +6,7 @@
 get_header(); ?>
 
 <div id="primary_home">
-	<div class="section_slider"> <?php echo do_shortcode('[rev_slider sliderhome]')?> </div>
+	<div class="section_slider"> <?php echo do_shortcode('[rev_slider sliderhome]'); ?> </div>
 	
 	<!-- #END SECTION HOME SLIDER -->
 	<?php while ( have_posts() ) : ?>
@@ -38,7 +38,6 @@ get_header(); ?>
 			<p style="text-align:center;"><a class="btn large" href="/become-a-fellow/">Learn More</a></p>
 		</div>
 	</div>
-	<!--imported from our impact-->
 	<?php 
 	$cq = new WP_Query(array('p'=>910, 'post_type'=>'page')); // Our impact page
 	if ( $cq->have_posts() ) : 
@@ -46,7 +45,7 @@ get_header(); ?>
 	<div id="impact_content" class="braven_section">
 		<div class="inner_content">
 
-			<div id="home_top_content" class="braven_section">
+			<div class="braven_section">
 				<?php while ( $cq->have_posts() ) : $cq->the_post(); ?>
 					<h1 style="text-align: center; margin-top: 0; font-size: 36px;">
 						<?php the_title(); ?>
@@ -59,7 +58,7 @@ get_header(); ?>
 	</div>
 	<?php 
 	endif; 
-	wp_reset_query; 
+	wp_reset_query(); 
 	?>
 	<div id="testimonials">
 		<div id="slider_testimonials">
@@ -86,7 +85,7 @@ $data = get_post_meta( $loop->post->ID, 'testimonial', true );
 			<?php 
 } 
 endwhile; 
-wp_reset_postdata();
+wp_reset_query();
 endif; ?>
 		</div>
 	</div>
@@ -104,7 +103,7 @@ while($rposts_query->have_posts()) : $rposts_query->the_post(); ?>
 				<p><a class="readmorelink" href="<?php the_permalink();?>">Read More &raquo;</a></p>
 			</div>
 			<?php endwhile; ?>
-			<?php wp_reset_postdata(); ?>
+			<?php wp_reset_query(); ?>
 		</div>
 	</div>
 	<div id="partners" class="braven_section">
@@ -129,8 +128,8 @@ $pfdata = get_post_meta( $the_query->post->ID, 'partner', true );
 			<table class="featpartners">
 				<tbody>
 					<tr>
-						<td style="vertical-align:middle"><img src="https://bebraven.org/wp-content/uploads/2015/08/SJSU.png" alt="SJSU"  class="aligncenter size-full wp-image-332" /></td>
-						<td><img src="https://bebraven.org/wp-content/uploads/2015/08/Rutgers_Univ.png" alt="Rutgers_Univ"  class="aligncenter size-full wp-image-475" /></td>
+						<td style="vertical-align:middle"><img src="/wp-content/uploads/2015/08/SJSU.png" alt="SJSU"  class="aligncenter size-full wp-image-332" /></td>
+						<td><img src="/wp-content/uploads/2015/08/Rutgers_Univ.png" alt="Rutgers_Univ"  class="aligncenter size-full wp-image-475" /></td>
 					</tr>
 				</tbody>
 			</table>

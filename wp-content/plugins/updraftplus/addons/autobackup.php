@@ -535,9 +535,11 @@ ENDHERE;
 	// Basically, this function renders the minimum necessary of the admin furniture to be able to get everything up and running. It is an _alternative_ to the full set of furniture.
 	// Mar 2015: Tweaks added for WP's new "shiny updates" method (wp-admin/js/updates.js) - principally, the update lock.
 	public function admin_footer_inpage_backup() {
+
 		if (!empty($this->inpage_restrict) && !current_user_can('update_'.$this->inpage_restrict)) return;
-		global $updraftplus_admin;
+		global $updraftplus_admin, $wp_version;
 		$updraftplus_admin->render_admin_css();
+		$updraftplus_admin->admin_enqueue_scripts();
 		?>
 			<script type="text/javascript">
 				var updraft_credentialtest_nonce='<?php echo wp_create_nonce('updraftplus-credentialtest-nonce');?>';
@@ -567,7 +569,7 @@ ENDHERE;
 						});
 
 						// Trigger provided after Trac report - first time, in wrong place... corrected in WP 4.2 RC 1 - phew!
-						$(document).on('wp-plugin-update-success', function() {
+						jQuery(document).on('wp-plugin-update-success', function() {
 							if (wp.updates.updateQueue.length == 0) {
 								console.log("UpdraftPlus: detected newly-empty queue: locking");
 								wp.updates.updateLock = true;
@@ -585,7 +587,7 @@ ENDHERE;
 // 							}
 // 						}, 250);
 
-						$(document).on('wp-plugin-update-success', function() {
+						jQuery(document).on('wp-plugin-update-success', function() {
 							if (wp.updates.updateQueue.length == 0) {
 								wp.updates.updateLock = true;
 							}
@@ -600,7 +602,7 @@ ENDHERE;
 						if (wp.updates.updateQueue.length > 0) { wp.updates.requestForCredentialsModalCancel(); }
 
 // 						wp.updates.updateQueue = [];
-// 						$('.update-message').removeClass( 'updating-message' ).text('<?php _e('Update cancelled - reload page to try again.', 'updraftplus'); ?>');
+// 						jQuery('.update-message').removeClass( 'updating-message' ).text('<?php _e('Update cancelled - reload page to try again.', 'updraftplus'); ?>');
 						wp.updates.updateLock = true;
 						something_happening = false;
 					}
@@ -610,8 +612,8 @@ ENDHERE;
 						if (wp.updates.updateQueue.length > 0) { return shiny_updates_cancel(); }
 						wp.updates.updateQueue = [];
 						something_happening = false;
-// 						$('.plugin-update').remove();
-// 						$('.update-message').remove();
+// 						jQuery('.plugin-update').remove();
+// 						jQuery('.update-message').remove();
 						wp.updates.updateLock = true;
 					}
 					
@@ -640,12 +642,12 @@ ENDHERE;
 							wp.updates.updateLock = true;
 						}
 
-						var detecting_pluginfo = $(passthis).parents('#plugin-information-footer');
-						var detecting_pluginfo_len = $(passthis).parents('#plugin-information-footer').length;
+						var detecting_pluginfo = jQuery(passthis).parents('#plugin-information-footer');
+						var detecting_pluginfo_len = jQuery(passthis).parents('#plugin-information-footer').length;
 
 						var link;
 						if (checklink) {
-							link = $(passthis).attr('href');
+							link = jQuery(passthis).attr('href');
 							if (link.indexOf('action=upgrade-plugin') < 0) { return; }
 						} else {
 							// No longer true: (previous comment - Irrelevant: checklink = false is only called with shiny updates)
@@ -663,11 +665,11 @@ ENDHERE;
 						updraft_inpage_modal_buttons[updraftlion.proceedwithupdate] = function() {
 							// Don't let the old-style autobackup fire as well
 							var newlink = link+'&updraftplus_noautobackup=1';
-							var $dialog = $(this);
-							if ($('#updraft_autobackup_setdefault').is(':checked')) {
+							var $dialog = jQuery(this);
+							if (jQuery('#updraft_autobackup_setdefault').is(':checked')) {
 								newlink = newlink + '&updraft_autobackup_setdefault=yes';
 								var autobackup;
-								if ($('#updraft_autobackup').is(':checked')) {
+								if (jQuery('#updraft_autobackup').is(':checked')) {
 									newlink = newlink + '&updraft_autobackup=yes';
 									autobackup = 1;
 								} else  {
@@ -683,7 +685,7 @@ ENDHERE;
 									console.log(response);
 								});
 							}
-							if ($('#updraft_autobackup').is(':checked')) {
+							if (jQuery('#updraft_autobackup').is(':checked')) {
 								updraft_backupnow_inpage_go(function() {
 									updraft_actually_proceeding = true;
 									$dialog.dialog('close');
@@ -691,9 +693,9 @@ ENDHERE;
 										shiny_updates_proceed();
 									} else {
 										// Proceed to update
-										if ($(passthis).find('#bulk-action-selector-top').length > 0) {
+										if (jQuery(passthis).find('#bulk-action-selector-top').length > 0) {
 											updraft_bulk_updates_proceed = true;
-											$(passthis).submit();
+											jQuery(passthis).submit();
 										} else {
 											window.location.href = newlink;
 										}
@@ -707,9 +709,9 @@ ENDHERE;
 								if (via_shiny_updates && detecting_pluginfo_len == 0) {
 									shiny_updates_proceed();
 								} else {
-									if ($(passthis).find('#bulk-action-selector-top').length > 0) {
+									if (jQuery(passthis).find('#bulk-action-selector-top').length > 0) {
 										updraft_bulk_updates_proceed = true;
-										$(passthis).submit();
+										jQuery(passthis).submit();
 									} else {
 										window.location.href = newlink;
 									}
@@ -728,16 +730,17 @@ ENDHERE;
 
 					}
 
+					<?php if (version_compare($wp_version, '3.3', '>=')) { ?>
 					// Bulk action form
-					$( '#bulk-action-form' ).on( 'submit', function( e ) {
+					jQuery( '#bulk-action-form' ).on( 'submit', function( e ) {
 						if (!shiny_updates || updraft_bulk_updates_proceed) { return; }
 						var $checkbox, plugin, slug;
 
-						if ( $( '#bulk-action-selector-top' ).val() == 'update-selected' ) {
+						if ( jQuery( '#bulk-action-selector-top' ).val() == 'update-selected' ) {
 
 							var are_there_any = false;
-							$( 'input[name="checked[]"]:checked' ).each( function( index, elem ) {
-								$checkbox = $( elem );
+							jQuery( 'input[name="checked[]"]:checked' ).each( function( index, elem ) {
+								$checkbox = jQuery( elem );
 								plugin = $checkbox.val();
 								slug = $checkbox.parents( 'tr' ).prop( 'id' );
 								are_there_any = true;
@@ -757,15 +760,17 @@ ENDHERE;
 // 					$('tr.plugin-update-tr a, #plugin-information-footer a.button').click(function(e) {
 // 						updates_intercept(e, this, true);
 // 					});
-					$('tr.plugin-update-tr').on('click', 'a', function(e) {
+					jQuery('tr.plugin-update-tr').on('click', 'a', function(e) {
 						updates_intercept(e, this, true, shiny_updates);
 					});
-					$('#plugin-information-footer').on('click', ' a.button', function(e) {
+					jQuery('#plugin-information-footer').on('click', ' a.button', function(e) {
 						updates_intercept(e, this, true, shiny_updates);
 					});
 
-					$('form.upgrade').submit(function() {
-						var name=$(this).attr('name');
+					<?php } ?>
+
+					jQuery('form.upgrade').submit(function() {
+						var name=jQuery(this).attr('name');
 						var entity = 'plugins';
 						if ('upgrade' == name) {
 							entity = 'wpcore';
@@ -831,8 +836,6 @@ ENDHERE;
 <!-- 				<h2></h2> -->
 			</div>
 		<?php
-		global $updraftplus_admin;
-		$updraftplus_admin->admin_enqueue_scripts();
 	}
 
 	private function auto_backup_form($include_wrapper = true, $id='updraft_autobackup', $value='yes', $form_tags = true) {

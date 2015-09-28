@@ -75,7 +75,7 @@ if ( has_post_thumbnail() ) {
 	echo '<div>';
 }
 ?>
-<p><?php excerpt('50'); ?></p>
+<p><?php braven_excerpt(50); ?></p>
        </div><!--End Blog Content -->
         <div class="clear"></div>
 </div>

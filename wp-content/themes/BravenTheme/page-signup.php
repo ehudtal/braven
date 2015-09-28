@@ -17,14 +17,10 @@ get_header(); ?>
 	<div id="primary" class="content-area">
    
             
-             <div id="breadcrumb_wrapper">
-<div style="margin:0 auto; max-width:65rem;">
- <?php the_breadcrumb(); ?> </div>
- </div>   
+<?php braven_the_breadcrumb(); ?>  
  
 	
   <div id="left-content">
-			<?php /* The loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
             
             <?php if ( get_post_meta( get_the_ID(), 'Pull Quote', true ) ) : ?>
@@ -50,7 +46,7 @@ get_header(); ?>
         <input name="utf8" type="hidden" value="&#x2713;" />
         <input name="authenticity_token" type="hidden" value="QQtDzB0sTYZ5Blo+YX2gbA9a1cv9xHKcIfDwRdRJQxE=" />
       </div>
-      <input id="referrer" name="referrer" type="hidden" value="https://www.bebraven.org/" />
+      <input id="referrer" name="referrer" type="hidden" value="<?php bloginfo('url');?>" />
       <div class="form-group">
       <label class="required" for="user_first_name">Name</label>
       <section>
@@ -584,7 +580,7 @@ get_header(); ?>
 </div><!-- #primary -->
 <style>
 #footer-email,  
-#breadcrumb_wrapper,
+#breadcrumb-wrapper,
 #footer_bottom {
 	display: none;
 }

@@ -87,6 +87,8 @@ class UpdraftPlus_Remote_Communications {
 	private function ensure_crypto_loaded() {
 		if (!class_exists('Crypt_Rijndael') || !class_exists('Crypt_RSA')) {
 			global $updraftplus;
+			// phpseclib 1.x uses deprecated PHP4-styler constructors
+			$this->no_deprecation_warnings_on_php7();
 			if (is_a($updraftplus, 'UpdraftPlus')) {
 				$updraftplus->ensure_phpseclib(array('Crypt_Rijndael', 'Crypt_RSA'), array('Crypt/Rijndael', 'Crypt/RSA'));
 			} elseif (defined('UPDRAFTPLUS_DIR') && file_exists(UPDRAFTPLUS_DIR.'/includes/phpseclib')) {
@@ -99,6 +101,17 @@ class UpdraftPlus_Remote_Communications {
 				if (!class_exists('Crypt_Rijndael')) require_once('Crypt/Rijndael.php');
 				if (!class_exists('Crypt_RSA')) require_once('Crypt/RSA.php');
 			}
+		}
+	}
+
+	// Ugly, but necessary to prevent debug output breaking the conversation when the user has debug turned on
+	private function no_deprecation_warnings_on_php7() {
+		// PHP_MAJOR_VERSION is defined in PHP 5.2.7+
+		// We don't test for PHP > 7 because the specific deprecated element will be removed in PHP 8 - and so no warning should come anyway (and we shouldn't suppress other stuff until we know we need to).
+		if (defined('PHP_MAJOR_VERSION') && PHP_MAJOR_VERSION == 7) {
+			$old_level = error_reporting();
+			$new_level = $old_level & ~E_DEPRECATED;
+			if ($old_level != $new_level) error_reporting($new_level);
 		}
 	}
 

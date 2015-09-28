@@ -3,13 +3,8 @@
  * The Header template for our theme
  *
  * Displays all of the <head> section and everything up till <div id="main">
- *
- * @package WordPress
- * @subpackage Twenty_Thirteen
- * @since Twenty Thirteen 1.0
  */
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <!--[if IE 7]>
 <html class="ie ie7" <?php language_attributes(); ?>>
 <![endif]-->
@@ -30,66 +25,14 @@
 <!--[if lt IE 9]>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
 	<![endif]-->
-
-<link rel="stylesheet" type="text/css" href="<?php echo bloginfo('template_directory')?>/css/TradeGothicNo.20-CondBold.css">
-<link rel="stylesheet" type="text/css" href="<?php echo bloginfo('template_directory')?>/css/manus-stylesheet.css">
-<link rel="stylesheet" type="text/css" href="<?php echo bloginfo('template_directory')?>/css/sass-compiled.css">
-<link type="text/css" rel="stylesheet" href="<?php echo bloginfo('template_directory')?>/css/jquery.mmenu.all.css" />
-<link rel="stylesheet" href="<?php echo bloginfo('template_directory')?>/css/nerveSlider.min.css">
+<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory')?>/css/sass-compiled.css"><!-- sass-compiled.css is needed for staff bios. let's merge it with braven.css at some point? -->
+<link type="text/css" rel="stylesheet" href="<?php bloginfo('template_directory')?>/css/jquery.mmenu.all.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
-
-<!-- Obsolete?  Maybe this was for an old slider?
- <script src="<?php echo bloginfo('template_directory')?>/js/plugins/jquery.easing.1.3.js"></script>
- -->
-<script src="<?php echo bloginfo('template_directory')?>/js/jquery.bxslider.js"></script>
-<script src="<?php echo bloginfo('template_directory')?>/js/fontsmoothie.min.js"></script>
-<script src="<?php echo bloginfo('template_directory')?>/js/jquery.easypiechart.min.js"></script>
-<script src="<?php echo bloginfo('template_directory')?>/js/wow.min.js"></script>
-<script type="text/javascript" src="<?php echo bloginfo('template_directory')?>/js/jquery.mmenu.min.all.js"></script>
-<script src="<?php echo bloginfo('template_directory')?>/js/jquery.nerveSlider.js" type="text/javascript"></script>
-<script language="javascript"> 
-$(document).ready(function(){
-	$('#slider_posts').bxSlider({
-		mode: 'horizontal',
-		useCSS: false,
-		infiniteLoop: true,
-		hideControlOnEnd: true,
-		easing: 'swing',
-		auto:true,
-		pause: 8000,
-		speed: 2000
-	});
-	$('#slider_testimonials').bxSlider({
-		mode: 'horizontal',
-		useCSS: false,
-		infiniteLoop: true,
-		hideControlOnEnd: true,
-		easing: 'swing',
-		mode: 'fade',
-		auto:true,
-		pause: 7000,
-		speed: 2800
-	});
-	$('a').click(function(){
-		$('html, body').animate({
-			scrollTop: $('[name="' + $.attr(this, 'href').substr(1) + '"]').offset().top
-		}, 500);
-		return false;
-	});
-	$('.chart').easyPieChart({
-		easing: 'easeOutBounce',
-		animate: 6000,
-		delay:8000,
-		onStep: function(from, to, percent) {
-			$(this.el).find('.percent').text(Math.round(percent));
-		}
-	});
-	var chart = window.chart = $('.chart').data('easyPieChart');
-	$('.js_update').on('click', function() {
-		chart.update(Math.random()*200-100);
-	});
-	$('nav#menu').mmenu({ 
+<script type="text/javascript" src="<?php bloginfo('template_directory')?>/js/jquery.mmenu.min.all.js"></script>
+<script>
+jQuery(document).ready(function($){
+		$('nav#menu').mmenu({ 
 		navbar: {title: "Braven"} 
 	});
 	var API = $("#menu").data( "mmenu" );
@@ -97,10 +40,64 @@ $(document).ready(function(){
 		API.close();
 	});
 }); // end JQuery
-
-wow = new WOW();
-wow.init();
 </script>
+
+<?php if (is_home() || is_front_page() ) : ?> 
+	<script src="<?php bloginfo('template_directory')?>/js/jquery.bxslider.js"></script>
+	<script>
+		jQuery(document).ready(function($){
+			$('#slider_posts').bxSlider({
+				mode: 'horizontal',
+				useCSS: false,
+				infiniteLoop: true,
+				hideControlOnEnd: true,
+				easing: 'swing',
+				auto:true,
+				pause: 8000,
+				speed: 2000
+			});
+			$('#slider_testimonials').bxSlider({
+				mode: 'horizontal',
+				useCSS: false,
+				infiniteLoop: true,
+				hideControlOnEnd: true,
+				easing: 'swing',
+				mode: 'fade',
+				auto:true,
+				pause: 7000,
+				speed: 2800
+			});
+		}); // end JQuery
+		/*$('a').click(function(){
+			$('html, body').animate({
+				scrollTop: $('[name="' + $.attr(this, 'href').substr(1) + '"]').offset().top
+			}, 500);
+			return false;
+		});*/
+	</script>
+<?php endif; // is home || is front page ?>
+<?php if (is_page_template( 'page-with-charts.php' ) || is_home() || is_front_page() ) : ?>
+	<script src="<?php echo bloginfo('template_directory')?>/js/jquery.easypiechart.min.js"></script>
+	<script src="<?php echo bloginfo('template_directory')?>/js/wow.min.js"></script>
+	<script>
+		jQuery(document).ready(function($){
+			$('.chart').easyPieChart({
+				easing: 'easeOutBounce',
+				animate: 6000,
+				delay:8000,
+				onStep: function(from, to, percent) {
+					$(this.el).find('.percent').text(Math.round(percent));
+				}
+			});
+			var chart = window.chart = $('.chart').data('easyPieChart');
+			$('.js_update').on('click', function() {
+				chart.update(Math.random()*200-100);
+			});
+		}); // end JQuery
+		wow = new WOW();
+		wow.init();
+	</script>
+<?php endif; ?>
 <?php wp_head(); ?>
 </head>
 
@@ -108,11 +105,25 @@ wow.init();
 <div id="page">
 <div class="upperheader_red">
 	<div class="container">
-		<h4 class="tophdr-content">Join Our Mailing List &raquo; <span style="margin-left:2px; margin-right:2px;"> <span class="social"> <a class="mail_icon" target="_blank" href="#mailinglist"></a> <a class="facebook_icon" target="_blank" href="https://www.facebook.com/BeBraven" target="_blank"></a> <a class="ig_icon" target="_blank" href="https://instagram.com/bebraven/" target="_blank"></a> <a class="twitter_icon" target="_blank" href="https://twitter.com/bebraven" target="_blank"></a> </span> <span class="login_container"><a href="https://www.beyondz.org/users/sign_in_sso">Log In</a></span> </h4>
+		<h4 class="tophdr-content">Join Our Mailing List &raquo;
+			<span class="social">
+				<a class="mail_icon" target="_blank" href="#mailinglist"></a>
+				<a class="facebook_icon" href="https://www.facebook.com/BeBraven" target="_blank"></a>
+				<a class="ig_icon" href="https://instagram.com/bebraven/" target="_blank"></a>
+				<a class="twitter_icon" href="https://twitter.com/bebraven" target="_blank"></a>
+			</span>
+			<span class="login_container">
+				<a href="https://www.beyondz.org/users/sign_in_sso">Log In</a>
+			</span>
+		</h4>
 	</div>
 </div>
 <div id="topheader">
-	<div id="blogo"> <a href="<?php echo bloginfo('url')?>"><img src="<?php echo bloginfo ('template_directory');?>/images/braven_logo.png"></a> </div>
+	<div id="blogo">
+		<a href="<?php bloginfo('url')?>">
+			<img src="<?php bloginfo ('template_directory');?>/images/braven_logo.png" alt="Braven logo">
+		</a>
+	</div>
 	<div id="navigation" class="navigationbar">
 		<nav id="site-navigation" class="navigation main-navigation" role="navigation">
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu', 'menu_id' => 'primary-menu' ) ); ?>

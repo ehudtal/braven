@@ -2,9 +2,9 @@
 /*
 UpdraftPlus Addon: morestorage:Multiple storage options
 Description: Provides the ability to back up to multiple remote storage facilities, not just one
-Version: 1.1
+Version: 1.2
 Shop: /shop/morestorage/
-Latest Change: 1.10.4
+Latest Change: 1.11.10
 */
 
 if (!defined('UPDRAFTPLUS_DIR')) die('No direct access allowed');
@@ -18,6 +18,11 @@ class UpdraftPlus_Addon_MoreStorage {
 		#add_action('updraftplus_config_print_after_storage', array($this, 'config_print_after_storage'));
 		add_action('updraftplus_config_print_before_storage', array($this, 'config_print_before_storage'));
 		add_filter('updraftplus_savestorage', array($this, 'savestorage'), 10, 2);
+		add_action('updraftplus_after_remote_storage_heading', array($this, 'after_remote_storage_heading'));
+	}
+
+	public function after_remote_storage_heading() {
+		echo '<br><em>'.__('(as many as you like)', 'updraftplus').'</em>';
 	}
 
 	public function admin_print_footer_scripts() {
@@ -72,6 +77,9 @@ class UpdraftPlus_Addon_MoreStorage {
 				var the_method = jQuery(this).attr('name');
 				tab_activation(the_method);
 			});
+			
+			var servicecheckbox = jQuery(".updraft_servicecheckbox");
+			if (typeof servicecheckbox.labelauty === 'function') { servicecheckbox.labelauty(); }
 		});
 		
 		function tab_activation(the_method){
@@ -111,13 +119,19 @@ class UpdraftPlus_Addon_MoreStorage {
 		global $updraftplus;
 		add_action('admin_print_footer_scripts', array($this, 'admin_print_footer_scripts'));
 
-		foreach ($updraftplus->backup_methods as $method => $description) {
-			echo "<input name=\"updraft_service[]\" class=\"updraft_servicecheckbox\" id=\"updraft_servicecheckbox_$method\" type=\"checkbox\" value=\"$method\"";
-			if ($active_service === $method || (is_array($active_service) && in_array($method, $active_service))) echo ' checked="checked"';
-			echo '> <label for="updraft_servicecheckbox_'.$method.'">'.$description.'</label><br>';
-		}
+		?> 
+		<div id="remote-storage-container">
+
+		<?php
+			foreach ($updraftplus->backup_methods as $method => $description) {
+				echo "<input name=\"updraft_service[]\" class=\"updraft_servicecheckbox $method\" id=\"updraft_servicecheckbox_$method\" type=\"checkbox\" value=\"$method\"";
+				if ($active_service === $method || (is_array($active_service) && in_array($method, $active_service))) echo ' checked="checked"';
+				echo " data-labelauty=\"".esc_attr($description)."\">";
+			}
 
 		?>
+
+		</div>
 
 		</td>
 		</tr>

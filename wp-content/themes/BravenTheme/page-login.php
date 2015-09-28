@@ -21,14 +21,10 @@ get_header(); ?>
 	<div id="primary" class="content-area">
    
             
-             <div id="breadcrumb_wrapper">
-<div style="margin:0 auto; max-width:65rem;">
- <?php the_breadcrumb(); ?> </div>
- </div>   
+<?php braven_the_breadcrumb(); ?>  
  
 		<div id="content" class="site-content" role="main">
 
-			<?php /* The loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
             
             <?php if ( get_post_meta( get_the_ID(), 'Pull Quote', true ) ) : ?>
@@ -102,7 +98,7 @@ get_header(); ?>
 <style>
 #footer-email, 
 #footer_bottom, 
-#breadcrumb_wrapper {
+#breadcrumb-wrapper {
 	display: none;
 }
 
