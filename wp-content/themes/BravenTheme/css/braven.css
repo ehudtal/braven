@@ -42,6 +42,9 @@ p {
     margin: 0 0 24px;
     font-size: 1.2em;
 }
+em, i {
+	font-style:italic;
+}
 a {
     color: #eb3b45;
 }

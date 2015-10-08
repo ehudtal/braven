@@ -94,11 +94,6 @@ function braven_scripts_styles() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
 		wp_enqueue_script( 'comment-reply' );
 
-	// Adds Masonry to handle vertical alignment of footer widgets.
-	// NOTE: Apperntly this is not required, can remove completely if we see that's so. -- Ehud
-	/*if ( is_active_sidebar( 'sidebar-1' ) )
-			wp_enqueue_script( 'jquery-masonry' );
-	*/
 	// Loads JavaScript file with functionality specific to Braven Theme.
 	wp_enqueue_script( 'braven-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20150330', true );
 
@@ -109,7 +104,7 @@ function braven_scripts_styles() {
 	wp_enqueue_style( 'braven-style', get_stylesheet_uri(), array(), '2013-07-18' );
 
 	// Loads the Internet Explorer specific stylesheet.
-	wp_enqueue_style( 'braven-ie', get_template_directory_uri() . '/css/ie.css', array( 'braven-style' ), '2013-07-18' );
+	wp_enqueue_style( 'braven-ie', get_template_directory_uri() . '/css/ie.css', array( 'braven-style' ), '20151011' );
 	wp_style_add_data( 'braven-ie', 'conditional', 'lt IE 9' );
 }
 add_action( 'wp_enqueue_scripts', 'braven_scripts_styles' );
