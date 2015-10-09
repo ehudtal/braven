@@ -424,7 +424,7 @@ function load_css_files() {
 }
 
 
-/*Alphabetical ordering by last name for bios (used on staff-page.php) */
+/*Alphabetical ordering by last name for bios (used on staff-page.php) 	
 function braven_posts_orderby ($orderby) {
    global $braven_global_orderby;
    if ($braven_global_orderby) $orderby = $braven_global_orderby;
@@ -1404,12 +1404,11 @@ function braven_staff_list( $atts ) {
 	// define query parameters based on attributes
 	$staff_args = array(
 		'post_type' => $type,
-		'order' => $order,
-		'orderby' => $orderby,
-		'posts_per_page' => $posts,
+		'order' => 'ASC',
+		'orderby' => 'title',
+		'posts_per_page' => '-1',
 		'staff_categories' => $staff_categories,
-		'category_name' => $category,
-		'posts_per_page' => $posts_per_page,
+		'category_name' => $category
 	);
 	
 	$count = 1;

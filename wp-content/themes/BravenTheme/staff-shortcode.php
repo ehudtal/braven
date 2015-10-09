@@ -1,4 +1,4 @@
-<?php
+<?php /*
 function staff_list( $atts ) {
     ob_start();
 	 // define attributes and their defaults
@@ -40,8 +40,9 @@ function staff_list( $atts ) {
 
 <a href="<?php echo $staffdata[ 'plink' ]; ?>" target="_blank">
 
-<?php if ( has_post_thumbnail() ) {
-the_post_thumbnail('staff-thumb');
+<?php 
+if ( has_post_thumbnail() ) {
+	the_post_thumbnail('staff-thumb');
 } else { ?>
 <img src="/wp-content/uploads/2015/08/braven_profile.jpg" alt="<?php the_title(); ?>" />
 <?php } ?>
@@ -93,17 +94,19 @@ else { ?>
 </div>
 
 
-<?php wp_reset_postdata(); ?>
-    <?php $myvariable = ob_get_clean();
-    return $myvariable;
-    }?>
- <?php {
-        $myvariable = ob_get_clean();
-        return $myvariable;
-    }
+<?php 
+		wp_reset_postdata();
+		$myvariable = ob_get_clean();
+		return $myvariable;
+	}
+	{
+		$myvariable = ob_get_clean();
+		return $myvariable;
+	}
 }
 
 ?>
 
 
 
+/**/
