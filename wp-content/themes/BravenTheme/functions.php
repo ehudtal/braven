@@ -332,7 +332,7 @@ function braven_entry_date( $echo = true ) {
 	else
 		$format_prefix = '%2$s';
 
-	$date = sprintf( '<span class="date"><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a></span>',
+	$date = sprintf( '<span class="date"><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date updated" datetime="%3$s">%4$s</time></a></span>',
 		esc_url( get_permalink() ),
 		esc_attr( sprintf( __( 'Permalink to %s', 'braven' ), the_title_attribute( 'echo=0' ) ) ),
 		esc_attr( get_the_date( 'c' ) ),
@@ -424,7 +424,10 @@ function load_css_files() {
 }
 
 
-/*Alphabetical ordering by last name for bios (used on staff-page.php) 	
+/*
+DISABLED because it runs on all queries.
+
+Alphabetical ordering by last name for bios (used on staff-page.php) 	
 function braven_posts_orderby ($orderby) {
    global $braven_global_orderby;
    if ($braven_global_orderby) $orderby = $braven_global_orderby;
@@ -435,7 +438,7 @@ $braven_global_orderby = "
 	UPPER(CONCAT(REVERSE(SUBSTRING_INDEX(REVERSE($wpdb->posts.post_title),' ',1)),$wpdb->posts.post_title))
 ";
 
-
+/**/
 
 /**
  * Load Dynamic Widget Classes
