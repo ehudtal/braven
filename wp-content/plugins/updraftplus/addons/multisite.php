@@ -107,6 +107,7 @@ if (is_multisite()) {
 
 					'updraft_remotesites' => array(),
 					'updraft_migrator_localkeys' => array(),
+					'updraft_remotecontrol_localkeys' => array(),
 
 					'updraft_autobackup_default' => 1,
 					'updraft_delete_local' => 1,

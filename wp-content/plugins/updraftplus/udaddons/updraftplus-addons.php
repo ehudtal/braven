@@ -96,7 +96,7 @@ class UpdraftPlusAddons2 {
 	}
 
 	public function updraftplus_showrawinfo() {
-		echo "<p>Updates URL: ".htmlspecialchars($this->url)."</p>";
+		echo "<p>Updates URL: ".htmlspecialchars($this->url)." (sid=".htmlspecialchars($this->siteid()).")</p>";
 	}
 
 	public function updraftplus_restore_db_pre() {
@@ -362,7 +362,7 @@ class UpdraftPlusAddons2 {
 
 	public function siteid() {
 		$sid = get_site_option(UDADDONS2_SLUG.'_siteid');
-		if (!is_string($sid)) {
+		if (!is_string($sid) || empty($sid)) {
 			$sid = md5(rand().time().home_url());
 			update_site_option(UDADDONS2_SLUG.'_siteid', $sid);
 		}

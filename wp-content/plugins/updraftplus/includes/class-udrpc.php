@@ -87,7 +87,7 @@ class UpdraftPlus_Remote_Communications {
 	private function ensure_crypto_loaded() {
 		if (!class_exists('Crypt_Rijndael') || !class_exists('Crypt_RSA')) {
 			global $updraftplus;
-			// phpseclib 1.x uses deprecated PHP4-styler constructors
+			// phpseclib 1.x uses deprecated PHP4-style constructors
 			$this->no_deprecation_warnings_on_php7();
 			if (is_a($updraftplus, 'UpdraftPlus')) {
 				$updraftplus->ensure_phpseclib(array('Crypt_Rijndael', 'Crypt_RSA'), array('Crypt/Rijndael', 'Crypt/RSA'));
@@ -97,6 +97,11 @@ class UpdraftPlus_Remote_Communications {
 				if (!class_exists('Crypt_RSA')) require_once('Crypt/RSA.php');
 			} elseif (file_exists(dirname(__DIR__).'/vendor/phpseclib')) {
 				$pdir = dirname(__DIR__).'/vendor/phpseclib';
+				if (false === strpos(get_include_path(), $pdir)) set_include_path(get_include_path().PATH_SEPARATOR.$pdir);
+				if (!class_exists('Crypt_Rijndael')) require_once('Crypt/Rijndael.php');
+				if (!class_exists('Crypt_RSA')) require_once('Crypt/RSA.php');
+			} elseif (file_exists(dirname(__DIR__).'/composer/vendor/phpseclib')) {
+				$pdir = dirname(__DIR__).'/composer/vendor/phpseclib';
 				if (false === strpos(get_include_path(), $pdir)) set_include_path(get_include_path().PATH_SEPARATOR.$pdir);
 				if (!class_exists('Crypt_Rijndael')) require_once('Crypt/Rijndael.php');
 				if (!class_exists('Crypt_RSA')) require_once('Crypt/RSA.php');

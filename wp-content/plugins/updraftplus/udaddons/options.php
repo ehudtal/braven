@@ -246,7 +246,7 @@ ENDHERE;
 			<p style="margin-left: 258px;">
 				<input id="ud_connectsubmit" type="submit" class="button-primary" value="$connect" />
 			</p>
-			<p style="margin-left: 258px; font-size: 70%"><em><a href="http://updraftplus.com/faqs/tell-me-about-my-updraftplus-com-account/">$interested</a></em></p>
+			<p style="margin-left: 258px; font-size: 70%"><em><a href="https://updraftplus.com/faqs/tell-me-about-my-updraftplus-com-account/">$interested</a></em></p>
 		</form>
 ENDHERE;
 

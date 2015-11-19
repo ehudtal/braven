@@ -48,17 +48,18 @@ class UpdraftPlus_RemoteStorage_Addons_Base {
 
 	public function upload_files($ret, $backup_array) {
 
-		global $updraftplus, $updraftplus_backup;
+		global $updraftplus;
 
 		$this->options = $this->get_opts();
-		if (!array($this->options)) {
+
+		if (!$this->options_exist($this->options)) {
 			$updraftplus->log('No '.$this->method.' settings were found');
 			$updraftplus->log(sprintf(__('No %s settings were found','updraftplus'), $this->description), 'error');
 			return false;
 		}
 
 		$storage = $this->bootstrap();
-		if (is_wp_error($storage)) { global $updraftplus; return $updraftplus->log_wp_error($storage, false, true); }
+		if (is_wp_error($storage)) return $updraftplus->log_wp_error($storage, false, true);
 
 		$this->storage = $storage;
 
@@ -172,8 +173,8 @@ class UpdraftPlus_RemoteStorage_Addons_Base {
 		if (is_string($files)) $files = array($files);
 
 		if (empty($files)) return true;
-		if (!method_exists($this, 'do_delete')) {
-			$updraftplus->log($this->method.": Delete failed: this storage method does not allow downloading");
+		if (!method_exists($this, 'do_download')) {
+			$updraftplus->log($this->method.": Download failed: this storage method does not allow downloading");
 			$updraftplus->log($this->description.': '.__('This storage method does not allow downloading','updraftplus'), 'error');
 			return false;
 		}
@@ -233,7 +234,7 @@ class UpdraftPlus_RemoteStorage_Addons_Base {
 		}
 			if (method_exists($this, 'do_config_print')) $this->do_config_print($this->options);
 
-			if (!$this->test_button) return;
+			if (!$this->test_button || (method_exists($this, 'should_print_test_button') && !$this->should_print_test_button())) return;
 
 		?>
 
@@ -250,7 +251,7 @@ class UpdraftPlus_RemoteStorage_Addons_Base {
 	}
 
 	public function config_javascript() {
-		if (!$this->test_button) return;
+		if (!$this->test_button || (method_exists($this, 'should_print_test_button') && !$this->should_print_test_button())) return;
 		?>
 		jQuery('#updraft-<?php echo $this->method;?>-test').click(function(){
 			jQuery('#updraft-<?php echo $this->method; ?>-test').html('<?php echo esc_js(sprintf(__('Testing %s Settings...', 'updraftplus'), $this->description)); ?>');

@@ -173,14 +173,27 @@ class UpdraftPlus_Addons_RemoteStorage_remotesend extends UpdraftPlus_RemoteStor
 			// 413 - Request entity too large
 			// Don't go lower than 64Kb chunks (i.e. 128Kb/2)
 			// Note that mod_security can be configured to 'helpfully' decides to replace HTTP error codes + messages with a simple serving up of the site home page, which means that we need to also guess about other reasons this condition may have occurred other than detecting via the direct 413 code. Of course, our search for wp-includes|wp-content|WordPress|/themes/ would be thwarted by someone who tries to hide their WP. The /themes/ is pretty hard to hide, as the theme directory is always <wp-content-dir>/themes - even if you moved your wp-content. The point though is just a 'best effort' - this doesn't have to be infallible.
-			if (1 == $chunk_index && is_wp_error($put_chunk)  && $this->remotesend_use_chunk_size > 131072 && (('unexpected_http_code' == $put_chunk->get_error_code() && 413 == $put_chunk->get_error_data()) || ('response_not_understood' == $put_chunk->get_error_code() && (strpos($put_chunk->get_error_data(), 'wp-includes') !== false || strpos($put_chunk->get_error_data(), 'wp-content') !== false || strpos($put_chunk->get_error_data(), 'WordPress') !== false || strpos($put_chunk->get_error_data(), '/themes/') !== false)))) {
-				$new_chunk_size = floor($this->remotesend_use_chunk_size / 2);
-				$this->remotesend_set_new_chunk_size($new_chunk_size);
-				$log_msg = "Returned WP_Error: code=".$put_chunk->get_error_code();
-				if ('unexpected_http_code' == $put_chunk->get_error_code()) $log_msg .= ' ('.$put_chunk->get_error_data().')';
-				$log_msg .= " - reducing chunk size to: ".$new_chunk_size;
-				$updraftplus->log($log_msg);
-				return new WP_Error('reduce_chunk_size', 'HTTP 413 or possibly equivalent condition on first chunk - should reduce chunk size', $new_chunk_size);
+			if (is_wp_error($put_chunk) && $this->remotesend_use_chunk_size > 131072 && (('unexpected_http_code' == $put_chunk->get_error_code() && 413 == $put_chunk->get_error_data()) || ('response_not_understood' == $put_chunk->get_error_code() && (strpos($put_chunk->get_error_data(), 'wp-includes') !== false || strpos($put_chunk->get_error_data(), 'wp-content') !== false || strpos($put_chunk->get_error_data(), 'WordPress') !== false || strpos($put_chunk->get_error_data(), '/themes/') !== false)))) {
+				if (1 == $chunk_index) {
+					$new_chunk_size = floor($this->remotesend_use_chunk_size / 2);
+					$this->remotesend_set_new_chunk_size($new_chunk_size);
+					$log_msg = "Returned WP_Error: code=".$put_chunk->get_error_code();
+					if ('unexpected_http_code' == $put_chunk->get_error_code()) $log_msg .= ' ('.$put_chunk->get_error_data().')';
+					$log_msg .= " - reducing chunk size to: ".$new_chunk_size;
+					$updraftplus->log($log_msg);
+					return new WP_Error('reduce_chunk_size', 'HTTP 413 or possibly equivalent condition on first chunk - should reduce chunk size', $new_chunk_size);
+				} elseif (is_wp_error($put_chunk) && $this->remotesend_use_chunk_size > 131072 && 'unexpected_http_code' == $put_chunk->get_error_code() && 413 == $put_chunk->get_error_data()) {
+					// In this limited case, where we got a 413 but the chunk is not number 1, our algorithm/architecture doesn't allow us to just resume immediately with a new chunk size. However, we can just have UD reduce the chunk size on its next resumption.
+					$new_chunk_size = floor($this->remotesend_use_chunk_size / 2);
+					$this->remotesend_set_new_chunk_size($new_chunk_size);
+					$log_msg = "Returned WP_Error: code=".$put_chunk->get_error_code();
+					$log_msg .= " - reducing chunk size to: ".$new_chunk_size." and then scheduling resumption/aborting";
+					$updraftplus->log($log_msg);
+					$updraftplus->reschedule(60);
+					$updraftplus->record_still_alive();
+					die;
+					
+				}
 			}
 			$put_chunk = $this->send_message('send_chunk', $data, 240);
 		}
