@@ -13,6 +13,7 @@ favicon.ico
 .cache
 
 wp-content/updraft
+wp-content/uploads
 
 log
 
