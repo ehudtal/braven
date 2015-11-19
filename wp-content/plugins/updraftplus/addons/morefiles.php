@@ -64,7 +64,7 @@ class UpdraftPlus_Addons_MoreFiles {
 
 			<?php
 
-			echo '<input name="updraft_restorer_wpcore_includewpconfig" id="updraft_restorer_wpcore_includewpconfig" type="checkbox" value="1"><label for="updraft_restorer_wpcore_includewpconfig"> '.__('Over-write wp-config.php','updraftplus').'</label> <a href="http://updraftplus.com/faqs/when-i-restore-wordpress-core-should-i-include-wp-config-php-in-the-restoration/">'.__('(learn more about this significant option)','updraftplus').'</a>';
+			echo '<input name="updraft_restorer_wpcore_includewpconfig" id="updraft_restorer_wpcore_includewpconfig" type="checkbox" value="1"><label for="updraft_restorer_wpcore_includewpconfig"> '.__('Over-write wp-config.php','updraftplus').'</label> <a href="https://updraftplus.com/faqs/when-i-restore-wordpress-core-should-i-include-wp-config-php-in-the-restoration/">'.__('(learn more about this significant option)','updraftplus').'</a>';
 
 			?>
 

@@ -1057,9 +1057,14 @@ ul.vcalendar li {
     padding-left: 1.5em;
     padding-right: 1.5em;
 }
-article p {
-    font-size: 16px;
-    line-height: 26px;
+article p,
+.single-post .site-content p {
+    font-size: 1.2em;
+	 line-height: 1.5em;
+}
+article li,
+.single-post .site-content li {
+    font-size: 1.1em;
 }
 .full-width {
     padding: 15px 0;

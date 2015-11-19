@@ -4,12 +4,8 @@ UpdraftPlus Addon: fixtime:Time and Scheduling
 Description: Allows you to specify the exact time at which backups will run, and create more complex retention rules
 Version: 1.6
 Shop: /shop/fix-time/
-Latest Change: 1.11.7
+Latest Change: 1.11.12
 */
-
-// TODO: Add a link to help
-// TODO: Edit product page
-// TODO: Also delete auto-backups if we're past any rule.
 
 if (!defined('UPDRAFTPLUS_DIR')) die('No direct access allowed');
 
@@ -95,7 +91,7 @@ class UpdraftPlus_AddOn_FixTime {
 			}
 		}
 
-		if ($debug) $updraftplus->log("latest_relevant_index: $latest_relevant_index", 'debug');
+		if ($debug) $updraftplus->log("backup_age=$backup_age, latest_relevant_index: $latest_relevant_index", 'debug');
 
 		if (false === $latest_relevant_index) {
 			// There are no rules which apply to this backup (it's not old enough)
@@ -103,17 +99,17 @@ class UpdraftPlus_AddOn_FixTime {
 			return false;
 		}
 
-		if ($debug) $updraftplus->log("last_relevant_backup_kept_at=$last_relevant_backup_kept_at[$type]: last_relevant_backup_kept_at=$last_relevant_backup_kept_at", 'debug');
+		$rule = $extra_rules[$latest_relevant_index];
+
+		if ($debug) $updraftplus->log("last_relevant_backup_kept_at=$last_relevant_backup_kept_at[$type], last_backup_seen_at=".$last_backup_seen_at[$type].", rule=".serialize($rule), 'debug');
 
 		// Is this the first relevant (i.e. old enough) backup we've come across?
 		if (!$last_backup_seen_at[$type] || !$last_relevant_backup_kept_at[$type]) {
 			$last_backup_seen_at[$type] = $backup_datestamp;
 			$last_relevant_backup_kept_at[$type] = $backup_datestamp;
+			if ($debug) $updraftplus->log("Keeping this backup, as it is the first relevant (i.e. old enough) backup we've come across for the current rule");
 			return false;
 		}
-
-
-		$rule = $extra_rules[$latest_relevant_index];
 
 		$every_time = $rule['every-howmany'] * $rule['every-period'];
 
@@ -121,7 +117,7 @@ class UpdraftPlus_AddOn_FixTime {
 
 		$time_from_backup_to_last_kept = $last_relevant_backup_kept_at[$type] - $backup_datestamp;
 
-		if ($debug) $updraftplus->log("time_from_backup_to_last_kept=$time_from_backup_to_last_kept", 'debug');
+		if ($debug) $updraftplus->log("time_from_backup_to_last_kept=$time_from_backup_to_last_kept, every_time=$every_time", 'debug');
 
 		// Again, apply a 15-minute margin
 		if ($time_from_backup_to_last_kept > $every_time - $wp_cron_unreliability_margin) {

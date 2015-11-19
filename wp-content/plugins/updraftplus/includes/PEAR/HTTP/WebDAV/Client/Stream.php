@@ -132,7 +132,7 @@ class HTTP_WebDAV_Client_Stream
      */
     var $locktoken = false;
 
-    var $stream_write_returned_501 = false;
+    var $stream_write_returned_recoverable_error = false;
     var $stream_write_final = false;
 
     /**
@@ -227,7 +227,7 @@ class HTTP_WebDAV_Client_Stream
     function stream_close() 
     {
         global $updraftplus, $updraftplus_webdav_filepath;
-        if ($this->stream_write_returned_501) {
+        if ($this->stream_write_returned_recoverable_error) {
             if (!empty($updraftplus_webdav_filepath) && is_readable($updraftplus_webdav_filepath)) {
                 $this->position = 0;
                 $this->stream_write_final = true;
@@ -342,7 +342,7 @@ class HTTP_WebDAV_Client_Stream
         $start = $this->position;
         $end   = $this->position + strlen($buffer) - 1;
         
-        if (((defined('UPDRAFTPLUS_WEBDAV_NEVER_CHUNK') && UPDRAFTPLUS_WEBDAV_NEVER_CHUNK) || $this->stream_write_returned_501) && !$this->stream_write_final) {
+        if (((defined('UPDRAFTPLUS_WEBDAV_NEVER_CHUNK') && UPDRAFTPLUS_WEBDAV_NEVER_CHUNK) || $this->stream_write_returned_recoverable_error) && !$this->stream_write_final) {
             $this->position += strlen($buffer);
             return 1 + $end - $start;
         }
@@ -381,11 +381,32 @@ class HTTP_WebDAV_Client_Stream
             $this->position += strlen($buffer);
             return 1 + $end - $start;
 
+        // New in UD 1.11.13 for ownCloud 8.1.? (strictly, the version of SabreDav in it)
+        /*
+        <?xml version="1.0" encoding="utf-8"?>
+<d:error xmlns:d="DAV:" xmlns:s="http://sabredav.org/ns">
+  <s:exception>Sabre\DAV\Exception\BadRequest</s:exception>
+  <s:message>Content-Range on PUT requests are forbidden.</s:message>
+</d:error>
+        */
+        case 400:
+            global $updraftplus, $updraftplus_webdav_filepath;
+            if (false !== strpos($req->getResponseBody(), 'Content-Range') && !empty($updraftplus_webdav_filepath)) {
+                $updraftplus->log('WebDAV server returned 400 due to Content-Range issue; will try all-at-once method');
+                $this->stream_write_returned_recoverable_error = true;
+                # You lie!
+                return 1 + $end - $start;
+            } else {
+              trigger_error("Unexpected HTTP response code: ".$req->getResponseCode());
+              return false;
+            }
+             
+
         case 501:
             global $updraftplus, $updraftplus_webdav_filepath;
             if (!empty($updraftplus_webdav_filepath)) {
                 $updraftplus->log('WebDAV server returned 501; probably does not support Content-Range; will try all-at-once method');
-                $this->stream_write_returned_501 = true;
+                $this->stream_write_returned_recoverable_error = true;
                 # You lie!
                 return 1 + $end - $start;
             } else {
@@ -393,6 +414,7 @@ class HTTP_WebDAV_Client_Stream
             }
             
         default: 
+            trigger_error("Unexpected HTTP response code: ".$req->getResponseCode());
             return false;
         }
 

@@ -2,9 +2,9 @@
 /*
 UpdraftPlus Addon: autobackup:Automatic Backups
 Description: Save time and worry by automatically create backups before updating WordPress components
-Version: 2.0
+Version: 2.1
 Shop: /shop/autobackup/
-Latest Change: 1.10.2
+Latest Change: 1.11.13
 */
 
 if (!defined('UPDRAFTPLUS_DIR')) die('No direct access allowed');
@@ -19,6 +19,7 @@ class UpdraftPlus_Addon_Autobackup {
 	private $lock_name = 'auto_updater.lock';
 	private $already_backed_up = array();
 	private $inpage_restrict = '';
+	private $is_autobackup_core = null;
 
 	public function __construct() {
 		add_filter('updraftplus_autobackup_blurb', array($this, 'updraftplus_autobackup_blurb'));
@@ -39,6 +40,8 @@ class UpdraftPlus_Addon_Autobackup {
 		add_filter('auto_update_core', array($this, 'auto_update_core'), PHP_INT_MAX, 2);
 		add_action('pre_current_active_plugins', array($this, 'pre_current_active_plugins'));
 		add_action('install_plugins_pre_plugin-information', array($this, 'install_plugins_pre_plugin'));
+		add_filter('updraftplus_dirlist_wpcore_override', array($this, 'updraftplus_dirlist_wpcore_override'), 10, 2);
+		add_filter('updraft_wpcore_description', array($this, 'wpcore_description'));
 	}
 
 	public function install_plugins_pre_plugin() {
@@ -48,7 +51,10 @@ class UpdraftPlus_Addon_Autobackup {
 	}
 
 	public function wpcore_description($desc) {
-		return __('WordPress core (only)', 'updraftplus');
+		global $updraftplus;
+		$is_autobackup = $updraftplus->jobdata_get('is_autobackup', false);
+		if (empty($this->is_autobackup_core) && !$is_autobackup) return $desc;
+		return $is_autobackup ? __('WordPress core (only)', 'updraftplus') : $desc;
 	}
 
 	public function ud_wp_maybe_auto_update($lock_value) {
@@ -144,8 +150,7 @@ class UpdraftPlus_Addon_Autobackup {
 		}
 
 		if ('core' == $type) {
-			add_filter('updraftplus_dirlist_wpcore_override', array($this, 'updraftplus_dirlist_wpcore_override'), 10, 2);
-			add_filter('updraft_wpcore_description', array($this, 'wpcore_description'));
+			$this->is_autobackup_core = true;
 		}
 
 		$updraftplus->boot_backup($backup_files, $backup_database, $backup_files_array, true);
@@ -161,8 +166,13 @@ class UpdraftPlus_Addon_Autobackup {
 	}
 
 	public function updraftplus_dirlist_wpcore_override($l, $whichdir) {
+
+		global $updraftplus;
+		$is_autobackup = $updraftplus->jobdata_get('is_autobackup', false);
+		if (empty($this->is_autobackup_core) && !$is_autobackup) return $l;
+
 		// This does not need to include everything - only code
-		$possible = array('wp-admin', 'wp-includes', 'index.php', 'xmlrpc.php', 'wp-config.php', 'wp-activate.php', 'wp-app.php', 'wp-atom.php', 'wp-blog-header.php', 'wp-comments-post.php', 'wp-commentsrss2.php', 'wp-cron.php', 'wp-feed.php', 'wp-links-opml.php', 'wp-load.php', 'wp-login.php', 'wp-mail.php', 'wp-pass.php', 'wp-rdf.php', 'wp-register.php', 'wp-rss2.php', 'wp-rss.php', 'wp-settings.php', 'wp-signup.php', 'wp-trackback.php');
+		$possible = array('wp-admin', 'wp-includes', 'index.php', 'xmlrpc.php', 'wp-config.php', 'wp-activate.php', 'wp-app.php', 'wp-atom.php', 'wp-blog-header.php', 'wp-comments-post.php', 'wp-commentsrss2.php', 'wp-cron.php', 'wp-feed.php', 'wp-links-opml.php', 'wp-load.php', 'wp-login.php', 'wp-mail.php', 'wp-pass.php', 'wp-rdf.php', 'wp-register.php', 'wp-rss2.php', 'wp-rss.php', 'wp-settings.php', 'wp-signup.php', 'wp-trackback.php', '.htaccess');
 
 		$wpcore_dirlist = array();
 		$whichdir = trailingslashit($whichdir);
@@ -185,7 +195,7 @@ class UpdraftPlus_Addon_Autobackup {
 
 	# This appears on the page listing several updates
 	public function updraftplus_autobackup_blurb() {
-		$ret = '<input '.((UpdraftPlus_Options::get_updraft_option('updraft_autobackup_default', true)) ? 'checked="checked"' : '').' type="checkbox" id="updraft_autobackup" value="doit" name="updraft_autobackup"> <label for="updraft_autobackup">'.__('Automatically backup (where relevant) plugins, themes and the WordPress database with UpdraftPlus before updating', 'updraftplus').'</label><br><input checked="checked" type="checkbox" value="set" name="updraft_autobackup_setdefault" id="updraft_autobackup_sdefault"> <label for="updraft_autobackup_sdefault">'.__('Remember this choice for next time (you will still have the chance to change it)', 'updraftplus').'</label><br><em><a href="http://updraftplus.com/automatic-backups/">'.__('Read more about how this works...','updraftplus').'</a></em>';
+		$ret = '<input '.((UpdraftPlus_Options::get_updraft_option('updraft_autobackup_default', true)) ? 'checked="checked"' : '').' type="checkbox" id="updraft_autobackup" value="doit" name="updraft_autobackup"> <label for="updraft_autobackup">'.__('Automatically backup (where relevant) plugins, themes and the WordPress database with UpdraftPlus before updating', 'updraftplus').'</label><br><input checked="checked" type="checkbox" value="set" name="updraft_autobackup_setdefault" id="updraft_autobackup_sdefault"> <label for="updraft_autobackup_sdefault">'.__('Remember this choice for next time (you will still have the chance to change it)', 'updraftplus').'</label><br><em><a href="https://updraftplus.com/automatic-backups/">'.__('Read more about how this works...','updraftplus').'</a></em>';
 		// New-style widgets
 		add_action('admin_footer', array($this, 'admin_footer_inpage_backup'));
 		add_action('admin_footer', array($this, 'admin_footer_insertintoform'));
@@ -399,8 +409,7 @@ ENDHERE;
 		}
 
 		if ('core' == $entity) {
-			add_filter('updraftplus_dirlist_wpcore_override', array($this, 'updraftplus_dirlist_wpcore_override'), 10, 2);
-			add_filter('updraft_wpcore_description', array($this, 'wpcore_description'));
+			$this->is_autobackup_core = true;
 		}
 
 		add_filter('updraftplus_initial_jobdata', array($this, 'initial_jobdata2'));
@@ -860,7 +869,7 @@ ENDHERE;
 			<?php
 		}
 		?>
-		<p><a href="http://updraftplus.com/automatic-backups/"><?php _e('Read more about how this works...','updraftplus'); ?></a></p>
+		<p><a href="https://updraftplus.com/automatic-backups/"><?php _e('Read more about how this works...','updraftplus'); ?></a></p>
 		<?php
 		if ($include_wrapper) {
 		?></em>

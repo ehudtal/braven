@@ -88,7 +88,7 @@ class Updraft_Restorer extends WP_Upgrader {
 	# Subsequently, we have also added the ability to unpack tarballs
 	private function unpack_package_archive($package, $delete_package = true, $type = false) {
 
-		if (!empty($this->ud_foreign) && !empty($this->ud_foreign_working_dir)) {
+		if (!empty($this->ud_foreign) && !empty($this->ud_foreign_working_dir) && $package == $this->ud_foreign_package) {
 			if (is_dir($this->ud_foreign_working_dir)) {
 				return $this->ud_foreign_working_dir;
 			} else {
@@ -188,6 +188,7 @@ class Updraft_Restorer extends WP_Upgrader {
 
 		if (!empty($this->ud_foreign)) {
 			$this->ud_foreign_working_dir = $working_dir;
+			$this->ud_foreign_package = $package;
 			# Zip containing an SQL file. We try a default pattern.
 			if ('db' === $type) {
 				$basepack = basename($package, '.zip');
@@ -1006,7 +1007,7 @@ class Updraft_Restorer extends WP_Upgrader {
 		$nonce = $updraftplus->nonce;
 // TODO: Apparently empty
 		$auth_code = esc_js($this->ajax_restore_auth_code);
-error_log("AC: $auth_code ... ".serialize($this->ajax_restore_auth_code));
+// error_log("AC: $auth_code ... ".serialize($this->ajax_restore_auth_code));
 
 		echo <<<ENDHERE
 		<script>
@@ -1144,7 +1145,7 @@ ENDHERE;
 		# Exists in this folder?
 		if (is_dir($startat.'/'.$folder)) return trailingslashit($startat).$folder;
 		# Does not
-		if($handle = opendir($startat)) {
+		if ($handle = opendir($startat)) {
 			while (($file = readdir($handle)) !== false) {
 				if ($file != '.' && $file != '..' && is_dir($startat).'/'.$file) {
 					$ss = $this->search_for_folder($folder, trailingslashit($startat).$file);
@@ -1766,6 +1767,7 @@ ENDHERE;
 
 	// The table here is just for logging/info. The actual restoration itself is done via the standard options class.
 	private function restore_configuration_bundle($table) {
+		if (!is_array($this->configuration_bundle)) return;
 		global $updraftplus;
 		$updraftplus->log("Restoring prior UD configuration (table: $table; keys: ".count($this->configuration_bundle).")");
 		foreach ($this->configuration_bundle as $key => $value) {

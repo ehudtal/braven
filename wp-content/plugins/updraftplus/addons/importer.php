@@ -2,9 +2,9 @@
 /*
 UpdraftPlus Addon: importer:Import a WordPress backup made by another backup plugin
 Description: Import a backup made by other supported WordPress backup plugins (see shop page for a list of supported plugins)
-Version: 2.8
+Version: 2.9
 Shop: /shop/importer/
-Latest Change: 1.9.62
+Latest Change: 1.11.18
 */
 
 if (!defined('UPDRAFTPLUS_DIR')) die('No direct access allowed');
@@ -44,6 +44,11 @@ class UpdraftPlus_Addons_Importer {
 		if (empty($plugins[$accepted_foreign])) return $btime;
 		# mktime(): H, M, S, M, D, Y
 		switch ($accepted_foreign) {
+			case 'infinitewp':
+			if (preg_match('/_(([0-9]{4})-([0-9]{2})-([0-9]{2})_).*\.zip$/i', $entry, $tmatch)) {
+				return mktime(12, 0, 0, $tmatch[3], $tmatch[4], $tmatch[2]);
+			}
+			break;
 			case 'backupwordpress':
 			case 'backupwordpress2':
 			# e.g. example-com-default-1-complete-2014-03-10-11-44-57.zip
@@ -59,11 +64,13 @@ class UpdraftPlus_Addons_Importer {
 				$btime = mktime($tmatch[5], $tmatch[6], $tmatch[7], $tmatch[3], $tmatch[4], $tmatch[2]);
 				return $btime - ($btime % 60);
 			}
+			break;
 			case 'backwpup':
 			# e.g. backwpup_430908_2014-03-30_11-41-05.tar
 			if (preg_match('/^backwpup_[0-9a-f]+_([0-9]{4})-([0-9]{2})-([0-9]{2})_([0-9]{2})-([0-9]{2})-([0-9]{2})\.(zip|tar|tar\.gz|tar\.bz2)/i', $entry, $tmatch)) {
 				return mktime($tmatch[4], $tmatch[5], $tmatch[6], $tmatch[2], $tmatch[3], $tmatch[1]);
 			}
+			break;
 			case 'wpb2d':
 				if (!class_exists('UpdraftPlus_PclZip') && file_exists(UPDRAFTPLUS_DIR.'/class-zip.php')) require_once(UPDRAFTPLUS_DIR.'/class-zip.php');
 				global $updraftplus;
@@ -132,7 +139,8 @@ class UpdraftPlus_Addons_Importer {
 					}
 				}
 			}
-		} elseif ('backwpup' == $fsource) {
+		} elseif ('backwpup' == $fsource || 'infinitewp' == $fsource) {
+			// Infinite WP has no manifest - that's only in BackWPUp
 			if (is_file($working_dir_localpath.'/manifest.json')) {
 				$manifest = file_get_contents($working_dir_localpath.'/manifest.json');
 				if (false != $manifest) {
@@ -144,14 +152,15 @@ class UpdraftPlus_Addons_Importer {
 				}
 			} else {
 				$found_sql = false;
-				if ($handle = opendir($working_dir_localpath)) {
+				$add_dir = ('infinitewp' == $fsource) ? '/iwp_db' : '';
+				if ($handle = opendir($working_dir_localpath.$add_dir)) {
 					while (($file = readdir($handle)) !== false) {
 						if (strtolower(substr($file, -4, 4)) == '.sql') {
 							if (is_string($found_sql)) {
 								trigger_error("Multiple .sql files found in backwpup backup - don't know which to use ($found_sql, $file)", E_USER_WARNING);
 								return false;
 							} else {
-								$found_sql = (string)$file;
+								$found_sql = 'iwp_db/'.(string)$file;
 							}
 						}
 					}
@@ -250,6 +259,12 @@ class UpdraftPlus_Addons_Importer {
 			'desc' => 'WordPress Backup To Dropbox',
 			'pattern' => 'wpb2d.*\\.zip$',
 			'separatedb' => false
+		);
+
+		$x['infinitewp'] = array(
+			'desc' => 'InfiniteWP',
+			'pattern' => '^.*_backup_(files|db)_([0-9]{4})-([0-9]{2})-([0-9]{2})_([0-9a-f]+)\\.zip$',
+			'separatedb' => true
 		);
 
 		$x['genericsql'] = array(

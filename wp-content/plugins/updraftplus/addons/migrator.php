@@ -1200,6 +1200,9 @@ class UpdraftPlus_Addons_Migrator_RemoteSend {
 	}
 
 	public function plugins_loaded() {
+
+		global $updraftplus;
+
 		// Create a receiver for each key
 		if (!class_exists('UpdraftPlus_Options')) {
 			error_log("UpdraftPlus_Options class not found: is UpdraftPlus properly installed?");
@@ -1209,7 +1212,7 @@ class UpdraftPlus_Addons_Migrator_RemoteSend {
 		if (is_array($our_keys) && !empty($our_keys)) {
 			foreach ($our_keys as $name_hash => $key) {
 				if (!is_array($key)) return;
-				$ud_rpc = $this->get_udrpc($name_hash.'.migrator.updraftplus.com');
+				$ud_rpc = $updraftplus->get_udrpc($name_hash.'.migrator.updraftplus.com');
 				$this->receivers[$name_hash] = $ud_rpc;
 				$ud_rpc->set_key_local($key['key']);
 				// Create listener (which causes WP actions to be fired when messages are received)
@@ -1235,7 +1238,7 @@ class UpdraftPlus_Addons_Migrator_RemoteSend {
 	private function return_rpc_message($msg) {
 		if (is_array($msg) && isset($msg['response']) && 'error' == $msg['response']) {
 			global $updraftplus;
-			$updraftplus->log('Unexpected response code in remote communications: '.$msg);
+			$updraftplus->log('Unexpected response code in remote communications: '.serialize($msg));
 		}
 		if (!empty($this->php_events)) {
 			if (!isset($msg['data'])) $msg['data'] = null;
@@ -1403,12 +1406,14 @@ class UpdraftPlus_Addons_Migrator_RemoteSend {
 
 	public function updraft_printjob_beforewarnings($ret, $jobdata) {
 		if (!empty($jobdata['remotesend_info']) && !empty($jobdata['remotesend_info']['url'])) {
-			$ret .= '<p style="padding:0px; margin:2px 0;">'.__('Backup data will be sent to:', 'updraftplus').htmlspecialchars($jobdata['remotesend_info']['url']).'</p>';
+			$ret .= '<p style="padding:0px; margin:2px 0;">'.__('Backup data will be sent to:', 'updraftplus').' '.htmlspecialchars($jobdata['remotesend_info']['url']).'</p>';
 		}
 		return $ret;
 	}
 
 	public function updraft_remote_ping_test() {
+
+		global $updraftplus;
 
 		if (!isset($_POST['id']) || !is_numeric($_POST['id']) || empty($_POST['url'])) die;
 
@@ -1421,7 +1426,7 @@ class UpdraftPlus_Addons_Migrator_RemoteSend {
 		}
 
 		try {
-			$ud_rpc = $this->get_udrpc($remotesites[$_POST['id']]['name_indicator']);
+			$ud_rpc = $updraftplus->get_udrpc($remotesites[$_POST['id']]['name_indicator']);
 			$ud_rpc->set_key_local($remotesites[$_POST['id']]['key']);
 			$ud_rpc->set_destination_url($_POST['url']);
 			$ud_rpc->activate_replay_protection();
@@ -1532,7 +1537,8 @@ class UpdraftPlus_Addons_Migrator_RemoteSend {
 			die;
 		}
 
-		$ud_rpc = $this->get_udrpc($indicator_name);
+		global $updraftplus;
+		$ud_rpc = $updraftplus->get_udrpc($indicator_name);
 
 		if (is_object($ud_rpc) && $ud_rpc->generate_new_keypair()) {
 			$local_bundle = $ud_rpc->get_portable_bundle('base64_with_count');
@@ -1554,12 +1560,13 @@ class UpdraftPlus_Addons_Migrator_RemoteSend {
 
 	public function updraft_migrate_newdestination() {
 
+		global $updraftplus;
 		$ret = array();
 
 		if (empty($_POST['key'])) {
 			$ret['e'] = sprintf(__("Failure: No %s was given.",'updraftplus'), __('key','updraftplus'));
 		} else {
-			$ud_rpc = $this->get_udrpc();
+			$ud_rpc = $updraftplus->get_udrpc();
 
 			// A bundle has these keys: key, name_indicator, url
 			$decode_bundle = $ud_rpc->decode_portable_bundle($_POST['key'], 'base64_with_count');
@@ -1917,12 +1924,4 @@ class UpdraftPlus_Addons_Migrator_RemoteSend {
 
 	}
 	
-	// Gets an RPC object, and sets some defaults on it that we always want
-	private function get_udrpc($indicator_name = 'migrator.updraftplus.com') {
-		if (!class_exists('UpdraftPlus_Remote_Communications')) require_once(UPDRAFTPLUS_DIR.'/includes/class-udrpc.php');
-		$ud_rpc = new UpdraftPlus_Remote_Communications($indicator_name);
-		$ud_rpc->set_can_generate(true);
-		return $ud_rpc;
-	}
-
 }
