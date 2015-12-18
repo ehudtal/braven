@@ -113,7 +113,7 @@ jQuery(document).ready(function($){
 				<a class="twitter_icon" href="https://twitter.com/bebraven" target="_blank"></a>
 			</span>
 			<span class="login_container">
-				<a href="https://www.beyondz.org/users/sign_in_sso">Log In</a>
+				<a href="https://<?php echo braven_join_domain( 'join.bebraven.org' ); ?>/users/sign_in_sso">Log In</a>
 			</span>
 		</h4>
 	</div>

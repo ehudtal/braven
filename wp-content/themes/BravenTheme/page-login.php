@@ -51,7 +51,7 @@ get_header(); ?>
      Since it is a cross-domain, client side cookie, we had to implement this
      using a helper method on the other side and an iframe on this side.
 -->
-  <iframe style="visibility: hidden; width: 1px; height: 1px;" src="//www.beyondz.org/users/clear_session_cookie"></iframe>
+  <iframe style="visibility: hidden; width: 1px; height: 1px;" src="//<?php echo braven_join_domain( 'join.bebraven.org' ); ?>/users/clear_session_cookie"></iframe>
 <form method="post" action="login" id="login-form"
       onsubmit="submitbutton = document.getElementById('login-submit'); submitbutton.value='Please wait...'; submitbutton.disabled=true; return true;">
         <div><label id="username-label" for="username">
@@ -67,7 +67,7 @@ get_header(); ?>
 
       <br />
       <input type="hidden" id="lt" name="lt" value="LT-1439838677rh-E4v-5DkUZSQkI0cK" />
-      <input type="hidden" id="service" name="service" value="https:&#x2F;&#x2F;portal.beyondz.org&#x2F;login&#x2F;cas&#x2F;1" />
+      <input type="hidden" id="service" name="service" value="https:&#x2F;&#x2F;<?php echo braven_portal_domain( 'portal.bebraven.org' ); ?>&#x2F;login&#x2F;cas&#x2F;1" />
       <div><input class="btn-primary" name="commit" type="submit" value="Log in" /></div>
       <div id="infoline">
       </div>
@@ -76,11 +76,11 @@ get_header(); ?>
 
        <br />
         
-  <a href="//www.beyondz.org/signup/new">Sign up</a><br />
+  <a href="//<?php echo braven_join_domain( 'join.bebraven.org' ); ?>/signup/new">Sign up</a><br />
 
-  <a href="//www.beyondz.org/users/password/new">Forgot your password?</a><br />
+  <a href="//<?php echo braven_join_domain( 'join.bebraven.org' ); ?>/users/password/new">Forgot your password?</a><br />
 
-  <a href="//www.beyondz.org/users/confirmation/new">Didn&#39;t receive confirmation instructions?</a><br />
+  <a href="//<?php echo braven_join_domain( 'join.bebraven.org' ); ?>/users/confirmation/new">Didn&#39;t receive confirmation instructions?</a><br />
 
 
 

@@ -84,6 +84,30 @@ function braven_setup() {
 add_action( 'after_setup_theme', 'braven_setup' );
 
 /**
+ * Retrieve the Braven Join/Signup URL domain.
+ *
+ * @param string $url default URL to return if not configured
+ * @return string the Braven Join/Signup URL domain
+ */
+function braven_join_domain( $join_domain = '' ) {
+    if ( defined( 'BRAVEN_JOIN_DOMAIN' ) )
+        return untrailingslashit( BRAVEN_JOIN_DOMAIN );
+    return $join_domain;
+}
+
+/**
+ * Retrieve the Braven Portal URL domain.
+ *
+ * @param string $url default URL to return if not configured
+ * @return string the Braven Portal URL domain
+ */
+function braven_portal_domain( $portal_domain = '' ) {
+    if ( defined( 'BRAVEN_PORTAL_DOMAIN' ) )
+        return untrailingslashit( BRAVEN_PORTAL_DOMAIN );
+    return $portal_domain;
+}
+
+/**
  * Enqueue scripts and styles for the front end.
  */
 function braven_scripts_styles() {

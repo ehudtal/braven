@@ -250,8 +250,8 @@ ul.nav-menu .focus > ul,
 .nav-menu li.donate_top_btn a:hover {
     background: #000000;
 }
-/* For links to functionality that we'll keep on beyondz servers.  Hidden for now, but we can enable them by flipping this style. */
 
+/* For links to functionality that we'll keep on join.bebraven servers.  Hidden for now, but we can enable them by flipping this style. */
 .nav-menu li.beyondz_menu_item {
     display: none;
 }
