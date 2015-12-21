@@ -92,7 +92,7 @@ endif; ?>
 	<div id="blogposts_home" class="braven_section">
 		<h2 style="text-align:center; margin-top:0; font-size:36px;">LATEST STORIES</h2>
 		<div id="slider_posts">
-			<?php $rposts_query = new WP_Query('cat=1'); // exclude category 9
+			<?php $rposts_query = new WP_Query(array('cat' =>'1', 'posts_per_page' => '4')); // exclude category 9
 while($rposts_query->have_posts()) : $rposts_query->the_post(); ?>
 			<div class="bxslider">
 				<h3 class="blogtitle"><a href="<?php the_permalink(); ?>">
