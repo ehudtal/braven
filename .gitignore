@@ -17,3 +17,5 @@ wp-content/uploads
 
 log
 
+wp-content/cache
+wp-content/w3tc-config
