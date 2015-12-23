@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" lang="en-US" prefix="og: http://ogp.me/ns#">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en-US" prefix="og: http://ogp.me/ns#">
+<![endif]-->
+<!--[if !(IE 7) & !(IE 8)]><!-->
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>
+Braven</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://staging.bebraven.org/xmlrpc.php">
+<!--[if lt IE 9]>
+	<script src="https://staging.bebraven.org/wp-content/themes/BravenTheme/js/html5.js?7ce245"></script>
+	<![endif]-->
+<link type="text/css" rel="stylesheet" href="https://staging.bebraven.org/wp-content/themes/BravenTheme/css/jquery.mmenu.all.css?7ce245">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js?7ce245"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js?7ce245"></script>
+<script type="text/javascript" src="https://staging.bebraven.org/wp-content/themes/BravenTheme/js/jquery.mmenu.min.all.js?7ce245"></script>
+<link rel="stylesheet" type="text/css" href="https://staging.bebraven.org/wp-content/themes/BravenTheme/css/sass-compiled.css?7ce245"><!--//needed for bios-->
+<script>
+jQuery(document).ready(function($){
+		$('nav#menu').mmenu({ 
+		navbar: {title: "Braven"} 
+	});
+	var API = $("#menu").data( "mmenu" );
+	$("#close-mobile-btn").click(function() {
+		API.close();
+	});
+}); // end JQuery
+</script>
+
+ 
+	<script src="https://staging.bebraven.org/wp-content/themes/BravenTheme/js/jquery.bxslider.js?7ce245"></script>
+	<script>
+		jQuery(document).ready(function($){
+			$('#slider_posts').bxSlider({
+				mode: 'horizontal',
+				useCSS: false,
+				infiniteLoop: true,
+				hideControlOnEnd: true,
+				easing: 'swing',
+				auto:true,
+				pause: 8000,
+				speed: 2000
+			});
+			$('#slider_testimonials').bxSlider({
+				mode: 'horizontal',
+				useCSS: false,
+				infiniteLoop: true,
+				hideControlOnEnd: true,
+				easing: 'swing',
+				mode: 'fade',
+				auto:true,
+				pause: 7000,
+				speed: 2800
+			});
+		}); // end JQuery
+		/*$('a').click(function(){
+			$('html, body').animate({
+				scrollTop: $('[name="' + $.attr(this, 'href').substr(1) + '"]').offset().top
+			}, 500);
+			return false;
+		});*/
+	</script>
+	<script src="https://staging.bebraven.org/wp-content/themes/BravenTheme/js/jquery.easypiechart.min.js?7ce245"></script>
+	<script src="https://staging.bebraven.org/wp-content/themes/BravenTheme/js/wow.min.js?7ce245"></script>
+	<script>
+		jQuery(document).ready(function($){
+			$('.chart').easyPieChart({
+				easing: 'easeOutBounce',
+				animate: 6000,
+				delay:8000,
+				onStep: function(from, to, percent) {
+					$(this.el).find('.percent').text(Math.round(percent));
+				}
+			});
+			var chart = window.chart = $('.chart').data('easyPieChart');
+			$('.js_update').on('click', function() {
+				chart.update(Math.random()*200-100);
+			});
+		}); // end JQuery
+		wow = new WOW();
+		wow.init();
+	</script>
+
+<!-- This site is optimized with the Yoast SEO plugin v3.0.3 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="The Braven Accelerator empowers promising young people on their path to college graduation and strong first jobs."/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://staging.bebraven.org/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Braven" />
+<meta property="og:description" content="The Braven Accelerator empowers promising young people on their path to college graduation and strong first jobs." />
+<meta property="og:url" content="https://staging.bebraven.org/" />
+<meta property="og:site_name" content="Braven" />
+<meta property="og:image" content="https://staging.bebraven.org/wp-content/uploads/2015/07/Braven_RGB_horizontal_flat.png" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:description" content="The Braven Accelerator empowers promising young people on their path to college graduation and strong first jobs."/>
+<meta name="twitter:title" content="Braven"/>
+<meta name="twitter:site" content="@bebraven"/>
+<meta name="twitter:image" content="https://staging.bebraven.org/wp-content/uploads/2015/07/Braven_RGB_horizontal_flat.png"/>
+<meta name="twitter:creator" content="@bebraven"/>
+<script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"WebSite","url":"https:\/\/staging.bebraven.org\/","name":"Braven","alternateName":"BeBraven","potentialAction":{"@type":"SearchAction","target":"https:\/\/staging.bebraven.org\/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"Organization","url":"https:\/\/staging.bebraven.org\/","sameAs":["https:\/\/www.facebook.com\/BeBraven","https:\/\/www.instagram.com\/bebraven","https:\/\/twitter.com\/bebraven"],"name":"Braven, Inc.","logo":"https:\/\/www.bebraven.org\/wp-content\/uploads\/2015\/08\/Braven_visualmark.png"}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel="alternate" type="application/rss+xml" title="Braven &raquo; Feed" href="https://staging.bebraven.org/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Braven &raquo; Comments Feed" href="https://staging.bebraven.org/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"https:\/\/staging.bebraven.org\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.3.1"}};
+			!function(a,b,c){function d(a){var c=b.createElement("canvas"),d=c.getContext&&c.getContext("2d");return d&&d.fillText?(d.textBaseline="top",d.font="600 32px Arial","flag"===a?(d.fillText(String.fromCharCode(55356,56812,55356,56807),0,0),c.toDataURL().length>3e3):(d.fillText(String.fromCharCode(55357,56835),0,0),0!==d.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='rs-plugin-settings-css'  href="https://staging.bebraven.org/wp-content/plugins/revslider/rs-plugin/css/settings.css?7ce245" type='text/css' media='all' />
+<style id='rs-plugin-settings-inline-css' type='text/css'>
+.tp-caption a{color:#ff7302;text-shadow:none;-webkit-transition:all 0.2s ease-out;-moz-transition:all 0.2s ease-out;-o-transition:all 0.2s ease-out;-ms-transition:all 0.2s ease-out}.tp-caption a:hover{color:#ffa902}
+</style>
+<link rel='stylesheet' id='sharify-css'  href='https://staging.bebraven.org/wp-content/plugins/sharify/sharify-style.php' type='text/css' media='all' />
+<link rel='stylesheet' id='sharify-icon-css'  href="https://staging.bebraven.org/wp-content/plugins/sharify/icon/css/sharify.css?7ce245" type='text/css' media='all' />
+<link rel='stylesheet' id='sharify-font-css'  href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href="https://staging.bebraven.org/wp-content/themes/BravenTheme/genericons/genericons.css?7ce245" type='text/css' media='all' />
+<link rel='stylesheet' id='braven-style-css'  href="https://staging.bebraven.org/wp-content/themes/BravenTheme/style.css?7ce245" type='text/css' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='braven-ie-css'  href="https://staging.bebraven.org/wp-content/themes/BravenTheme/css/ie.css?7ce245" type='text/css' media='all' />
+<![endif]-->
+<link rel='stylesheet' id='bravenstyle-css'  href="https://staging.bebraven.org/wp-content/themes/BravenTheme/css/braven.css?7ce245" type='text/css' media='all' />
+<link rel='stylesheet' id='BravenTheme-css'  href="https://staging.bebraven.org/wp-content/themes/BravenTheme/style.css?7ce245" type='text/css' media='all' />
+<!-- This site uses the Google Analytics by Yoast plugin v5.4.6 - Universal enabled - https://yoast.com/wordpress/plugins/google-analytics/ -->
+<script type="text/javascript">
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','__gaTracker');
+
+	__gaTracker('create', 'UA-66286098-1', 'auto');
+	__gaTracker('set', 'forceSSL', true);
+	__gaTracker('require', 'displayfeatures');
+	__gaTracker('send','pageview');
+
+</script>
+<!-- / Google Analytics by Yoast -->
+<script type='text/javascript' src="https://staging.bebraven.org/wp-includes/js/jquery/jquery.js?7ce245"></script>
+<script type='text/javascript' src="https://staging.bebraven.org/wp-includes/js/jquery/jquery-migrate.min.js?7ce245"></script>
+<script type='text/javascript' src="https://staging.bebraven.org/wp-content/plugins/revslider/rs-plugin/js/jquery.themepunch.tools.min.js?7ce245"></script>
+<script type='text/javascript' src="https://staging.bebraven.org/wp-content/plugins/revslider/rs-plugin/js/jquery.themepunch.revolution.min.js?7ce245"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://staging.bebraven.org/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://staging.bebraven.org/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.3.1" />
+<link rel='shortlink' href='https://staging.bebraven.org/' />
+		<script type="text/javascript">
+			jQuery(document).ready(function() {
+				// CUSTOM AJAX CONTENT LOADING FUNCTION
+				var ajaxRevslider = function(obj) {
+				
+					// obj.type : Post Type
+					// obj.id : ID of Content to Load
+					// obj.aspectratio : The Aspect Ratio of the Container / Media
+					// obj.selector : The Container Selector where the Content of Ajax will be injected. It is done via the Essential Grid on Return of Content
+					
+					var content = "";
+
+					data = {};
+					
+					data.action = 'revslider_ajax_call_front';
+					data.client_action = 'get_slider_html';
+					data.token = 'b784975910';
+					data.type = obj.type;
+					data.id = obj.id;
+					data.aspectratio = obj.aspectratio;
+					
+					// SYNC AJAX REQUEST
+					jQuery.ajax({
+						type:"post",
+						url:"https://staging.bebraven.org/wp-admin/admin-ajax.php",
+						dataType: 'json',
+						data:data,
+						async:false,
+						success: function(ret, textStatus, XMLHttpRequest) {
+							if(ret.success == true)
+								content = ret.data;								
+						},
+						error: function(e) {
+							console.log(e);
+						}
+					});
+					
+					 // FIRST RETURN THE CONTENT WHEN IT IS LOADED !!
+					 return content;						 
+				};
+				
+				// CUSTOM AJAX FUNCTION TO REMOVE THE SLIDER
+				var ajaxRemoveRevslider = function(obj) {
+					return jQuery(obj.selector+" .rev_slider").revkill();
+				};
+
+				// EXTEND THE AJAX CONTENT LOADING TYPES WITH TYPE AND FUNCTION
+				var extendessential = setInterval(function() {
+					if (jQuery.fn.tpessential != undefined) {
+						clearInterval(extendessential);
+						if(typeof(jQuery.fn.tpessential.defaults) !== 'undefined') {
+							jQuery.fn.tpessential.defaults.ajaxTypes.push({type:"revslider",func:ajaxRevslider,killfunc:ajaxRemoveRevslider,openAnimationSpeed:0.3});   
+							// type:  Name of the Post to load via Ajax into the Essential Grid Ajax Container
+							// func: the Function Name which is Called once the Item with the Post Type has been clicked
+							// killfunc: function to kill in case the Ajax Window going to be removed (before Remove function !
+							// openAnimationSpeed: how quick the Ajax Content window should be animated (default is 0.3)
+						}
+					}
+				},30);
+			});
+		</script>
+		</head>
+
+<body class="home page page-id-13 page-template page-template-homepage page-template-homepage-php single-author">
+<div id="page">
+<div class="upperheader_red">
+	<div class="container">
+		<h4 class="tophdr-content">Join Our Mailing List &raquo;
+			<span class="social">
+				<a class="mail_icon" target="_blank" href="#mailinglist"></a>
+				<a class="facebook_icon" href="https://www.facebook.com/BeBraven" target="_blank"></a>
+				<a class="ig_icon" href="https://instagram.com/bebraven/" target="_blank"></a>
+				<a class="twitter_icon" href="https://twitter.com/bebraven" target="_blank"></a>
+			</span>
+			<span class="login_container">
+				<a href="https://stagingjoin.bebraven.org/users/sign_in_sso">Log In</a>
+			</span>
+		</h4>
+	</div>
+</div>
+<div id="topheader">
+	<div id="blogo">
+		<a href="https://staging.bebraven.org">
+			<img src="https://staging.bebraven.org/wp-content/themes/BravenTheme/images/braven_logo.png?7ce245" alt="Braven logo">
+		</a>
+	</div>
+	<div id="navigation" class="navigationbar">
+		<nav id="site-navigation" class="navigation main-navigation" role="navigation">
+			<div class="menu-main-navigation-container"><ul id="primary-menu" class="nav-menu"><li id="menu-item-95" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-95"><a href="https://staging.bebraven.org/become-a-fellow/">Become A Fellow</a>
+<ul class="sub-menu">
+	<li id="menu-item-158" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-158"><a href="https://staging.bebraven.org/become-a-fellow/bay-area/">Bay Area</a></li>
+	<li id="menu-item-157" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-157"><a href="https://staging.bebraven.org/become-a-fellow/nj-nyc-area/">NJ/NYC Area</a></li>
+	<li id="menu-item-753" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-753"><a href="https://staging.bebraven.org/the-fellow-experience/">The Fellow Experience</a></li>
+	<li id="menu-item-847" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-847"><a href="https://stagingjoin.bebraven.org/signup/new?applicant_type=undergrad_student">Apply</a></li>
+</ul>
+</li>
+<li id="menu-item-96" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-96"><a href="https://staging.bebraven.org/volunteer-as-a-coach/">Volunteer As A Coach</a>
+<ul class="sub-menu">
+	<li id="menu-item-98" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-98"><a href="https://staging.bebraven.org/coaching-commitment-details/">Coaching Commitment Details</a></li>
+	<li id="menu-item-850" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-850"><a href="https://stagingjoin.bebraven.org/signup/new?applicant_type=volunteer">Apply</a></li>
+</ul>
+</li>
+<li id="menu-item-100" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-100"><a href="https://staging.bebraven.org/partner-with-us/">Partner With Us</a></li>
+<li id="menu-item-101" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-101"><a href="https://staging.bebraven.org/blog/">Blog</a></li>
+<li id="menu-item-102" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-102"><a href="https://staging.bebraven.org/about-us/">About Us</a>
+<ul class="sub-menu">
+	<li id="menu-item-103" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-103"><a href="https://staging.bebraven.org/our-team/">Our Team</a></li>
+	<li id="menu-item-451" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-451"><a href="https://staging.bebraven.org/about-us/partners-supporters/">Partners &#038; Supporters</a></li>
+	<li id="menu-item-104" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-104"><a href="https://staging.bebraven.org/about-us/core-values/">Our Core Values</a></li>
+</ul>
+</li>
+<li id="menu-item-105" class="apply_top_btn menu-item menu-item-type-post_type menu-item-object-page menu-item-105"><a href="https://staging.bebraven.org/apply-now/">Apply</a></li>
+<li id="menu-item-450" class="donate_top_btn menu-item menu-item-type-custom menu-item-object-custom menu-item-450"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&#038;hosted_button_id=VFUYARJB2QRXC" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&#038;hosted_button_id=VFUYARJB2QRXC', 'Donate');" target="_blank">Donate</a></li>
+</ul></div>		</nav>
+		<!-- #site-navigation --> 
+		
+	</div>
+	<!-- #END Navigation --> 
+	
+	<a class="menuicon" href="#menu"></a> </div>
+<!-- #END topHeader -->
+
+<nav id="menu"> <a id="close-mobile-btn" href="#">&times;</a>
+	<ul><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-95"><a href="https://staging.bebraven.org/become-a-fellow/">Become A Fellow</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-158"><a href="https://staging.bebraven.org/become-a-fellow/bay-area/">Bay Area</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-157"><a href="https://staging.bebraven.org/become-a-fellow/nj-nyc-area/">NJ/NYC Area</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-753"><a href="https://staging.bebraven.org/the-fellow-experience/">The Fellow Experience</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-847"><a href="https://stagingjoin.bebraven.org/signup/new?applicant_type=undergrad_student">Apply</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-96"><a href="https://staging.bebraven.org/volunteer-as-a-coach/">Volunteer As A Coach</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-98"><a href="https://staging.bebraven.org/coaching-commitment-details/">Coaching Commitment Details</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-850"><a href="https://stagingjoin.bebraven.org/signup/new?applicant_type=volunteer">Apply</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-100"><a href="https://staging.bebraven.org/partner-with-us/">Partner With Us</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-101"><a href="https://staging.bebraven.org/blog/">Blog</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-102"><a href="https://staging.bebraven.org/about-us/">About Us</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-103"><a href="https://staging.bebraven.org/our-team/">Our Team</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-451"><a href="https://staging.bebraven.org/about-us/partners-supporters/">Partners &#038; Supporters</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-104"><a href="https://staging.bebraven.org/about-us/core-values/">Our Core Values</a></li>
+</ul>
+</li>
+<li class="apply_top_btn menu-item menu-item-type-post_type menu-item-object-page menu-item-105"><a href="https://staging.bebraven.org/apply-now/">Apply</a></li>
+<li class="donate_top_btn menu-item menu-item-type-custom menu-item-object-custom menu-item-450"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&#038;hosted_button_id=VFUYARJB2QRXC" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&#038;hosted_button_id=VFUYARJB2QRXC', 'Donate');" target="_blank">Donate</a></li>
+</ul></nav>
+<div id="main" class="site-main">
+
+<div id="primary_home">
+	<div class="section_slider"> 
+<div id="rev_slider_1_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" style="margin:0px auto;background-color:#000000;padding:0px;margin-top:0px;margin-bottom:0px;max-height:500px;">
+<!-- START REVOLUTION SLIDER 4.6.93 fullwidth mode -->
+	<div id="rev_slider_1_1" class="rev_slider fullwidthabanner" style="display:none;max-height:500px;height:500px;">
+<ul>	<!-- SLIDE  -->
+	<li data-transition="fade" data-slotamount="7" data-masterspeed="400"  data-saveperformance="off" >
+		<!-- MAIN IMAGE -->
+		<img src="https://staging.bebraven.org/wp-content/uploads/2015/08/newlogo_braven_black.jpg?7ce245"  alt="newlogo_braven_black"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+		<!-- LAYERS -->
+
+		<!-- LAYER NR. 1 -->
+		<div class="tp-caption black tp-fade tp-resizeme" 
+			 data-x="0" 
+			 data-y="60"  
+			data-speed="300" 
+			data-start="0" 
+			data-easing="Power3.easeInOut" 
+			data-splitin="none" 
+			data-splitout="none" 
+			data-elementdelay="0.1" 
+			data-endelementdelay="0.1" 
+			 data-endspeed="300" 
+
+			style="z-index: 5; max-width: 688px; max-height: auto; white-space: normal;"><h2 style="line-height:48px"><span style="color:#fff; font-size:60px;">We Are Braven.</span></h2> 
+		</div>
+
+		<!-- LAYER NR. 2 -->
+		<div class="tp-caption black tp-fade tp-resizeme" 
+			 data-x="0" 
+			 data-y="159"  
+			data-speed="300" 
+			data-start="250" 
+			data-easing="Power3.easeInOut" 
+			data-splitin="none" 
+			data-splitout="none" 
+			data-elementdelay="0.1" 
+			data-endelementdelay="0.1" 
+			 data-endspeed="300" 
+
+			style="z-index: 6; max-width: 500px; max-height: auto; white-space: normal;"><p><span style="color:#fff; font-size:20px;">Braven, formerly Beyond Z, is on a mission to create a diverse talent network of emerging leaders that is at least 100,000 strong.
+</span></p>
+
+<p><a class="btn-trans" href="a-new-name-for-a-new-generation-of-leaders">Learn More</a></p> 
+		</div>
+	</li>
+	<!-- SLIDE  -->
+	<li data-transition="random" data-slotamount="7" data-masterspeed="300"  data-saveperformance="off" >
+		<!-- MAIN IMAGE -->
+		<img src="https://staging.bebraven.org/wp-content/plugins/revslider/images/transparent.png?7ce245" style='background-color:#000000' alt="VImeo_BG"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+		<!-- LAYERS -->
+
+		<!-- LAYER NR. 1 -->
+		<div class="tp-caption tp-fade fullscreenvideo tp-videolayer" 
+			 data-x="0" 
+			 data-y="0" 
+			data-speed="300" 
+			data-start="0" 
+			data-easing="Power3.easeInOut" 
+			data-elementdelay="0.1" 
+			data-endelementdelay="0.1" 
+			 data-vimeoid="135989283" data-videowidth="100%" data-videoheight="100%" data-videoattributes="title=0&byline=0&portrait=0&api=1" data-forceCover="1" data-aspectratio="16:9" data-endspeed="300" 
+			data-autoplay="false" 
+			data-autoplayonlyfirsttime="false" 
+			data-nextslideatend="true" 
+			data-videoposter="https://www.bebraven.org/wp-content/uploads/2015/08/VImeo_BG1.jpg" 
+			data-posterOnMObile="off" 
+
+			style="z-index: 5;"> 
+		</div>
+	</li>
+	<!-- SLIDE  -->
+	<li data-transition="fade" data-slotamount="7" data-masterspeed="400"  data-saveperformance="off" >
+		<!-- MAIN IMAGE -->
+		<img src="https://staging.bebraven.org/wp-content/uploads/2015/08/carousel2.jpg?7ce245"  alt="carousel2"  data-bgposition="50% 75%" data-bgfit="cover" data-bgrepeat="no-repeat">
+		<!-- LAYERS -->
+
+		<!-- LAYER NR. 1 -->
+		<div class="tp-caption black tp-fade tp-resizeme" 
+			 data-x="0" 
+			 data-y="15"  
+			data-speed="300" 
+			data-start="0" 
+			data-easing="Power3.easeInOut" 
+			data-splitin="none" 
+			data-splitout="none" 
+			data-elementdelay="0.1" 
+			data-endelementdelay="0.1" 
+			 data-endspeed="300" 
+
+			style="z-index: 5; max-width: 500px; max-height: auto; white-space: normal;"><h2 style="line-height:48px"><span style="color:#fff; font-size:60px;">BECOME A BRAVEN FELLOW</span></h2> 
+		</div>
+
+		<!-- LAYER NR. 2 -->
+		<div class="tp-caption black tp-fade tp-resizeme" 
+			 data-x="0" 
+			 data-y="148"  
+			data-speed="300" 
+			data-start="500" 
+			data-easing="Power3.easeInOut" 
+			data-splitin="none" 
+			data-splitout="none" 
+			data-elementdelay="0.1" 
+			data-endelementdelay="0.1" 
+			 data-endspeed="300" 
+
+			style="z-index: 6; max-width: 500px; max-height: ; white-space: normal;"><h2 class="handwritten"><span style="color:#d1ab5c;  font-size:36px; border-bottom:5px solid #fff;">Reach your true potential</span></h2> 
+		</div>
+
+		<!-- LAYER NR. 3 -->
+		<div class="tp-caption black tp-fade tp-resizeme" 
+			 data-x="0" 
+			 data-y="210"  
+			data-speed="800" 
+			data-start="1350" 
+			data-easing="Power3.easeInOut" 
+			data-splitin="none" 
+			data-splitout="none" 
+			data-elementdelay="0.1" 
+			data-endelementdelay="0.1" 
+			 data-endspeed="300" 
+
+			style="z-index: 7; max-width: 500px; max-height: ; white-space: normal;"><p><span style="color:#fff; font-size:20px;"> Braven discovers diverse, driven college students, unleashes their authentic leadership, and empowers them with the network, skills, and know-how needed to accelerate into strong first jobs. We believe the proof is in the possible. Are you ready to jumpstart your career?
+</span></p>
+
+<p><a class="btn-trans" href="/become-a-fellow/">Learn More</a></p> 
+		</div>
+	</li>
+	<!-- SLIDE  -->
+	<li data-transition="fade" data-slotamount="7" data-masterspeed="400"  data-saveperformance="off" >
+		<!-- MAIN IMAGE -->
+		<img src="https://staging.bebraven.org/wp-content/uploads/2015/08/carousel3.jpg?7ce245"  alt="carousel3"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+		<!-- LAYERS -->
+
+		<!-- LAYER NR. 1 -->
+		<div class="tp-caption black skewfromright tp-resizeme" 
+			 data-x="right" data-hoffset="0" 
+			 data-y="10"  
+			data-speed="1200" 
+			data-start="0" 
+			data-easing="Power3.easeInOut" 
+			data-splitin="none" 
+			data-splitout="none" 
+			data-elementdelay="0.1" 
+			data-endelementdelay="0.1" 
+			 data-endspeed="300" 
+
+			style="z-index: 5; max-width: auto; max-height: auto; white-space: nowrap;"><h2 style="color:#ffffff; text-align:right;"><span style="color:#ffffff; font-size:60px;">VOLUNTEER AS A <br />LEADERSHIP COACH</span></h2> 
+		</div>
+
+		<!-- LAYER NR. 2 -->
+		<div class="tp-caption black skewfromright tp-resizeme" 
+			 data-x="right" data-hoffset="0" 
+			 data-y="148"  
+			data-speed="300" 
+			data-start="0" 
+			data-easing="Power3.easeInOut" 
+			data-splitin="none" 
+			data-splitout="none" 
+			data-elementdelay="0.1" 
+			data-endelementdelay="0.1" 
+			 data-endspeed="300" 
+
+			style="z-index: 6; max-width: auto; max-height: auto; white-space: nowrap;"><h2 class="handwritten"><span style="color:#d1ab5c;  font-size:48px; border-bottom:5px solid #fff;">Make an impact</span></h2> 
+		</div>
+
+		<!-- LAYER NR. 3 -->
+		<div class="tp-caption black skewfromright tp-resizeme" 
+			 data-x="right" data-hoffset="0" 
+			 data-y="218"  
+			data-speed="300" 
+			data-start="550" 
+			data-easing="Power3.easeInOut" 
+			data-splitin="none" 
+			data-splitout="none" 
+			data-elementdelay="0.1" 
+			data-endelementdelay="0.1" 
+			 data-endspeed="300" 
+
+			style="z-index: 7; max-width: 600px; max-height: auto; white-space: normal;"><p style="text-align:right;"><span style="color:#fff; font-size:20px; "> Our Leadership Coaches utilize their unique talents to make a meaningful impact on Braven Fellows by coaching diverse teams of Fellows, just like they would in their work environment. As a result, they develop personally and professionally as leaders and managers.  </span></p>
+
+<p style="text-align:right;"><a class="btn-trans" href="/volunteer-as-a-coach/">Learn More</a></p> 
+		</div>
+	</li>
+</ul>
+<div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>	</div>
+			
+
+			<style scoped>.tp-caption.black,.black{color:#000;text-shadow:none}</style>
+
+			<script type="text/javascript">
+
+				/******************************************
+					-	PREPARE PLACEHOLDER FOR SLIDER	-
+				******************************************/
+				
+
+				var setREVStartSize = function() {
+					var	tpopt = new Object();
+						tpopt.startwidth = 960;
+						tpopt.startheight = 500;
+						tpopt.container = jQuery('#rev_slider_1_1');
+						tpopt.fullScreen = "off";
+						tpopt.forceFullWidth="off";
+
+					tpopt.container.closest(".rev_slider_wrapper").css({height:tpopt.container.height()});tpopt.width=parseInt(tpopt.container.width(),0);tpopt.height=parseInt(tpopt.container.height(),0);tpopt.bw=tpopt.width/tpopt.startwidth;tpopt.bh=tpopt.height/tpopt.startheight;if(tpopt.bh>tpopt.bw)tpopt.bh=tpopt.bw;if(tpopt.bh<tpopt.bw)tpopt.bw=tpopt.bh;if(tpopt.bw<tpopt.bh)tpopt.bh=tpopt.bw;if(tpopt.bh>1){tpopt.bw=1;tpopt.bh=1}if(tpopt.bw>1){tpopt.bw=1;tpopt.bh=1}tpopt.height=Math.round(tpopt.startheight*(tpopt.width/tpopt.startwidth));if(tpopt.height>tpopt.startheight&&tpopt.autoHeight!="on")tpopt.height=tpopt.startheight;if(tpopt.fullScreen=="on"){tpopt.height=tpopt.bw*tpopt.startheight;var cow=tpopt.container.parent().width();var coh=jQuery(window).height();if(tpopt.fullScreenOffsetContainer!=undefined){try{var offcontainers=tpopt.fullScreenOffsetContainer.split(",");jQuery.each(offcontainers,function(e,t){coh=coh-jQuery(t).outerHeight(true);if(coh<tpopt.minFullScreenHeight)coh=tpopt.minFullScreenHeight})}catch(e){}}tpopt.container.parent().height(coh);tpopt.container.height(coh);tpopt.container.closest(".rev_slider_wrapper").height(coh);tpopt.container.closest(".forcefullwidth_wrapper_tp_banner").find(".tp-fullwidth-forcer").height(coh);tpopt.container.css({height:"100%"});tpopt.height=coh;}else{tpopt.container.height(tpopt.height);tpopt.container.closest(".rev_slider_wrapper").height(tpopt.height);tpopt.container.closest(".forcefullwidth_wrapper_tp_banner").find(".tp-fullwidth-forcer").height(tpopt.height);}
+				};
+
+				/* CALL PLACEHOLDER */
+				setREVStartSize();
+
+
+				var tpj=jQuery;
+				tpj.noConflict();
+				var revapi1;
+
+				tpj(document).ready(function() {
+
+				if(tpj('#rev_slider_1_1').revolution == undefined){
+					revslider_showDoubleJqueryError('#rev_slider_1_1');
+				}else{
+				   revapi1 = tpj('#rev_slider_1_1').show().revolution(
+					{	
+												dottedOverlay:"none",
+						delay:9000,
+						startwidth:960,
+						startheight:500,
+						hideThumbs:0,
+
+						thumbWidth:100,
+						thumbHeight:50,
+						thumbAmount:4,
+						
+												
+						simplifyAll:"off",
+
+						navigationType:"bullet",
+						navigationArrows:"none",
+						navigationStyle:"round",
+
+						touchenabled:"on",
+						onHoverStop:"on",
+						nextSlideOnWindowFocus:"off",
+
+						swipe_threshold: 75,
+						swipe_min_touches: 1,
+						drag_block_vertical: false,
+						
+												
+												
+						keyboardNavigation:"off",
+
+						navigationHAlign:"center",
+						navigationVAlign:"bottom",
+						navigationHOffset:0,
+						navigationVOffset:20,
+
+						soloArrowLeftHalign:"left",
+						soloArrowLeftValign:"center",
+						soloArrowLeftHOffset:20,
+						soloArrowLeftVOffset:0,
+
+						soloArrowRightHalign:"right",
+						soloArrowRightValign:"center",
+						soloArrowRightHOffset:20,
+						soloArrowRightVOffset:0,
+
+						shadow:0,
+						fullWidth:"on",
+						fullScreen:"off",
+
+												spinner:"spinner0",
+												
+						stopLoop:"off",
+						stopAfterLoops:-1,
+						stopAtSlide:-1,
+
+						shuffle:"off",
+
+						autoHeight:"off",
+						forceFullWidth:"off",
+						
+						
+						hideTimerBar:"on",
+						hideThumbsOnMobile:"off",
+						hideNavDelayOnMobile:1500,
+						hideBulletsOnMobile:"off",
+						hideArrowsOnMobile:"off",
+						hideThumbsUnderResolution:0,
+
+												hideSliderAtLimit:0,
+						hideCaptionAtLimit:0,
+						hideAllCaptionAtLilmit:0,
+						startWithSlide:0					});
+
+
+
+									}
+				});	/*ready*/
+
+			</script>
+
+
+			</div><!-- END REVOLUTION SLIDER --> </div>
+	
+	<!-- #END SECTION HOME SLIDER -->
+		<div id="home_top_content" class="braven_section">
+		<div class="inner_content">
+			<h2 style="font-size:32px; margin:0;"> OUR NEXT GENERATION OF LEADERS WILL EMERGE FROM EVERYWHERE. </h2>
+		</div>
+		<!-- #home_content --> 
+	</div>
+	<div id="about_us" class="braven_section">
+		<div class="inner_content">
+			<h1 style="font-size:36px; margin-top:0;"><span style="color:#eb3b45;">WHAT WE DO</span></h1>
+<p>The Braven Accelerator empowers promising young people on their path to college graduation and strong first jobs. <strong><em>We believe that our next generation of leaders will emerge from everywhere</em></strong>, so we take a particular interest in ensuring our talent network is filled with people from underrepresented backgrounds. To do so, Braven partners with educational institutions, volunteer professionals, and employers to offer a rigorous and relevant career readiness course, followed by robust campus-based alumni programming. The course is targeted as a part of the sophomore or transfer junior experience. From The Braven Accelerator will come a generation of leaders as diverse as our future demands.</p>
+<p><a class="btn-primary large" href="#openModal">LET&#8217;S GET STARTED TODAY</a></p>
+<div id="openModal" class="modalDialog hp">
+<div>
+		<a href="#close" title="Close" class="close">X</a></p>
+<h1 style="margin-top:0; text-align:center;">Let&#8217;s Get Started</h1>
+<table class="modal-tbl">
+<tr>
+<td>
+<h3><a class="mod-link" href="/become-a-fellow">Become A Fellow  <span class="mod-arrow">&#10095; </span></a></h3>
+</td>
+</tr>
+<tr>
+<td>
+<h3><a class="mod-link" href="/volunteer-as-a-coach/">Volunteer As A Coach  <span class="mod-arrow">&#10095; </span></a></h3>
+</td>
+</tr>
+<tr>
+<td>
+<h4 style="text-align:center;">Follow us</h4>
+<table>
+<tr>
+<td>
+<a href="https://www.facebook.com/bebraven" onclick="__gaTracker('send', 'event', 'outbound-article', 'https://www.facebook.com/bebraven', '');"><img src="/wp-content/uploads/2015/08/fb_icon.png?7ce245" alt="fb_icon" width="64" height="64" class="aligncenter size-full wp-image-567" /></a>
+</td>
+<td>
+<a href="https://twitter.com/bebraven" onclick="__gaTracker('send', 'event', 'outbound-article', 'https://twitter.com/bebraven', '');"><img src="/wp-content/uploads/2015/08/twiiter_icon.png?7ce245" alt="twiiter_icon" width="64" height="64" class="aligncenter size-full wp-image-568" /></a>
+</td>
+<td>
+<a href="https://instagram.com/bebraven/" onclick="__gaTracker('send', 'event', 'outbound-article', 'https://instagram.com/bebraven/', '');"><img src="/wp-content/uploads/2015/08/ig_icon.png?7ce245" alt="ig_icon" width="64" height="64" class="aligncenter size-full wp-image-569" /></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<h3><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&#038;hosted_button_id=VFUYARJB2QRXC" onclick="__gaTracker('send', 'event', 'outbound-article', 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&#038;hosted_button_id=VFUYARJB2QRXC', 'Donate &#10095;');" class="mod-link">Donate <span class="mod-arrow">&#10095;</span></a></h3>
+</td>
+</tr>
+</table></div>
+</div>
+		</div>
+	</div>
+	 
+	<div id="cta-buttons">
+		<div class="inner_content">
+			<div class="cta-overlay one_third widget_text"><h3 class="cta-title">Discover</h3>			<div class="textwidget"><article class="caption">
+    <img class="caption__media" src="https://www.bebraven.org/wp-content/uploads/2015/08/discover_cta.jpg" />
+    <div class="caption__overlay">
+     <a href="#"> <h1 class="caption__overlay__title handwritten">Discover</h1>
+        <p class="caption__overlay__content">young people with the focus, drive, and talent to be great</p></a>
+    </div>
+</article></div>
+		</div><div class="cta-overlay one_third widget_text"><h3 class="cta-title">Develop</h3>			<div class="textwidget"><article class="caption">
+    <img class="caption__media" src="https://www.bebraven.org/wp-content/uploads/2015/08/develop_cta.jpg" />
+    <div class="caption__overlay">
+       <a href="#">   <h1 class="caption__overlay__title handwritten">Develop</h1>
+        <p class="caption__overlay__content">their authentic leadership and 21st century career skills</p></a>
+    </div>
+</article></div>
+		</div><div class="cta-overlay one_third widget_text"><h3 class="cta-title">Connect</h3>			<div class="textwidget"><article class="caption">
+<img class="caption__media" src="https://www.bebraven.org/wp-content/uploads/2015/08/connect_cta.jpg" />
+    <div class="caption__overlay">
+         <a href="#">  <h1 class="caption__overlay__title handwritten" >Connect</h1>
+        <p class="caption__overlay__content">them to inspiring young professionals, influential advocates, and career opportunities</p></a>
+    </div>
+</article></div>
+		</div>			<div class="clear"> </div>
+		</div>
+	</div>
+	<div id="lm_content" class="braven_section">
+		<div class="inner_content">
+			<p style="text-align:center;"><a class="btn large" href="/become-a-fellow/">Learn More</a></p>
+		</div>
+	</div>
+		<div id="impact_content" class="braven_section">
+		<div class="inner_content">
+
+			<div class="braven_section">
+									<h1 style="text-align: center; margin-top: 0; font-size: 36px;">
+						Our Impact					</h1>
+					<div>
+<table class="homechart" style="margin-top: 20px; margin-bottom: 0;">
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="chart wow" data-percent="73">
+<span class="percent">73</span><br />
+<canvas height="191" width="191"></canvas>
+</span>
+<h2 style="margin-bottom: 4px;">Program Satisfaction</h2>
+<p style="font-size: 14px;">73% Fellows agreed or strongly agreed that Braven greatly increased their chances of getting their desired job after graduation</p>
+</td>
+<td style="text-align: center;"><span class="chart wow" data-percent="88">
+<span class="percent">88</span><br />
+<canvas height="191" width="191"></canvas>
+</span>
+<h2 style="margin-bottom: 4px;">Referrals</h2>
+<p style="font-size: 14px;">88% of our leadership coaches would professionally endorse their Fellows to their own networks of friends and colleagues</p>
+</td>
+<td style="text-align: center;"><span class="chart wow" data-percent="87">
+<span class="percent">"87"</span><br />
+<canvas height="191" width="191"></canvas>
+</span>
+<h2 style="margin-bottom: 4px;">CONTINUED INVOLVEMENT</h2>
+<p style="font-size: 14px;">87% of Fellows are interested in continuing in some way with Braven when they return to campus for the 2015-16 school year</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h6 style="text-align: center;">*Our Impact Figures reflect our 2014-2015 school year results.</h6>							</div>
+			<!-- #home_content -->
+		</div>
+	</div>
+		<div id="testimonials">
+		<div id="slider_testimonials">
+						<div class="bxslider">
+				<div class="slide">
+					<div class="testimonial_thumb"><img width="300" height="350" src="https://staging.bebraven.org/wp-content/uploads/2015/08/Keisha-300x350.jpg?7ce245" class="attachment-testimonial-thumb wp-post-image" alt="Keisha" /></div>
+					<div class="testimonial_all">
+						<div class="testimonial-quote">
+							<p>“Being that I am the first in my family to make it this far educationally, I am proud of myself for acquiring leadership skills. Braven has truly shaped me for the better.”</p>
+						</div>
+						<div class="client-contact-info">
+							<h5 style="margin:0;">Keisha Baxter</h5>
+							Braven Fellow '15&nbsp;<a href="" title=""></a></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+						<div class="bxslider">
+				<div class="slide">
+					<div class="testimonial_thumb"><img width="300" height="350" src="https://staging.bebraven.org/wp-content/uploads/2015/08/cris_garcia_-300x350.jpg?7ce245" class="attachment-testimonial-thumb wp-post-image" alt="cris_garcia_" /></div>
+					<div class="testimonial_all">
+						<div class="testimonial-quote">
+							<p>“I’ve had to figure out a lot on my own. While I excel in school, it’s harder for me to build my resume and network. I’ve benefitted greatly from having someone guide me.”</p>
+						</div>
+						<div class="client-contact-info">
+							<h5 style="margin:0;">Cris Garcia</h5>
+							Braven Fellow '15&nbsp;<a href="" title=""></a></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+						<div class="bxslider">
+				<div class="slide">
+					<div class="testimonial_thumb"><img width="300" height="350" src="https://staging.bebraven.org/wp-content/uploads/2015/08/SuminLee-300x350.jpg?7ce245" class="attachment-testimonial-thumb wp-post-image" alt="SuminLee" /></div>
+					<div class="testimonial_all">
+						<div class="testimonial-quote">
+							<p>&#8220;My Fellows came out of this experience feeling confident in their unique leadership styles and are committed to leading authentically. They want to mentor other young people themselves as they feel it is important to pay it forward.&#8221;</p>
+						</div>
+						<div class="client-contact-info">
+							<h5 style="margin:0;">Sumin Lee</h5>
+							Leadership Coach ’14&nbsp;<a href="" title=""></a></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+					</div>
+	</div>
+	<div id="blogposts_home" class="braven_section">
+		<h2 style="text-align:center; margin-top:0; font-size:36px;">LATEST STORIES</h2>
+		<div id="slider_posts">
+						<div class="bxslider">
+				<h3 class="blogtitle"><a href="https://staging.bebraven.org/go-teams-go/">
+					Go teams, go!					</a></h3>
+				<h5 class="date">November 19, 2015</h5>
+				<p>This year, we have Braven Fellows at two schools&#8211;Rutgers University in New Jersey and San José State University (SJSU). To our current Fellows: you’ve all reached the part of the semester when you are tackling your biggest project yet&#8211;the “Capstone,” in which you work as teams to solve one of the most important questions in the professional world today.</p>
+				<p><a class="readmorelink" href="https://staging.bebraven.org/go-teams-go/">Read More &raquo;</a></p>
+			</div>
+						<div class="bxslider">
+				<h3 class="blogtitle"><a href="https://staging.bebraven.org/embracing-my-professional-journey-and-latino-identity/">
+					Embracing My Professional Journey and Latino Identity					</a></h3>
+				<h5 class="date">October 15, 2015</h5>
+				<p>If you would’ve asked me in college if my Latino identity was important for my career, I would probably have said no. But now, over 10 years into my career, I can see that it’s more important than ever. So with the close of Hispanic Heritage Month, I’ll be continuing to work to help young people find a way to celebrate their identities every day of the year. Together, we will show the world a different story: we’ll prove our identities are the root, not the risk, of our success.</p>
+				<p><a class="readmorelink" href="https://staging.bebraven.org/embracing-my-professional-journey-and-latino-identity/">Read More &raquo;</a></p>
+			</div>
+						<div class="bxslider">
+				<h3 class="blogtitle"><a href="https://staging.bebraven.org/living-your-legacy/">
+					Living Your Legacy					</a></h3>
+				<h5 class="date">October 06, 2015</h5>
+				<p>I will spend the fall semester with these young people, not only as their coach, but as their student. What I experienced on that Saturday became part of my story, part of my legacy. And as of that day, Braven is why I lead.</p>
+				<p><a class="readmorelink" href="https://staging.bebraven.org/living-your-legacy/">Read More &raquo;</a></p>
+			</div>
+						<div class="bxslider">
+				<h3 class="blogtitle"><a href="https://staging.bebraven.org/my-story-paid-forward/">
+					My Story Paid Forward					</a></h3>
+				<h5 class="date">September 11, 2015</h5>
+				<p>What is it about my Braven experience that compels me to pay it forward? The answer is quite simple. First, the growth I was able to make in my leadership, confidence, and sense of purpose was immense. Second, I experienced one of the strongest networks of support where guidance and a genuine willingness to help were always present. Lastly, even after my completion of the program, there is still a strong sense of support coming from the Braven Team. They make sure I have access to opportunities that will help me foster my leadership and help me succeed. For these reasons I feel both compelled and committed to share this opportunity with other students and hope they have a similarly empowering experience.</p>
+				<p><a class="readmorelink" href="https://staging.bebraven.org/my-story-paid-forward/">Read More &raquo;</a></p>
+			</div>
+								</div>
+	</div>
+	<div id="partners" class="braven_section">
+		<h2 style="text-align:center;">Impact Partner</h2>
+								<div class="featured_partner"> <a href="http://www.startupeducation.org/" target="_blank"><img width="425" height="108" src="https://staging.bebraven.org/wp-content/uploads/2015/08/startup_edu_logo.png?7ce245" class="attachment-post-thumbnail wp-post-image" alt="startup_edu_logo" /></a> </div>
+								<div class="support_partners">
+			<h4 class="uppercase" style="text-align:center;">Fall 2015 Sites</h4>
+			<table class="featpartners">
+				<tbody>
+					<tr>
+						<td style="vertical-align:middle"><img src="/wp-content/uploads/2015/08/SJSU.png?7ce245" alt="SJSU"  class="aligncenter size-full wp-image-332" /></td>
+						<td><img src="/wp-content/uploads/2015/08/Rutgers_Univ.png?7ce245" alt="Rutgers_Univ"  class="aligncenter size-full wp-image-475" /></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+<!-- #primary_home -->
+
+
+<a id="mailinglist"></a>
+<div id="footer-email" class="braven_section">
+	<h2>KEEP INFORMED WITH OUR NEWSLETTER</h2>
+	
+                <div class='gf_browser_gecko gform_wrapper' id='gform_wrapper_1' ><form method='post' enctype='multipart/form-data'  id='gform_1'  action='/'>
+                        <div class='gform_body'><ul id='gform_fields_1' class='gform_fields top_label form_sublabel_below description_below'><li id='field_1_3' class='gfield fname gf_left_third gfield_contains_required field_sublabel_below field_description_below' ><label class='gfield_label' for='input_1_3' >First Name<span class='gfield_required'>*</span></label><div class='ginput_container'><input name='input_3' id='input_1_3' type='text' value='' class='medium'  tabindex='1'  placeholder='First Name' /></div></li><li id='field_1_4' class='gfield lname gf_middle_third gfield_contains_required field_sublabel_below field_description_below' ><label class='gfield_label' for='input_1_4' >Last Name<span class='gfield_required'>*</span></label><div class='ginput_container'><input name='input_4' id='input_1_4' type='text' value='' class='medium'  tabindex='2'  placeholder='Last Name' /></div></li><li id='field_1_2' class='gfield femail gf_right_third gfield_contains_required field_sublabel_below field_description_below' ><label class='gfield_label' for='input_1_2' >Email Address<span class='gfield_required'>*</span></label><div class='ginput_container'>
+                            <input name='input_2' id='input_1_2' type='text' value='' class='medium' tabindex='3'   placeholder='Email address'/>
+                        </div></li><li id='field_1_5' class='gfield gform_hidden field_sublabel_below field_description_below' ><input name='input_5' id='input_1_5' type='hidden' class='gform_hidden' value='true' /></li>
+                            </ul></div>
+        <div class='gform_footer top_label'> <input type='submit' id='gform_submit_button_1' class='gform_button button' value='Sign Up' tabindex='4' onclick='if(window["gf_submitting_1"]){return false;}  window["gf_submitting_1"]=true;  ' /> 
+            <input type='hidden' class='gform_hidden' name='is_submit_1' value='1' />
+            <input type='hidden' class='gform_hidden' name='gform_submit' value='1' />
+            
+            <input type='hidden' class='gform_hidden' name='gform_unique_id' value='' />
+            <input type='hidden' class='gform_hidden' name='state_1' value='WyJbXSIsIjk5MzhkODQ3OGZjNzk1M2U5ZThmNTVhYjk5NjVmM2E1Il0=' />
+            <input type='hidden' class='gform_hidden' name='gform_target_page_number_1' id='gform_target_page_number_1' value='0' />
+            <input type='hidden' class='gform_hidden' name='gform_source_page_number_1' id='gform_source_page_number_1' value='1' />
+            <input type='hidden' name='gform_field_values' value='' />
+            
+        </div>
+                        </form>
+                        </div><script type='text/javascript'> jQuery(document).bind('gform_post_render', function(event, formId, currentPage){if(formId == 1) {if(typeof Placeholders != 'undefined'){
+                        Placeholders.enable();
+                    }} } );jQuery(document).bind('gform_post_conditional_logic', function(event, formId, fields, isInit){} );</script><script type='text/javascript'> jQuery(document).ready(function(){jQuery(document).trigger('gform_post_render', [1, 1]) } ); </script> </div>
+</div>
+<!-- #main -->
+<div id="footer_bottom" class="braven_section">
+	<div id="footer_menu">
+		<div id="nav_menu-2" class="footer_widget widget_nav_menu"><h3 class="footer-title">LEARN MORE</h3><div class="menu-footer-menu-col-one-container"><ul id="menu-footer-menu-col-one" class="menu"><li id="menu-item-107" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-107"><a href="https://staging.bebraven.org/become-a-fellow/">Braven Fellows</a></li>
+<li id="menu-item-108" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-108"><a href="https://staging.bebraven.org/volunteer-as-a-coach/">Leadership Coaches</a></li>
+<li id="menu-item-109" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-109"><a href="https://staging.bebraven.org/partner-with-us/">Partners</a></li>
+</ul></div></div><div id="nav_menu-3" class="footer_widget widget_nav_menu"><h3 class="footer-title">TAKE ACTION</h3><div class="menu-footer-menu-col-two-container"><ul id="menu-footer-menu-col-two" class="menu"><li id="menu-item-110" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-110"><a href="https://staging.bebraven.org/apply-now/">Apply</a></li>
+<li id="menu-item-642" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-642"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&#038;hosted_button_id=VFUYARJB2QRXC" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&#038;hosted_button_id=VFUYARJB2QRXC', 'Donate');" target="_blank">Donate</a></li>
+<li id="menu-item-112" class="info_footer_link menu-item menu-item-type-custom menu-item-object-custom menu-item-112"><a href="mailto:info@bebraven.org">info@bebraven.org</a></li>
+</ul></div></div><div id="nav_menu-4" class="footer_widget widget_nav_menu"><h3 class="footer-title">ABOUT US</h3><div class="menu-footer-menu-col-three-container"><ul id="menu-footer-menu-col-three" class="menu"><li id="menu-item-113" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-113"><a href="https://staging.bebraven.org/about-us/">Who We Are</a></li>
+<li id="menu-item-114" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-114"><a href="https://staging.bebraven.org/our-team/">Our Team</a></li>
+<li id="menu-item-115" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-115"><a href="https://staging.bebraven.org/about-us/partners-supporters/">Partners &#038; Supporters</a></li>
+</ul></div></div><div id="nav_menu-5" class="footer_widget widget_nav_menu"><h3 class="footer-title">CONNECT</h3><div class="menu-footer-menu-col-four-container"><ul id="menu-footer-menu-col-four" class="menu"><li id="menu-item-117" class="blog_fico menu-item menu-item-type-post_type menu-item-object-page menu-item-117"><a href="https://staging.bebraven.org/blog/">Blog</a></li>
+<li id="menu-item-118" class="fb_fico menu-item menu-item-type-custom menu-item-object-custom menu-item-118"><a href="https://www.facebook.com/bebraven" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://www.facebook.com/bebraven', 'Facebook');" target="_blank">Facebook</a></li>
+<li id="menu-item-119" class="tw_fico menu-item menu-item-type-custom menu-item-object-custom menu-item-119"><a href="https://twitter.com/bebraven" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://twitter.com/bebraven', 'Twitter');" target="_blank">Twitter</a></li>
+</ul></div></div>		<div class="clear"></div>
+	</div>
+	<!-- #secondary -->
+	
+	<div class="braven-cc">
+		<div class="footer-copyright">			<div class="textwidget"></div>
+		</div>	</div>
+	<!-- .site-info --> 
+</div>
+<!-- #footer_bottom -->
+</div>
+<!-- #page -->
+
+<link rel='stylesheet' id='gforms_reset_css-css'  href="https://staging.bebraven.org/wp-content/plugins/gravityforms-2/css/formreset.min.css?7ce245" type='text/css' media='all' />
+<link rel='stylesheet' id='gforms_formsmain_css-css'  href="https://staging.bebraven.org/wp-content/plugins/gravityforms-2/css/formsmain.min.css?7ce245" type='text/css' media='all' />
+<link rel='stylesheet' id='gforms_ready_class_css-css'  href="https://staging.bebraven.org/wp-content/plugins/gravityforms-2/css/readyclass.min.css?7ce245" type='text/css' media='all' />
+<link rel='stylesheet' id='gforms_browsers_css-css'  href="https://staging.bebraven.org/wp-content/plugins/gravityforms-2/css/browsers.min.css?7ce245" type='text/css' media='all' />
+<script type='text/javascript' src="https://staging.bebraven.org/wp-content/plugins/sharify/admin/inc/sharifycounts.js?7ce245"></script>
+<script type='text/javascript' src="https://staging.bebraven.org/wp-content/themes/BravenTheme/js/functions.js?7ce245"></script>
+<script type='text/javascript' src="https://staging.bebraven.org/wp-content/plugins/gravityforms-2/js/placeholders.jquery.min.js?7ce245"></script>
+</body></html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Page Caching using disk: enhanced
+
+ Served from: staging.bebraven.org @ 2015-12-23 12:38:06 by W3 Total Cache -->
