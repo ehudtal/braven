@@ -80,6 +80,9 @@ function braven_setup() {
 
 	// This theme uses its own gallery styles.
 	add_filter( 'use_default_gallery_style', '__return_false' );
+
+        // Prevent Sharify from loading the Google Font to cut down on load time. Just have it use the default font.
+        update_option('sharify_use_gfont', '0');
 }
 add_action( 'after_setup_theme', 'braven_setup' );
 

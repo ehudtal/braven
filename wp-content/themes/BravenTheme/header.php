@@ -26,10 +26,12 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
 	<![endif]-->
 <link type="text/css" rel="stylesheet" href="<?php bloginfo('template_directory')?>/css/jquery.mmenu.all.css">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
-<script type="text/javascript" src="<?php bloginfo('template_directory')?>/js/jquery.mmenu.min.all.js"></script>
+<?php wp_enqueue_script("jquery"); ?>
+<?php wp_enqueue_script("jquery-ui"); ?>
 <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory')?>/css/sass-compiled.css"><!--//needed for bios-->
+<?php wp_head(); ?>
+
+<script type="text/javascript" src="<?php bloginfo('template_directory')?>/js/jquery.mmenu.min.all.js"></script>
 <script>
 jQuery(document).ready(function($){
 		$('nav#menu').mmenu({ 
@@ -98,7 +100,6 @@ jQuery(document).ready(function($){
 		wow.init();
 	</script>
 <?php endif; ?>
-<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
