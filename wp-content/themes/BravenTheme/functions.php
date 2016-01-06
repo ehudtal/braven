@@ -125,13 +125,16 @@ function braven_scripts_styles() {
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.03' );
 
 	// Loads our main stylesheet.
-	wp_enqueue_style( 'braven-style', get_stylesheet_uri(), array(), '2013-07-18' );
+        wp_register_style( 'bravenstyle', get_template_directory_uri() . '/css/braven.css');
+        wp_register_style( 'BravenTheme', get_stylesheet_uri(), array( 'bravenstyle' ));
+        wp_enqueue_style( 'BravenTheme' );
 
 	// Loads the Internet Explorer specific stylesheet.
 	wp_enqueue_style( 'braven-ie', get_template_directory_uri() . '/css/ie.css', array( 'braven-style' ), '20151011' );
 	wp_style_add_data( 'braven-ie', 'conditional', 'lt IE 9' );
 }
 add_action( 'wp_enqueue_scripts', 'braven_scripts_styles' );
+
 
 /**
  * Filter the page title.
@@ -431,21 +434,6 @@ function braven_the_attached_image() {
 	);
 }
 endif;
-
-
-
-
-/**
- * Load Custom Stylesheet
- */
- 
- add_action('wp_enqueue_scripts', 'load_css_files');
-
-function load_css_files() {
-    wp_register_style( 'bravenstyle', get_template_directory_uri() . '/css/braven.css');
-    wp_register_style( 'BravenTheme', get_stylesheet_uri(), array( 'bravenstyle' ));
-    wp_enqueue_style( 'BravenTheme' );
-}
 
 
 /*
