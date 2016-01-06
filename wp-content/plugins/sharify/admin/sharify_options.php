@@ -33,7 +33,7 @@
 	<h2 class="sharify-logo">Sharify</h2>
 	<!--Sharify main-->
 	<div class="sharify-inner">
-		<header><span class="sharify-logo-main">Sharify</span><span class="sharify-version"><a href="https://wordpress.org/plugins/sharify/changelog/" title="Checkout the changelog!">Verison 3.6.1</a></span></header>
+		<header><span class="sharify-logo-main">Sharify</span><span class="sharify-version"><a href="https://wordpress.org/plugins/sharify/changelog/" title="Checkout the changelog!">Verison 3.7.1</a></span></header>
 		<div class="sharify-main">
 			<div class="sharify-settings">
 				<!--Button Placement-->
@@ -116,25 +116,23 @@
 						<input type="text" id="color" value="<?php echo get_option('sharify_cph_gplus'); ?>" name="sharify_cph_gplus" class="sharify-cp color-picker" />
 						<p class="submit"><input type="submit" class="sharify-btn" value="<?php _e('Save Changes') ?>" /></p>
 					</div>
-
-					<!--WhatsApp-->
-					<br /><div class="sharify-sec-title">WhatsApp</div>
+					
+					<br /><div class="sharify-sec-title">Skype</div>
 					<?php wp_nonce_field('update-options'); ?>
 					<?php settings_fields('sharify');?>	
-					<div id="wa" class="sharify-setting-wrap">
-						<br>
-						<em>Please note that the WhatsApp button will only display for mobile devices.</em><br>
-						<br><label><input type="checkbox" class="sharify-input" name="display_button_wa" value="1" 
-						<?php if ( 1 == get_option('display_button_wa') ) echo 'checked="checked"'; ?> /> Display WhatsApp button?</label><br />
-						<br /><label><input type="checkbox" class="sharify-input" name="sharify_wa_btn_size" value="1" 
-						<?php if ( 1 == get_option('sharify_wa_btn_size') ) echo 'checked="checked"'; ?> /> Display small button for WhatsApp?</label><br />
-
-						<p class="sharify-version-no"><strong>WhatsApp Button main color</strong></p>
-						<input type="text" id="color" value="<?php echo get_option('sharify_cpm_wa'); ?>" name="sharify_cpm_wa" class="sharify-cp color-picker" />
-						<br /><p class="sharify-version-no"><strong>WhatsApp Button hover color</strong></p>
-						<input type="text" id="color" value="<?php echo get_option('sharify_cph_wa'); ?>" name="sharify_cph_wa" class="sharify-cp color-picker" />
-						<p class="submit"><input type="submit" class="sharify-btn" value="<?php _e('Save Changes') ?>" /></p>
+					<div id="skype" class="sharify-setting-wrap">
+						<br><label><input type="checkbox" class="sharify-input" name="display_button_skype" value="1" 
+						<?php if ( 1 == get_option('display_button_skype') ) echo 'checked="checked"'; ?> /> Display Skype Button?</label><br />
+						<br><label><input type="checkbox" class="sharify-input" name="sharify_skype_btn_size" value="1" 
+						<?php if ( 1 == get_option('sharify_skype_btn_size') ) echo 'checked="checked"'; ?> /> Display Small Button</label><br />
+						
+						<p class="sharify-version-no"><strong>skype Button main color</strong></p>
+						<input type="text" id="color" value="<?php echo get_option('sharify_cpm_skype'); ?>" name="sharify_cpm_skype" class="sharify-cp color-picker" />
+						<br /><p class="sharify-version-no"><strong>skype Button hover color</strong></p>
+						<input type="text" id="color" value="<?php echo get_option('sharify_cph_skype'); ?>" name="sharify_cph_skype" class="sharify-cp color-picker" />
+						<p class="submit"><input type="submit" class="sharify-btn" value="<?php _e('Save Changes') ?>" /></p>				
 					</div>
+
 
 					<!--LinkedIn-->
 					<br/><div class="sharify-sec-title">LinkedIn</div>
@@ -228,7 +226,7 @@
 					<?php settings_fields('sharify');?>	
 					<div id="email" class="sharify-setting-wrap">
 						<br><label><input type="checkbox" class="sharify-input" name="display_button_email" value="1" 
-						<?php if ( 1 == get_option('display_button_email') ) echo 'checked="checked"'; ?> /> Email</label><br />
+						<?php if ( 1 == get_option('display_button_email') ) echo 'checked="checked"'; ?> /> Display Email Button?</label><br />
 						<br><label><input type="checkbox" class="sharify-input" name="sharify_email_btn_size" value="1" 
 						<?php if ( 1 == get_option('sharify_email_btn_size') ) echo 'checked="checked"'; ?> /> Display Small Button</label><br />
 						
@@ -238,7 +236,7 @@
 						<input type="text" id="color" value="<?php echo get_option('sharify_cph_mail'); ?>" name="sharify_cph_mail" class="sharify-cp color-picker" />
 						<p class="submit"><input type="submit" class="sharify-btn" value="<?php _e('Save Changes') ?>" /></p>				
 					</div>
-
+	
 					<br /><div class="sharify-sec-title">Uninstall</div>
 					<?php wp_nonce_field('update-options'); ?>
 					<?php settings_fields('sharify');?>	

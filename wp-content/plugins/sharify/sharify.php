@@ -5,7 +5,7 @@
  * Plugin URI: https://wordpress.org/plugins/sharify/
  * Description: Sharify is a fast and simple plugin for sharing buttons on WordPress. The plugin lets you display responsive sharing
  * buttons on your WordPress website!
- * Version: 3.6.2
+ * Version: 3.7.1
  * Author: imehedidip
  * Author URI: http://twitter.com/mehedih_
  * Text Domain: sharify
@@ -58,7 +58,7 @@ function activate_sharify()
 	add_option('display_buttons_before_post', 0);
 	add_option('display_button_pocket'		, 1);
 	add_option('display_button_vkt'		    , 0);
-	add_option('display_button_wa'		    , 1);
+	add_option('display_button_skype'		, 0);
 	add_option('sharify_twitter_btn_size'	, 0);
 	add_option('sharify_facebook_btn_size'	, 0);
 	add_option('sharify_gplus_btn_size'	    , 0);
@@ -68,7 +68,7 @@ function activate_sharify()
 	add_option('sharify_linkedin_btn_size'	, 1);
 	add_option('sharify_email_btn_size'		, 1);
 	add_option('sharify_vk_btn_size'		, 1);
-	add_option('sharify_wa_btn_size'		, 1);
+	add_option('sharify_skype_btn_size'		, 1);
 	add_option('sharify_use_gfont'			, 1);
 	add_option('sharify_remove_data'		, 1);
 	add_option('sharify_cpm_twitter'		, "#4db2ec");
@@ -87,8 +87,8 @@ function activate_sharify()
 	add_option('sharify_cph_pkt'			, "#E24207");
 	add_option('sharify_cpm_vk'				, "#45668e");
 	add_option('sharify_cph_vk'				, "#32506d");
-	add_option('sharify_cpm_wa'				, "#4dc247");
-	add_option('sharify_cph_wa'				, "#47a044");
+	add_option('sharify_cpm_skype'			, "#00aff0");
+	add_option('sharify_cph_skype'			, "#00A0DC");
 	add_option('sharify_cpm_mail'			, "#e74c3c");
 	add_option('sharify_cph_mail'			, "#c0392b");
 	add_option('sharify_twitter_via'		, "");
@@ -108,6 +108,7 @@ function deactive_sharify()
 	delete_option('display_button_google');
 	delete_option('display_button_pocket');
 	delete_option('display_button_vk');
+	delete_option('display_button_skype');
 	delete_option('display_buttons_under_post');
 	delete_option('display_buttons_before_post');
 	delete_option('sharify_twitter_btn_size');
@@ -119,6 +120,7 @@ function deactive_sharify()
 	delete_option('sharify_linkedin_btn_size');
 	delete_option('sharify_email_btn_size');
 	delete_option('sharify_vk_btn_size');
+	delete_option('sharify_skype_btn_size');
 	delete_option('sharify_use_gfont');
 	delete_option('sharify_cpm_twitter');
 	delete_option('sharify_cph_twitter');
@@ -136,6 +138,8 @@ function deactive_sharify()
 	delete_option('sharify_cph_pkt');
 	delete_option('sharify_cpm_vk');
 	delete_option('sharify_cph_vk');
+	delete_option('sharify_cpm_skype');
+	delete_option('sharify_cph_skype');
 	delete_option('sharify_cpm_mail');
 	delete_option('sharify_cph_mail');
 	delete_option('sharify_twitter_via');
@@ -157,7 +161,7 @@ add_shortcode('sharify', 'sharify_show_buttons_shortcode');
 function sharify_catch_that_image()
 {
 	if ( has_post_thumbnail() ){
-		$sharify_thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' );
+		$sharify_thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );
 		$sharify_thumb_url = $sharify_thumb['0'];
 		return $sharify_thumb_url;
 
@@ -193,7 +197,6 @@ function sharify_display_button_buttons($sharify_buttons = "")
 								<a title="Tweet on Twitter" href="https://twitter.com/intent/tweet?text='.$sharify_post_title.': '.get_permalink(). $sharify_twitter_mention . '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
 									<span class="sharify-icon"><i class="sharify sharify-twitter"></i></span>
 									<span class="sharify-title">Tweet</span>
-									<span class="sharify-count twitter" data-url="'.get_permalink().'" data-text="'.get_the_title().'" >0</span>
 								</a>
 							</li>';
 	if ( 1 == get_option('display_button_facebook') )
@@ -204,11 +207,11 @@ function sharify_display_button_buttons($sharify_buttons = "")
 									<span class="sharify-count facebook" data-url="'.get_permalink().'" data-text="'.get_the_title().' - " >0</span>
 								</a>
 							</li>';
-	if ( 1 == get_option('display_button_google') )
-		$sharify_buttons .= '<li class="sharify-btn-gplus">
-								<a title="Share on Google+" href="http://plus.google.com/share?url=' . get_permalink() . '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
-									<span class="sharify-icon"><i class="sharify sharify-gplus"></i></span>
-									<span class="sharify-title">+1</span>
+	if ( 1 == get_option('display_button_skype') )
+		$sharify_buttons .= '<li class="sharify-btn-skype">
+								<a title="Share on Skype" href="https://web.skype.com/share?url=' . get_permalink() . '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=417,height=655,toolbar=0\'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-skype"></i></span>
+									<span class="sharify-title">Skype</span>
 								</a>
 							</li>';
 	if ( 1 == get_option('display_button_reddit') )
@@ -216,6 +219,13 @@ function sharify_display_button_buttons($sharify_buttons = "")
 								<a title="Submit to Reddit" href="http://reddit.com/submit?url=' . get_permalink() . '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=950,height=450,toolbar=0\'); return false;">
 									<span class="sharify-icon"><i class="sharify sharify-reddit"></i></span>
 									<span class="sharify-title">Reddit</span>
+								</a>
+							</li>';
+	if ( 1 == get_option('display_button_google') )
+		$sharify_buttons .= '<li class="sharify-btn-gplus">
+								<a title="Share on Google+" href="http://plus.google.com/share?url=' . get_permalink() . '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
+									<span class="sharify-icon"><i class="sharify sharify-gplus"></i></span>
+									<span class="sharify-title">+1</span>
 								</a>
 							</li>';
 	if ( 1 == get_option('display_button_pocket') )
