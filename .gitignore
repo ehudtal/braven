@@ -1,5 +1,5 @@
 # This has the database connection password and other secret keys
-/wp-config.php
+wp-config.php
 
 # Server specific files
 .htaccess
@@ -19,5 +19,3 @@ log
 
 wp-content/cache
 wp-content/w3tc-config
-
-docker-compose/tmp
