@@ -124,7 +124,7 @@ $pfdata = get_post_meta( $the_query->post->ID, 'partner', true );
 		<?php endwhile;?>
 		<?php endif; ?>
 		<div class="support_partners">
-			<h4 class="uppercase" style="text-align:center;">Fall 2015 Sites</h4>
+			<h4 class="uppercase" style="text-align:center;">Current Sites</h4>
 			<table class="featpartners">
 				<tbody>
 					<tr>
