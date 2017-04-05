@@ -67,3 +67,6 @@ wp-content/themes/index.php
 
 # ignore node/grunt dependency directories
 node_modules/
+
+# ignore DreamWeaver notes
+_notes*

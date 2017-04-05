@@ -438,23 +438,6 @@ function braven_the_attached_image() {
 }
 endif;
 
-
-/*
-DISABLED because it runs on all queries.
-
-Alphabetical ordering by last name for bios (used on staff-page.php) 	
-function braven_posts_orderby ($orderby) {
-   global $braven_global_orderby;
-   if ($braven_global_orderby) $orderby = $braven_global_orderby;
-   return $orderby;
-}
-add_filter('posts_orderby','braven_posts_orderby');
-$braven_global_orderby = "
-	UPPER(CONCAT(REVERSE(SUBSTRING_INDEX(REVERSE($wpdb->posts.post_title),' ',1)),$wpdb->posts.post_title))
-";
-
-/**/
-
 /**
  * Load Dynamic Widget Classes
  */
@@ -716,25 +699,22 @@ $staff_meta_boxes = array(
 	"staff-first-name" => array(
 		"name" => "staff-first-name",
 		"title" => "First Name",
-		"description" => "Enter the first name of the person.",
+		"description" => "",
 		"type"=>"text"
 	),
 	"staff-last-name" => array(
 		"name" => "staff-last-name",
 		"title" => "Last Name",
-		"description" => "Enter the surname of the person.",
 		"type"=>"text"
 	),
 	"staff-position" => array(
 		"name" => "staff-position",
 		"title" => "Position in Company",
-		"description" => "Enter their position in Braven.",
 		"type"=>"text"
 	),
 	"staff-hometown" => array(
 		"name" => "staff-hometown",
 		"title" => "Hometown",
-		"description" => "Enter their hometown.",
 		"type"=>"text"
 	),
 	"staff-education" => array(
@@ -746,48 +726,48 @@ $staff_meta_boxes = array(
 	"staff-link" => array(
 		"name" => "staff-link",
 		"title" => "Staff Email",
-		"description" => "Enter the email address of your staff member.",
 		"type"=>"text"
 	)
 );
  
+
+/* The following functions create a box for signed-in users to edit these staff fields conveniently. */
+add_action( 'admin_menu', 'braven_create_staff_meta_box' );
+
+
 function braven_create_staff_meta_box() {
 	global $st_key;
 	if( function_exists( 'add_meta_box' ) ) {
 		add_meta_box( 'new-meta-staff', ucfirst( $st_key ) . ' Information', 'braven_display_meta_staff', 'staff', 'normal', 'high' );
 	}
 }
- 
+
 function braven_display_meta_staff() {
 	global $post, $staff_meta_boxes, $st_key;
 
 	echo '<div class="form-wrap">';
 	echo wp_nonce_field( plugin_basename( __FILE__ ), $st_key . '_wpnonce', false, true );
-  
 	foreach($staff_meta_boxes as $staff_meta_box) {
 		$st_data = get_post_meta($post->ID, $st_key, true);
-
 		echo '<div class="form-field form-required">';
-		echo '<label for="', $staff_meta_box[ 'name' ],'">';
+		echo '<label for="' . $staff_meta_box[ 'name' ] . '">';
 		echo $staff_meta_box[ 'title' ]; 
 		echo '</label>';
 
 		switch ($staff_meta_box['type'] ) {
 			case 'text':
-				echo '<input type="text" name="', $staff_meta_box[ 'name' ],'" value="',$st_data[$staff_meta_box[ 'name' ]],'" />'; 
-				echo '<br />';
-				echo $staff_meta_box[ 'description' ];
+				echo '<input type="text" name="' . $staff_meta_box[ 'name' ] . '" value="';
+				echo (!empty($st_data[$staff_meta_box[ 'name' ]])) ? $st_data[$staff_meta_box[ 'name' ]] : '';
+				echo '" />'; 
 				break;
 			case 'textarea':
-				echo '<textarea name="', $staff_meta_box[ 'name' ],'">';
-				echo htmlspecialchars( $st_data[ $staff_meta_box[ 'name' ] ] );
+				echo '<textarea name="' . $staff_meta_box[ 'name' ] . '">';
+				echo (!empty($st_data[$staff_meta_box[ 'name' ]])) ? htmlspecialchars( $st_data[ $staff_meta_box[ 'name' ] ] ) : '';
 				echo '</textarea> ';
-				echo '<br />';
-				echo $staff_meta_box[ 'description' ];
 				break;
 			default;
 		}
-		
+		if ($staff_meta_box[ 'description' ]) echo '<br />' . $staff_meta_box[ 'description' ];
 		echo '</div>';
 	}
 }
@@ -801,13 +781,13 @@ function braven_save_meta_staff( $post_id ) {
 		}
 	}
 	 
-	if (!isset($_POST[ $st_key . '_wpnonce' ])) 
+	if (!isset($_POST[ $st_key . '_wpnonce' ]))
 		return $post_id;
-
+			
 	if ( !wp_verify_nonce( $_POST[ $st_key . '_wpnonce' ], plugin_basename(__FILE__) ) )
 		return $post_id;
- 
-	if ( !current_user_can( 'edit_post', $post_id ))
+		
+	if(!current_user_can( 'edit_post', $post_id ))
 		return $post_id;
  
 	update_post_meta( $post_id, $st_key, $st_data );
