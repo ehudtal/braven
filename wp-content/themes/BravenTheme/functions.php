@@ -678,23 +678,23 @@ function braven_register_cpt_staff() {
 
     $staff_labels = array( 
         'name' => _x( 'Staff', 'staff' ),
-        'singular_name' => _x( 'testimonial', 'staff' ),
-        'add_new' => _x( 'Add New', 'Staff Member' ),
+        'singular_name' => _x( 'Staff Member', 'staff' ),
+        'add_new' => _x( 'Add New', 'staff' ),
         'add_new_item' => _x( 'Add New Staff Member', 'staff' ),
-        'edit_item' => _x( 'Edit Staff', 'staff' ),
-        'new_item' => _x( 'New staff', 'staff' ),
-        'view_item' => _x( 'View staff', 'staff' ),
-        'search_items' => _x( 'Search Staff', 'staff' ),
-        'not_found' => _x( 'No staff found', 'staff' ),
-        'not_found_in_trash' => _x( 'No staff found in Trash', 'staff' ),
-        'parent_item_colon' => _x( 'Parent staff:', 'staff' ),
+        'edit_item' => _x( 'Edit Staff Member', 'staff' ),
+        'new_item' => _x( 'New Staff Member', 'staff' ),
+        'view_item' => _x( 'View Staff Member', 'staff' ),
+        'search_items' => _x( 'Search Staff Member', 'staff' ),
+        'not_found' => _x( 'No Staff Member Found', 'staff' ),
+        'not_found_in_trash' => _x( 'No Staff Member found in Trash', 'staff' ),
+        'parent_item_colon' => _x( 'Parent Staff Member:', 'staff' ),
         'menu_name' => _x( 'Braven Team', 'staff' ),
     );
 
     $staff_args = array( 
         'labels' => $staff_labels,
         'hierarchical' => false,    
-        'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', 'page-attributes' ),
+        'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', 'custom-fields', 'page-attributes' ),
         'public' => true,
         'show_ui' => true,
         'show_in_menu' => true,
@@ -754,11 +754,11 @@ $staff_meta_boxes = array(
 function braven_create_staff_meta_box() {
 	global $st_key;
 	if( function_exists( 'add_meta_box' ) ) {
-		add_meta_box( 'new-meta-staff', ucfirst( $st_key ) . ' Information', 'display_meta_staff', 'staff', 'normal', 'high' );
+		add_meta_box( 'new-meta-staff', ucfirst( $st_key ) . ' Information', 'braven_display_meta_staff', 'staff', 'normal', 'high' );
 	}
 }
  
-function display_meta_staff() {
+function braven_display_meta_staff() {
 	global $post, $staff_meta_boxes, $st_key;
 
 	echo '<div class="form-wrap">';
@@ -792,7 +792,7 @@ function display_meta_staff() {
 	}
 }
  
-function save_meta_staff( $post_id ) {
+function braven_save_meta_staff( $post_id ) {
 	global $post, $staff_meta_boxes, $st_key;
  
 	foreach( $staff_meta_boxes as $staff_meta_box ) {
@@ -814,7 +814,7 @@ function save_meta_staff( $post_id ) {
 }
  
 //add_action( 'admin_menu', 'braven_create_meta_staff' );
-add_action( 'save_post', 'save_meta_staff' );
+add_action( 'save_post', 'braven_save_meta_staff' );
 
 
 add_action( 'init', 'create_staff_taxonomies', 0 );
@@ -1446,8 +1446,8 @@ function braven_staff_list( $atts ) {
 						<?php } ?>
 						<div class="pic-caption left-to-right">
 							<div class="staffboard-title">
-								<h1><?php echo $staffdata[ 'staff-first-name' ]; ?> <?php echo $staffdata[ 'staff-last-name' ]; ?></h1>
-								<p><?php echo $staffdata[ 'staff-position' ]; ?></p>
+								<h1><?php if (!empty($staffdata[ 'staff-first-name' ])) echo $staffdata[ 'staff-first-name' ]; ?> <?php if (!empty($staffdata[ 'staff-last-name' ])) echo $staffdata[ 'staff-last-name' ]; ?></h1>
+								<p><?php if (!empty($staffdata[ 'staff-position' ])) echo $staffdata[ 'staff-position' ]; ?></p>
 							</div>
 							<a class="btn-success" href="#openModal-<?php echo $count?>">Read More</a>
 						</div><!--.pic-caption-->
@@ -1464,10 +1464,12 @@ function braven_staff_list( $atts ) {
 							<?php } ?>
 						</span>
 						<div class="modal-tag">
-							<strong><?php echo $staffdata[ 'staff-first-name' ]; ?> <?php echo $staffdata[ 'staff-last-name' ]; ?></strong>
-							<?php echo $staffdata[ 'staff-position' ]; ?><br />
-							<span><b>Hometown:</b></span> <?php echo $staffdata[ 'staff-hometown' ]; ?><br />
-							<?php if ($staffdata[ 'staff-link' ]) { ?>
+							<strong><?php if (!empty($staffdata[ 'staff-first-name' ])) echo $staffdata[ 'staff-first-name' ]; ?> <?php if (!empty($staffdata[ 'staff-last-name' ])) echo $staffdata[ 'staff-last-name' ]; ?></strong>
+							<?php if (!empty($staffdata[ 'staff-position' ])) echo $staffdata[ 'staff-position' ]; ?><br />
+							<?php if (!empty($staffdata[ 'staff-hometown' ])) { ?>
+              	<span><b>Hometown:</b></span> <?php echo $staffdata[ 'staff-hometown' ]; ?><br />
+              <?php } ?>
+							<?php if (!empty($staffdata[ 'staff-link' ])) { ?>
 								<p class="education"><b>E-mail:</b> <a href="mailto:<?php echo $staffdata[ 'staff-link' ]; ?>"><?php echo $staffdata[ 'staff-link' ]; ?></a></p>
 							<?php }?>
 						</div>
