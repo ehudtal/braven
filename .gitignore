@@ -2,6 +2,9 @@
 /*
 !wp-content/
 
+# specifically ignore wp-config in case the previous rule is removed:
+wp-config.php
+
 # ignore all files starting with .
 .*
 
