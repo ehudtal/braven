@@ -5,6 +5,10 @@
 # ignore all files starting with .
 .*
 
+# specifically ignore these files in case the previous rule is removed:
+.htaccess
+.DS_Store
+
 # track this file .gitignore (i.e. do NOT ignore it)
 !.gitignore
 
@@ -57,6 +61,7 @@ wp-content/*
 !wp-content/mu-plugins/
 !wp-content/plugins/
 !wp-content/themes/
+!wp-content/index.php
 
 # ignore these plugins
 wp-content/plugins/hello.php
